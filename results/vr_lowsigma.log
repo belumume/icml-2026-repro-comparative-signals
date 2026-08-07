@@ -1,0 +1,19 @@
+sigma=0.08  VR_theo(m1)=0.0001  VR_emp(m1)=-0.3300 [-0.4952,-0.1845]  VR_oracle(m1)=-26.7261  MSE n/e=0.0000/0.0000  (918.8s)
+sigma=0.1   VR_theo(m1)=0.0003  VR_emp(m1)=-0.0431 [-0.1269,+0.0341]  VR_oracle(m1)=-8.2464  MSE n/e=0.0000/0.0000  (873.0s)
+sigma=0.15  VR_theo(m1)=0.0015  VR_emp(m1)=+0.0597 [+0.0059,+0.1061]  VR_oracle(m1)=-1.0285  MSE n/e=0.0000/0.0000  (859.0s)
+sigma=0.2   VR_theo(m1)=0.0044  VR_emp(m1)=+0.0188 [-0.0344,+0.0703]  VR_oracle(m1)=+0.2221  MSE n/e=0.0000/0.0000  (878.8s)
+sigma=0.25  VR_theo(m1)=0.0100  VR_emp(m1)=+0.0897 [+0.0248,+0.1487]  VR_oracle(m1)=+0.5566  MSE n/e=0.0000/0.0000  (826.9s)
+
+total 4356.5s -> C:/Users/<user>\DEV\icml-repro\work\analysis\vr_lowsigma.json
+
+========================================================================
+POSITIVE CONTROL: at the paper's default sigma=1.0, empirical VR must
+track the theoretical 0.4096. If it does not, the HARNESS is wrong.
+========================================================================
+
+CLAIM 3 OPERATIONAL TEST (strict variance reduction, sigma^2_eff < sigma^2_naive):
+  sigma=0.08  VR_emp=-0.3300 CI=[-0.4952,-0.1845] -> WORSE
+  sigma=0.1   VR_emp=-0.0431 CI=[-0.1269,+0.0341] -> INDISTINGUISHABLE from 0
+  sigma=0.15  VR_emp=+0.0597 CI=[+0.0059,+0.1061] -> REDUCES
+  sigma=0.2   VR_emp=+0.0188 CI=[-0.0344,+0.0703] -> INDISTINGUISHABLE from 0
+  sigma=0.25  VR_emp=+0.0897 CI=[+0.0248,+0.1487] -> REDUCES

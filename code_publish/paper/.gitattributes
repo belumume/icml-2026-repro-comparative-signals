@@ -1,0 +1,5 @@
+# paper_v2.html is a hash-pinned artifact: code/README.md publishes its sha256
+# and analysis/extract_tables.py parses it. Git's autocrlf (the default on
+# Windows) would rewrite its line endings on checkout and change the hash, so
+# mark it as not-text and let it through byte for byte.
+paper_v2.html -text

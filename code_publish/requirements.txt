@@ -1,0 +1,32 @@
+# Exact versions used to produce every file in results/ EXCEPT one.
+# Verified on Python 3.13.7, Windows, CPU only. No GPU, no paid API calls.
+#
+# THE EXCEPTION, stated here because the line above used to claim "every file"
+# and that was false: results/real_gsm8k_ppi.json comes from the live GSM8K run
+# in kaggle/real_gsm8k_ppi.py, which ran on a Kaggle T4 GPU against a different
+# and much heavier set of packages. None of them are pinned below, because
+# installing them is not required to check that run: verify_headlines.py reads
+# its published JSON like any other. The versions it actually ran on are
+# recorded in the `env` block of that JSON, not restated here, so they cannot
+# drift from the run that produced them. See "The live GSM8K run" in README.md.
+#
+# torch: the pinned build is 2.7.0+cpu. On Linux, plain `pip install torch==2.7.0`
+# from PyPI pulls the CUDA build; to get the same +cpu build used here, install
+# with the CPU wheel index:
+#   pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
+# On Windows the PyPI wheel is already the CPU build.
+
+numpy==2.2.2
+scipy==1.15.2
+joblib==1.4.2
+torch==2.7.0
+
+# scikit-learn 1.6.1 was present in the verified environment but is NOT imported
+# by any script in analysis/ nor by the authors' simulation/ package (re-checked
+# by grep over both trees 2026-08-03). It is listed here only to describe the
+# environment exactly; installing it is not required for the reproduction path.
+#
+# It IS imported by kaggle/real_gsm8k_ppi.py, which is not on that path and did
+# not run in this environment. The scope of the sentence above is the two trees
+# it names, and kaggle/ ships in the same repository, so saying only "not
+# imported by any script" would read wider than it was ever checked.

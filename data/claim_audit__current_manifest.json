@@ -1,0 +1,2098 @@
+[
+  {
+    "index": 1,
+    "orid": "kpgURPRMGf",
+    "arxiv": "2601.15165",
+    "title": "The Flexibility Trap: Rethinking the Value of Arbitrary Order in Diffusion Language Models",
+    "current_claims": [
+      "JustGRPO achieves 89.1% accuracy on GSM8K with standard GRPO applied to diffusion LLMs",
+      "Retains parallel decoding ability of diffusion LLMs while improving reasoning on math and coding",
+      "Shows arbitrary order generation may limit reasoning potential, enabling solution coverage collapse"
+    ]
+  },
+  {
+    "index": 2,
+    "orid": "71132",
+    "arxiv": "2602.01338",
+    "title": "High-accuracy sampling for diffusion models and log-concave distributions",
+    "current_claims": [
+      "Achieves \u03b4-error in polylog(1/\u03b4) steps for diffusion model sampling, an exponential improvement over previous results",
+      "Under minimal data assumptions: complexity is \u00d5(d polylog(1/\u03b4)) where d is data dimension",
+      "First polylog(1/\u03b4) complexity sampler for general log-concave distributions using only gradient evaluations"
+    ]
+  },
+  {
+    "index": 3,
+    "orid": "71065",
+    "arxiv": "2602.15515",
+    "title": "The Obfuscation Atlas: Mapping Where Honesty Emerges in RLVR with Deception Probes",
+    "current_claims": [
+      "Demonstrates obfuscation emerges in realistic reward hacking coding environment via two strategies: obfuscated activations and obfuscated policies.",
+      "Sufficiently high KL regularization and detector penalty reliably yield honest policies in white-box deception detector training."
+    ]
+  },
+  {
+    "index": 4,
+    "orid": "71049",
+    "arxiv": "2601.08828",
+    "title": "Motion Attribution for Video Generation",
+    "current_claims": [
+      "Motive-selected high-influence motion data improves motion smoothness and dynamic degree on VBench, achieving 74.1% human preference win rate over pretrained model"
+    ]
+  },
+  {
+    "index": 5,
+    "orid": "bA6BgSbaUi",
+    "arxiv": "2505.24832",
+    "title": "How much can language models memorize?",
+    "current_claims": [
+      "GPT-style models have a capacity of approximately 3.6 bits per parameter",
+      "Models memorize until their capacity fills, at which point unintended memorization decreases as models begin to generalize",
+      "The method can estimate total memorization by completely eliminating generalization"
+    ]
+  },
+  {
+    "index": 6,
+    "orid": "iPjuUQbkfl",
+    "arxiv": "2602.02908",
+    "title": "A Random Matrix Perspective on the Consistency of Diffusion Models",
+    "current_claims": [
+      "Develops random matrix theory framework quantifying how finite datasets shape expectation and variance of learned denoiser",
+      "Shows sampling variability acts as renormalization of noise level through self-consistent relation \u03c3\u00b2 \u2192 \u03ba(\u03c3\u00b2)",
+      "Theory sharply predicts behavior of linear diffusion models and validates predictions on UNet and DiT architectures"
+    ]
+  },
+  {
+    "index": 7,
+    "orid": "5nNNVY8NW4",
+    "arxiv": "2601.19791",
+    "title": "To Grok Grokking: Provable Grokking in Ridge Regression",
+    "current_claims": [
+      "Grokking stages proven to occur: model overfits early, poor generalization persists long after overfitting, then generalization error eventually becomes arbitrarily small.",
+      "Grokking time can be amplified or eliminated in principled manner through proper hyperparameter tuning.",
+      "Quantitative bounds on generalization delay scale with training hyperparameters in ridge regression with gradient descent and weight decay."
+    ]
+  },
+  {
+    "index": 8,
+    "orid": "NUyt4uxzx0",
+    "arxiv": "2503.08679",
+    "title": "Chain-of-Thought Reasoning In The Wild Is Not Always Faithful",
+    "current_claims": [
+      "Unfaithful CoT occurs on naturally worded, non-adversarial prompts without artificial biases or edited outputs.",
+      "Production models show up to 13% unfaithfulness rates; frontier models are more faithful but none are entirely faithful, including thinking models.",
+      "Models use subtly illogical reasoning to make speculative answers to hard math problems appear rigorously proven."
+    ]
+  },
+  {
+    "index": 9,
+    "orid": "P7RGcAOZZ3",
+    "arxiv": "2606.05883",
+    "title": "Geometry-Aware Dataset Condensation for Diffusion Model Training",
+    "current_claims": [
+      "Approach achieves superior fidelity and distributional coverage in diffusion model training",
+      "Preserves geometric structure necessary for effective diffusion model training through one-sided partial optimal transport"
+    ]
+  },
+  {
+    "index": 10,
+    "orid": "bWLfplRNzt",
+    "arxiv": "2605.04118",
+    "title": "ProtDBench: A Unified Benchmark of Protein Binder Design and Evaluation",
+    "current_claims": [
+      "ProtDBench standardized evaluation framework with unified benchmark tasks, protocols, and success criteria for protein binder design",
+      "Large wet-lab annotated dataset reveals substantial verifier-dependent bias and limited agreement in structure prediction model evaluation",
+      "Benchmarks representative open-source generative binder design methods with throughput-aware metrics accounting for computational budget"
+    ]
+  },
+  {
+    "index": 11,
+    "orid": "Rl2uQlCoQX",
+    "arxiv": "2604.09557",
+    "title": "SPEED-Bench: A Unified and Diverse Benchmark for Speculative Decoding",
+    "current_claims": [
+      "SPEED-Bench quantifies how synthetic inputs overestimate real-world throughput in speculative decoding.",
+      "SPEED-Bench identifies batch-size dependent optimal draft lengths and biases in low-diversity data across speculative decoding evaluation."
+    ]
+  },
+  {
+    "index": 12,
+    "orid": "4M5Kj2UqaM",
+    "arxiv": "2603.03761",
+    "title": "AgentSelect: Benchmark for Narrative Query-to-Agent Recommendation",
+    "current_claims": [
+      "AgentSelect comprises 111,179 queries, 107,721 deployable agents, and 251,103 interaction records aggregated from 40+ sources.",
+      "Models trained on AgentSelect transfer to public agent marketplace (MuleRun) with consistent gains on unseen agent catalog."
+    ]
+  },
+  {
+    "index": 13,
+    "orid": "vCc2NAe0OS",
+    "arxiv": "2601.22599",
+    "title": "A Semantically Consistent Dataset for Data-Efficient Query-Based Universal Sound Separation",
+    "current_claims": [
+      "Hive dataset (2.4k hours) enables models to achieve competitive accuracy with SAM-Audio trained on ~500x larger dataset",
+      "Models trained on Hive exhibit remarkable zero-shot generalization on out-of-distribution evaluation benchmarks",
+      "Semantic consistency synthesis protocol eliminates event co-occurrence in constructed dataset"
+    ]
+  },
+  {
+    "index": 14,
+    "orid": "xbAWn0w9kq",
+    "arxiv": "2606.07542",
+    "title": "DIYHealth Suite: Dataset, Model, and Benchmark for Health Management at Home",
+    "current_claims": [
+      "DIYHealthGPT delivers state-of-the-art performance over both general-purpose and medical-specific baselines on 11 home care tasks.",
+      "DIYHealth-900K captures diverse real-world home care scenarios with heterogeneous multimodal data.",
+      "DIYHealthGPT uses Hybrid Hyper Low-Rank Adaptation for adaptive foundation model fine-tuning on home care tasks."
+    ]
+  },
+  {
+    "index": 15,
+    "orid": "If4X4W2HWx",
+    "arxiv": "2510.17281",
+    "title": "MemoryBench: A Benchmark for Memory and Continual Learning in LLM Systems",
+    "current_claims": [
+      "MemoryBench provides user feedback simulation framework and comprehensive benchmark covering multiple domains, languages, and task types.",
+      "Effectiveness and efficiency of state-of-the-art baselines are far from satisfying on continual learning tasks."
+    ]
+  },
+  {
+    "index": 16,
+    "orid": "yU6X1XZl8t",
+    "arxiv": "2510.22087",
+    "title": "QuArch: A Benchmark for Evaluating LLM Reasoning in Computer Architecture",
+    "current_claims": [
+      "QuArch provides 2,671 expert-validated QA pairs covering processor design, memory systems, and interconnection networks",
+      "Frontier model accuracies range from 34% to 73% on advanced architecture questions, with wide gaps in higher-order reasoning",
+      "Fine-tuning on QuArch yields up to 1.99x more area-efficient memory hierarchy designs and 40% more viable solutions"
+    ]
+  },
+  {
+    "index": 17,
+    "orid": "ov240fehF6",
+    "arxiv": "2607.02956",
+    "title": "MORE: A Multilingual Document Parsing Benchmark and Evaluation",
+    "current_claims": [
+      "MORE is the first multilingual document parsing benchmark covering 149 languages, making it the most linguistically diverse benchmark.",
+      "MORE extends evaluation beyond plain text to include complex structural elements such as code blocks, tables, and catalogs.",
+      "All samples in MORE are curated from real-world documents via rigorous model-assisted, human-refined annotation pipeline."
+    ]
+  },
+  {
+    "index": 18,
+    "orid": "1ebAvNphi7",
+    "arxiv": "2605.13319",
+    "title": "PipeSD: An Efficient Cloud-Edge Collaborative Pipeline Inference Framework with Speculative Decoding",
+    "current_claims": [
+      "Achieves 1.16\u00d7\u20132.16\u00d7 speedup on cloud-edge collaborative inference with speculative decoding",
+      "Reduces energy consumption by 14.3%\u201325.3% across real-world testbed scenarios"
+    ]
+  },
+  {
+    "index": 19,
+    "orid": "Tyv61ZKb9s",
+    "arxiv": "2605.08724",
+    "title": "SynerMedGen: Synergizing Medical Multimodal Understanding with Generation via Task Alignment",
+    "current_claims": [
+      "SynerMedGen achieves strong zero-shot performance across 22 medical image synthesis tasks with robust generalization to unseen datasets",
+      "Outperforms state-of-the-art specialized medical image synthesis models and recent unified medical models",
+      "SynerMed dataset with 1M paired synthesis samples and 2M generation-derived understanding instances supports unified training"
+    ]
+  },
+  {
+    "index": 20,
+    "orid": "wTgx7b2D9r",
+    "arxiv": "2604.16648",
+    "title": "FRIGID: Scaling Diffusion-Based Molecular Generation from Mass Spectra at Training and Inference Time",
+    "current_claims": [
+      "Surpasses 15% Top-1 accuracy on the challenging MassSpecGym benchmark for molecular generation.",
+      "More than doubled the Top-1 accuracy of leading methods on NPLIB1 dataset.",
+      "Achieves log-linear performance scaling with increasing inference-time compute."
+    ]
+  },
+  {
+    "index": 21,
+    "orid": "tJP3FxzSPs",
+    "arxiv": "2510.11129",
+    "title": "video-SALMONN S: Memory-Enhanced Streaming Audio-Visual LLM",
+    "current_claims": [
+      "video-SALMONN S processes over 3-hour videos at 1 FPS and 360p resolution, outperforming strong non-streaming models under same memory budget",
+      "video-SALMONN S outperforms streaming and non-streaming baselines by 3-7% on long video benchmarks",
+      "video-SALMONN S achieves 15% absolute accuracy improvement over strong non-streaming models on ELViM benchmark"
+    ]
+  },
+  {
+    "index": 22,
+    "orid": "rzBAQT2Fkg",
+    "arxiv": "2601.07568",
+    "title": "d3LLM: Ultra-Fast Diffusion LLM using Pseudo-Trajectory Distillation",
+    "current_claims": [
+      "Achieves up to 10\u00d7 speedup over vanilla LLaDA/Dream and up to 5\u00d7 speedup over Qwen-2.5-7B without significant accuracy loss",
+      "Introduces AUP (Accuracy Under Parallelism) metric that jointly measures accuracy and parallelism",
+      "Uses pseudo-trajectory distillation to identify early-step token decoding and entropy-based multi-block decoding for inference"
+    ]
+  },
+  {
+    "index": 23,
+    "orid": "PoRigyDOcC",
+    "arxiv": "2605.11744",
+    "title": "Training\u2013Inference Consistent Segmented Execution for Long-Context LLMs",
+    "current_claims": [
+      "Training-consistent segment-level execution achieves approximately 6x lower peak prefill memory at 128K context compared to full-context attention with FlashAttention.",
+      "Segment-level generation achieves performance comparable to full-context attention while maintaining competitive latency-memory trade-offs."
+    ]
+  },
+  {
+    "index": 24,
+    "orid": "OMdQJQwp26",
+    "arxiv": "2605.00969",
+    "title": "MedMosaic: A Challenging Large Scale Benchmark of Diverse Medical Audio",
+    "current_claims": [
+      "Even state-of-the-art model Gemini-2.5-pro achieves only 68.1% accuracy on MedMosaic medical audio question-answering.",
+      "MedMosaic features 46,701 question-answer pairs spanning multiple question types for evaluating multi-hop reasoning.",
+      "Benchmarking reveals persistent limitations in medical reasoning across all evaluated systems."
+    ]
+  },
+  {
+    "index": 25,
+    "orid": "XjSd2CtV20",
+    "arxiv": "2605.15677",
+    "title": "VCG-Bench: Towards A Unified Visual-Centric Benchmark for Structured Generation and Editing",
+    "current_claims": [
+      "VCG-Bench dataset contains 1,449 diverse diagrams spanning 6 domains and 15 sub-domains with Diagram-as-Code paradigm using mxGraph XML.",
+      "Current SOTA VLMs demonstrate challenges in structured fidelity and instruction compliance reflected in low mxGraph Execution Success Rates.",
+      "Multi-dimensional metrics (mxGraph Execution Success Rate, Style Consistency Score) enable fine-grained evaluation of Vision-to-Code and Code-to-Code performance."
+    ]
+  },
+  {
+    "index": 26,
+    "orid": "a86luANykT",
+    "arxiv": "2601.18418",
+    "title": "daVinci-Dev: Agent-native Mid-training for Software Engineering",
+    "current_claims": [
+      "Agent-native mid-training with daVinci-Dev achieves 56.1% resolution on SWE-Bench Verified with 32B models",
+      "daVinci-Dev achieves 58.5% resolution on SWE-Bench Verified with 72B models, state-of-the-art for open training recipes"
+    ]
+  },
+  {
+    "index": 27,
+    "orid": "k7XzObg9Hy",
+    "arxiv": "2512.07112",
+    "title": "FOAM: Blocked State Folding for Memory-Efficient LLM Training",
+    "current_claims": [
+      "FOAM achieves convergence rates equivalent to vanilla Adam under standard non-convex optimization settings.",
+      "FOAM eliminates up to 90% of the memory overhead of optimizer states and accelerates convergence.",
+      "FOAM is compatible with other memory-efficient optimizers and delivers performance matching or surpassing full-rank baselines."
+    ]
+  },
+  {
+    "index": 28,
+    "orid": "RpwnrBkht2",
+    "arxiv": "2607.05711",
+    "title": "FourTune: Towards Fully 4-Bit Efficient Post-Training for Diffusion Models",
+    "current_claims": [
+      "FourTune matches quality of full-precision fine-tuning across customization, RL, and distillation tasks",
+      "On FLUX.1-dev (12B), FourTune reduces memory overhead by 2.25\u00d7 and increases end-to-end training throughput by 2.27\u00d7 compared to BF16 LoRA"
+    ]
+  },
+  {
+    "index": 29,
+    "orid": "xRVWftS3ES",
+    "arxiv": "2606.06036",
+    "title": "Memory is Reconstructed, Not Retrieved:  Graph Memory for LLM Agents",
+    "current_claims": [
+      "MRAgent with associative memory graph achieves up to 23% improvement on LoCoMo benchmark over strong baselines.",
+      "Active reconstruction mechanism allows iterative exploration and pruning of memory retrieval paths based on accumulated reasoning evidence."
+    ]
+  },
+  {
+    "index": 30,
+    "orid": "uyRIOjFgOn",
+    "arxiv": "2602.00747",
+    "title": "Decouple Searching from Training: Scaling Data Mixing via Model Merging for Large Language Model Pre-training",
+    "current_claims": [
+      "DeMix breaks trade-off between sufficiency, accuracy and efficiency, obtaining optimal mixture with higher benchmark performance at lower search cost",
+      "Decouples search from training costs via model merging to predict optimal data ratios without training proxy models"
+    ]
+  },
+  {
+    "index": 31,
+    "orid": "NWKaQIKoGp",
+    "arxiv": "2603.03296",
+    "title": "PlugMem: A Task-Agnostic Plugin Memory Module for LLM Agents",
+    "current_claims": [
+      "PlugMem structures episodic memories into a knowledge-centric memory graph with propositional and prescriptive knowledge, enabling efficient memory retrieval over task-relevant knowledge.",
+      "PlugMem consistently outperforms task-agnostic baselines and exceeds task-specific memory designs across three heterogeneous benchmarks while achieving highest information density."
+    ]
+  },
+  {
+    "index": 32,
+    "orid": "ic0AGRIkmY",
+    "arxiv": "2602.06511",
+    "title": "Evolutionary Generation of Multi-Agent Systems",
+    "current_claims": [
+      "EvoMAS outperforms EvoAgent by +10.5 points on BBEH reasoning and +7.1 points on WorkBench.",
+      "Reaches 79.1% on SWE-BenchVerified with Claude-4.5-Sonnet, matching the top of the leaderboard.",
+      "Produces generated systems with higher executability and runtime robustness compared to code generation and rigid template approaches."
+    ]
+  },
+  {
+    "index": 33,
+    "orid": "5vufrrbi4N",
+    "arxiv": "2502.07870",
+    "title": "TextAtlas5M: A Large-Scale Dataset for Long Text Image Generation",
+    "current_claims": [
+      "TextAtlas5M contains 5 million generated and collected images across diverse data types for long-text image rendering evaluation.",
+      "Curates 4,000 human-improved test cases spanning four domains, forming one of most extensive benchmarks for text rendering.",
+      "Training on TextAtlas5M consistently improves text rendering for both diffusion-based and autoregressive models."
+    ]
+  },
+  {
+    "index": 34,
+    "orid": "ww57OvgpP9",
+    "arxiv": "2603.20253",
+    "title": "SimulCost: A Cost-Aware Benchmark and Toolkit for Automating Physics Simulations with LLMs",
+    "current_claims": [
+      "Frontier LLMs achieve 46-64% success rate in single-round parameter tuning, dropping to 35-54% under high accuracy requirements",
+      "Multi-round mode improves LLM success rates to 71-80%, but LLMs are 1.5-2.5x slower than traditional scanning",
+      "SimulCost spans 2,916 single-round and 1,900 multi-round tasks across 12 simulators from fluid dynamics, solid mechanics, and plasma physics"
+    ]
+  },
+  {
+    "index": 35,
+    "orid": "czTbPdmvtT",
+    "arxiv": "2508.04228",
+    "title": "LayerT2V: A Unified Multi-Layer Video Generation Framework",
+    "current_claims": [
+      "LayerT2V produces full video, independent background layer, and multiple foreground RGB layers with alpha mattes",
+      "LayerT2V substantially outperforms prior methods in visual fidelity, temporal consistency, and cross-layer coherence",
+      "VidLayer is first large-scale dataset for multi-layer video generation"
+    ]
+  },
+  {
+    "index": 36,
+    "orid": "913g1X1YAW",
+    "arxiv": "2510.26852",
+    "title": "CATArena: Evaluating Evolutionary Capabilities of Code Agents via Iterative Tournaments",
+    "current_claims": [
+      "Evolutionary potential is not strictly correlated with initial generation proficiency in code agents",
+      "Current LLM agents struggle to concurrently leverage both peer-learning and self-reflection for effective performance gains"
+    ]
+  },
+  {
+    "index": 37,
+    "orid": "Yhc2PvgFyh",
+    "arxiv": "2602.00471",
+    "title": "Dual Latent Memory for Visual Multi-agent System",
+    "current_claims": [
+      "L\u00b2-VMAS improves average accuracy by 2.7-5.4% while reducing total token usage by 21.3-44.8%",
+      "Method breaks the scaling wall where increasing agent turns degrades performance"
+    ]
+  },
+  {
+    "index": 38,
+    "orid": "UxgMJP0JKY",
+    "arxiv": "2602.01801",
+    "title": "Fast Autoregressive Video Diffusion and World Models with Temporal Cache Compression and Sparse Attention",
+    "current_claims": [
+      "TempCache, AnnCA, and AnnSA methods achieve up to 5-10x end-to-end speedups while preserving near-identical visual quality.",
+      "The framework maintains stable throughput and nearly constant peak GPU memory usage over long rollouts where prior methods progressively slow down."
+    ]
+  },
+  {
+    "index": 39,
+    "orid": "0bTEd4LpQr",
+    "arxiv": "2601.14027",
+    "title": "Numina-Lean-Agent: An Open and General Agentic Reasoning System for Formal Mathematics",
+    "current_claims": [
+      "Numina-Lean-Agent solves all problems in Putnam 2025 (12/12), matching best closed-source system",
+      "Successfully formalizes Brascamp-Lieb theorem by directly using general coding agent as formal math reasoner"
+    ]
+  },
+  {
+    "index": 40,
+    "orid": "oCNT5PcMSQ",
+    "arxiv": "2505.18102",
+    "title": "How Can I Publish My LLM Benchmark Without Giving the True Answers Away?",
+    "current_claims": [
+      "Can accurately detect data contamination or hacking across wide range of benchmarks, models, and training methodologies",
+      "Fully capable models should not surpass the Bayes accuracy; surpassing it signals leakage or gaming"
+    ]
+  },
+  {
+    "index": 41,
+    "orid": "9wYjjPydfe",
+    "arxiv": "2602.02459",
+    "title": "TIC-VLA: A Think-in-Control Vision-Language-Action Model for Robot Navigation in Dynamic Environments",
+    "current_claims": [
+      "TIC-VLA consistently outperforms prior VLA models in robot navigation with explicit latency-aware semantic reasoning.",
+      "TIC-VLA maintains robust real-time control under multi-second reasoning latency in dynamic environments.",
+      "TIC-VLA performs well both in simulation and on real robots for language-guided navigation."
+    ]
+  },
+  {
+    "index": 42,
+    "orid": "4jfuNNghPS",
+    "arxiv": "2602.05305",
+    "title": "FlashBlock: Attention Caching for Efficient Long-Context Block Diffusion",
+    "current_claims": [
+      "FlashBlock achieves up to 1.44\u00d7 higher token throughput and up to 1.6\u00d7 reduction in attention time",
+      "Cross-step attention redundancy within blocks enables reuse of stable attention outputs without modifying the diffusion process"
+    ]
+  },
+  {
+    "index": 43,
+    "orid": "4yzY0GFIJj",
+    "arxiv": "2509.01624",
+    "title": "Q-Sched: Pushing the Boundaries of Few-Step Diffusion Models with Quantization-Aware Scheduling",
+    "current_claims": [
+      "Q-Sched achieves 15.5% FID improvement over FP16 4-step Latent Consistency Model.",
+      "Achieves 16.6% improvement over FP16 8-step Phased Consistency Model.",
+      "Provides 4\u00d7 reduction in model size while preserving single reusable checkpoint across bit-widths."
+    ]
+  },
+  {
+    "index": 44,
+    "orid": "vGeNaFHdET",
+    "arxiv": "2508.17742",
+    "title": "EEG-FM-Bench: A Comprehensive Benchmark for the Systematic Evaluation and Diagnostic Analyses of EEG Foundation Models",
+    "current_claims": [
+      "Multi-task learning acts as critical regularizer to mitigate overfitting in data-scarce EEG contexts",
+      "Pre-training efficiency is limited by gradient conflicts between reconstruction objectives and downstream tasks",
+      "Compact architectures with domain-specific inductive biases consistently outperform significantly larger models"
+    ]
+  },
+  {
+    "index": 45,
+    "orid": "UnjxMTe57e",
+    "arxiv": "2603.08640",
+    "title": "PostTrainBench: Can LLM Agents Automate LLM Post-Training?",
+    "current_claims": [
+      "Best agent achieves 21.5% accuracy on AIME vs 51.1% for official instruction-tuned models under bounded compute constraints",
+      "GPT-5.1 Codex Max achieves 89% on BFCL with Gemma-3-4B vs 67% for official instruction-tuned model"
+    ]
+  },
+  {
+    "index": 46,
+    "orid": "O88FCPAPAj",
+    "arxiv": "2505.16014",
+    "title": "Ranking Free RAG: Replacing Re-ranking with Selection in RAG for Sensitive Domains",
+    "current_claims": [
+      "METEORA achieves 21.05% higher precision and 13.41% higher recall than baselines",
+      "METEORA increases F1 score from 0.10 to 0.44 under poisoning attacks, a 4.4x improvement",
+      "METEORA improves downstream answer generation accuracy by 33.34% while reducing evidence volume by 80%"
+    ]
+  },
+  {
+    "index": 47,
+    "orid": "p5QSlnwume",
+    "arxiv": "2601.15282",
+    "title": "Rethinking Video Generation Model for the Embodied World",
+    "current_claims": [
+      "RBench achieves 0.96 Spearman correlation with human judgment for evaluating robot-oriented video generation",
+      "RoVid-X is largest open-source robotic dataset containing 4 million annotated video clips covering thousands of tasks"
+    ]
+  },
+  {
+    "index": 48,
+    "orid": "8Fhq7QpYfI",
+    "arxiv": "2605.29683",
+    "title": "WF-Bench: A Benchmark for Neural-Network WaveFunction Expressivity and Scaling Laws",
+    "current_claims": [
+      "WF-Bench dataset spans multiple quantum matter regimes including topological states, Wigner crystals, and superconducting wavefunctions",
+      "Empirical scaling laws characterize representability dependence on system size and key model parameters",
+      "Unified dataset-driven framework enables consistent performance evaluation across neural network wavefunction architectures"
+    ]
+  },
+  {
+    "index": 49,
+    "orid": "8nti23Zqkt",
+    "arxiv": "2606.26758",
+    "title": "EGG: An Expert-Guided Agent Framework for Kernel Generation",
+    "current_claims": [
+      "EGG achieves 2.13x average speedup over PyTorch on real-world GPU kernel generation",
+      "EGG outperforms existing agent-based and RL-based kernel generation approaches"
+    ]
+  },
+  {
+    "index": 50,
+    "orid": "3EcT46wsdc",
+    "arxiv": "2410.23619",
+    "title": "Efficiently Training Time-to-First-Spike Spiking Neural Networks from Scratch",
+    "current_claims": [
+      "TTFS SNN training framework achieves 99.48% on MNIST, 92.90% on Fashion-MNIST, 90.56% on CIFAR10, 70.27% on CIFAR100, 95.83% on DVS Gesture"
+    ]
+  },
+  {
+    "index": 51,
+    "orid": "cPDN8YlKdQ",
+    "arxiv": "2602.11146",
+    "title": "Beyond VLM-Based Rewards: Diffusion-Native Latent Reward Modeling",
+    "current_claims": [
+      "DiNa-LRM outperforms existing diffusion-based reward baselines and achieves competitive performance compared to SOTA Vision-Language Model reward functions.",
+      "Maintains substantially lower computational cost compared to VLM-based approaches.",
+      "Improves preference optimization dynamics, enabling faster and more resource-efficient model alignment."
+    ]
+  },
+  {
+    "index": 52,
+    "orid": "1tbhBSXcyX",
+    "arxiv": "2603.13289",
+    "title": "RelayCaching: Accelerating LLM Collaboration via Decoding KV Cache Reuse",
+    "current_claims": [
+      "RelayCaching achieves over 80% KV cache reuse and reduces TTFT by up to 4.7x compared to standard pipeline with negligible accuracy degradation",
+      "Yields 3-6x end-to-end speedup across diverse collaborative LLM tasks spanning mathematical reasoning, general knowledge, and code generation"
+    ]
+  },
+  {
+    "index": 53,
+    "orid": "4P9cEcinYP",
+    "arxiv": "2603.06397",
+    "title": "Efficient, Property-Aligned Fan-Out Retrieval via RL-Amortized Diffusion",
+    "current_claims": [
+      "R4T improves retrieval quality over strong baselines on Polyvore and music playlist datasets.",
+      "R4T reduces query-time fan-out latency by an order of magnitude compared to deploying RL-tuned LLMs.",
+      "Diffusion-based generative retrieval enables efficient single-pass fan-out in embedding space with objective-aligned training targets."
+    ]
+  },
+  {
+    "index": 54,
+    "orid": "o3gN27ITWV",
+    "arxiv": "2510.24606",
+    "title": "Long-Context Modeling with Dynamic Hierarchical Sparse Attention for Memory-Constrained LLM Inference",
+    "current_claims": [
+      "DHSA maintains near-dense accuracy in highly sparse regimes, achieving 12-20% relative accuracy gains over Block Sparse Attention at comparable prefill cost.",
+      "With memory-efficient tiled backend, DHSA delivers up to 10x prefill speedup at 128K context length on LLaMA-3.1-8B (4-bit) on a single 24GB GPU."
+    ]
+  },
+  {
+    "index": 55,
+    "orid": "vaRFU0xKQa",
+    "arxiv": "2602.10508",
+    "title": "Med-SegLens: Latent-Level Model Diffing for Interpretable Medical Image Segmentation",
+    "current_claims": [
+      "Targeted latent-level interventions correct segmentation errors in 70% of failure cases and improve Dice score from 39.4% to 74.2% without retraining.",
+      "Sparse autoencoders trained on SegFormer and U-Net identify stable backbone of shared representations while dataset shift is driven by differential reliance on population-specific latents."
+    ]
+  },
+  {
+    "index": 56,
+    "orid": "ea4sx1kxDz",
+    "arxiv": "2510.24211",
+    "title": "Speculative Coupled Decoding for Training-Free Lossless Acceleration of Autoregressive Visual Generation",
+    "current_claims": [
+      "Speculative Coupled Decoding achieves up to 4.2x speedup in image generation and 13.6x speedup in video generation without any degradation.",
+      "Requires only single-line modification to existing algorithm with almost zero overhead."
+    ]
+  },
+  {
+    "index": 57,
+    "orid": "aJdgt8xDMy",
+    "arxiv": "2604.08540",
+    "title": "AVGen-Bench: A Task-Driven Benchmark for Multi-Granular Evaluation of Text-to-Audio-Video Generation",
+    "current_claims": [
+      "AVGen-Bench reveals a pronounced gap between strong audio-visual aesthetics and weak semantic reliability in text-to-audio-video generation.",
+      "Text-to-audio-video models show persistent failures in text rendering, speech coherence, physical reasoning, and universal breakdown in musical pitch control."
+    ]
+  },
+  {
+    "index": 58,
+    "orid": "WTziQZdpTV",
+    "arxiv": "2512.20957",
+    "title": "One Tool Is Enough: Reinforcement Learning of LLM Agents for Repository-Level Code Navigation",
+    "current_claims": [
+      "RepoNavigator's 7B model outperforms 14B baselines, and the 14B model surpasses 32B competitors on repository-level issue localization.",
+      "RepoNavigator's 32B model exceeds closed-source models such as GPT-5 on most metrics for code navigation."
+    ]
+  },
+  {
+    "index": 59,
+    "orid": "TbUbv5zqTF",
+    "arxiv": "2602.00942",
+    "title": "SALAAD: Sparse And Low-Rank Adaptation via ADMM for Large Language Model Inference",
+    "current_claims": [
+      "SALAAD substantially reduces memory consumption during deployment while achieving performance comparable to ad-hoc methods",
+      "A single SALAAD training run yields a continuous spectrum of model capacities enabling elastic deployment without retraining"
+    ]
+  },
+  {
+    "index": 60,
+    "orid": "Li5ki5Dopo",
+    "arxiv": "2601.15417",
+    "title": "Ambient Dataloops: Generative Models for Dataset Refinement",
+    "current_claims": [
+      "Ambient Dataloops achieve state-of-the-art performance in unconditional and text-conditional image generation.",
+      "Ambient Dataloops achieve state-of-the-art performance in de novo protein design through iterative dataset refinement."
+    ]
+  },
+  {
+    "index": 61,
+    "orid": "3ExTD9F0u1",
+    "arxiv": "2604.05364",
+    "title": "TFRBench: A Reasoning Benchmark for Evaluating Forecasting Systems",
+    "current_claims": [
+      "Prompting LLMs with generated reasoning traces improves forecasting accuracy significantly compared to direct numerical prediction (e.g., 40.2% to 56.6%)",
+      "Reasoning traces are causally effective for forecasting improvement and useful for evaluation",
+      "Off-the-shelf LLMs consistently struggle with both reasoning and numerical forecasting across multiple domains"
+    ]
+  },
+  {
+    "index": 62,
+    "orid": "oBgLvd5YC6",
+    "arxiv": "2601.02553",
+    "title": "SimpleMem: Efficient Lifelong Memory for LLM Agents",
+    "current_claims": [
+      "SimpleMem achieves 26.4% average F1 improvement in LoCoMo benchmark.",
+      "Reduces inference-time token consumption by up to 30x while maintaining superior performance."
+    ]
+  },
+  {
+    "index": 63,
+    "orid": "DVHpvumD60",
+    "arxiv": "2512.09472",
+    "title": "WarmServe: Enabling One-for-Many GPU Prewarming for Multi-LLM Serving",
+    "current_claims": [
+      "WarmServe reduces time-to-first-token (TTFT) by up to 50.8\u00d7 compared to state-of-the-art autoscaling-based system.",
+      "Supports up to 2.5\u00d7 higher request throughput than GPU-sharing system.",
+      "Model placement algorithm optimizes prewarming decisions to minimize cross-model interference with KV cache reservation strategy."
+    ]
+  },
+  {
+    "index": 64,
+    "orid": "PLT2FKIs2c",
+    "arxiv": "2602.04300",
+    "title": "Light Up Your Face: A Physically Consistent Dataset and Diffusion Model for Face Fill-Light Enhancement",
+    "current_claims": [
+      "Introduces LightYourFace-160K (LYF-160K), a large-scale paired dataset with 160,000 before-and-after pairs using physically consistent rendering.",
+      "FiLitDiff is an efficient one-step model enabling fast, controllable, high-fidelity fill lighting at low computational cost while better preserving background illumination."
+    ]
+  },
+  {
+    "index": 65,
+    "orid": "QgoRoKIEEr",
+    "arxiv": "2602.16498",
+    "title": "Fast and Scalable Analytical Diffusion",
+    "current_claims": [
+      "Achieves 71\u00d7 speedup on AFHQ while matching or exceeding full-scan baseline performance",
+      "First successful scaling of analytical diffusion to ImageNet-1K",
+      "Posterior Progressive Concentration phenomenon: effective support shrinks from global manifold to local neighborhood as SNR increases"
+    ]
+  },
+  {
+    "index": 66,
+    "orid": "NMMmwSbzRx",
+    "arxiv": "2510.02044",
+    "title": "Stream RAG: Instant and Accurate Spoken Dialogue Systems with Streaming Tool Usage",
+    "current_claims": [
+      "Stream RAG improves QA accuracy by over 20.0% absolute on AudioCRAG benchmark",
+      "Stream RAG achieves state-of-the-art on SLUE-SQA benchmark and outperforms cascaded systems",
+      "Stream RAG reduces latency by up to 57%"
+    ]
+  },
+  {
+    "index": 67,
+    "orid": "aIFgQusnPy",
+    "arxiv": "2509.24531",
+    "title": "Diffusion Bridge or Flow Matching? A Unifying Framework and Comparative Analysis",
+    "current_claims": [
+      "Diffusion Bridge has lower cost function than Flow Matching, guiding toward more stable and natural trajectories",
+      "Flow Matching interpolation becomes increasingly ineffective when training data size is reduced"
+    ]
+  },
+  {
+    "index": 68,
+    "orid": "Oz335dV48X",
+    "arxiv": "2602.06036",
+    "title": "DFlash: Block Diffusion for Flash Speculative Decoding",
+    "current_claims": [
+      "DFlash achieves more than 6\u00d7 lossless acceleration across range of models and tasks",
+      "DFlash delivers up to 2.5\u00d7 higher speedup than state-of-the-art EAGLE-3 speculative decoding method"
+    ]
+  },
+  {
+    "index": 69,
+    "orid": "5f0gw9YpZC",
+    "arxiv": "2601.22651",
+    "title": "GUDA: Counterfactual Group-wise Training Data Attribution for Diffusion Models via Unlearning",
+    "current_claims": [
+      "Identifies primary contributing groups more reliably than semantic similarity and gradient-based attribution methods",
+      "Achieves ~100\u00d7 speedup on CIFAR-10 over Leave-One-Group-Out retraining"
+    ]
+  },
+  {
+    "index": 70,
+    "orid": "TBaUfO9znF",
+    "arxiv": "2512.07783",
+    "title": "On the Interplay of Pre-Training, Mid-Training, and RL on Reasoning Language Models",
+    "current_claims": [
+      "RL produces true capability gains only when pre-training leaves sufficient headroom and RL data targets edge of competence",
+      "Contextual generalization requires minimal yet sufficient pre-training exposure, after which RL reliably transfers",
+      "Mid-training significantly enhances performance under fixed compute compared with RL only, demonstrating underexplored but central role"
+    ]
+  },
+  {
+    "index": 71,
+    "orid": "Wfe1iJocjF",
+    "arxiv": "2602.23349",
+    "title": "FlashOptim: Memory Efficient Optimizers for Large-Scale Training",
+    "current_claims": [
+      "FlashOptim reduces per-parameter memory by over 50% while preserving model quality and API compatibility.",
+      "Reduces AdamW memory from 16 bytes to 7 bytes per parameter, or 5 bytes with gradient release.",
+      "No measurable quality degradation on standard vision and language benchmarks including Llama-3.1-8B finetuning."
+    ]
+  },
+  {
+    "index": 72,
+    "orid": "a3GdvuPItd",
+    "arxiv": "2606.12913",
+    "title": "Selecting Samples on Graphs: A Unified Dataset Pruning Framework for Lossless Training Acceleration",
+    "current_claims": [
+      "The unified graph-based dataset pruning framework admits a principled greedy solution with formal approximation guarantees.",
+      "On ImageNet-1K with ResNet-50, the method reduces training time by over 40% without sacrificing accuracy."
+    ]
+  },
+  {
+    "index": 73,
+    "orid": "prvGhNz39e",
+    "arxiv": "2506.16659",
+    "title": "Memory-Efficient LLM Pretraining via Minimalist Optimizer Design",
+    "current_claims": [
+      "SCALE matches or exceeds Adam performance while using only 35-45% of total memory across LLaMA 60M-1B models.",
+      "SCALE outperforms memory-efficient optimizers APOLLO and Muon in both perplexity and memory consumption for LLaMA 7B."
+    ]
+  },
+  {
+    "index": 74,
+    "orid": "3qX5RS8kpJ",
+    "arxiv": "2602.00568",
+    "title": "Dual-View Predictive Diffusion: Lightweight Speech Enhancement via Spectrogram-Image Synergy",
+    "current_claims": [
+      "DVPD achieves state-of-the-art speech enhancement performance with only 35 of the parameters of SOTA lightweight model PGUSE.",
+      "DVPD uses only 40% of the inference MACs compared to SOTA lightweight model PGUSE.",
+      "DVPD uniquely exploits dual nature of spectrograms as both visual textures and frequency-domain representations."
+    ]
+  },
+  {
+    "index": 75,
+    "orid": "tI5CFbRhmV",
+    "arxiv": "2602.07882",
+    "title": "Rethinking Code Complexity Through the Lens of Large Language Models",
+    "current_claims": [
+      "LM-CC correlates more strongly with LLM performance than traditional code complexity metrics",
+      "Lowering LM-CC directly enhances LLM task performance on code understanding and generation",
+      "Proposes code complexity metric from LLM perspective capturing nonlinearity of program semantics"
+    ]
+  },
+  {
+    "index": 76,
+    "orid": "hJnZKtsDbe",
+    "arxiv": "2511.04921",
+    "title": "AgentExpt: Automating AI Experiment Design with LLM-based Resource Retrieval Agent",
+    "current_claims": [
+      "AgentExpt knowledge base links 108,825 accepted papers to their used baselines and datasets for comprehensive experimental design.",
+      "Outperforms strongest baseline with +5.85% gains in Recall@20 and +7.90% in HitRate@10 for baseline and dataset recommendation.",
+      "Collective perception-enhanced retriever and reasoning-augmented reranker produce refined rankings with interpretable justifications."
+    ]
+  },
+  {
+    "index": 77,
+    "orid": "fl93PQfTT6",
+    "arxiv": "2508.14090",
+    "title": "DLLMQuant: A Post-Training Quantization Framework Tailored for Diffusion-Based Large Language Models",
+    "current_claims": [
+      "AWQ suffers 16% accuracy drop on LLADA under W4A4 post-training quantization",
+      "DLLMQuant achieves over 10-point accuracy improvement on GSM8K for LLADA under 4-bit quantization"
+    ]
+  },
+  {
+    "index": 78,
+    "orid": "CzShhpY2qU",
+    "arxiv": "2602.03695",
+    "title": "Agent Primitives: Reuseable Latent Building Blocks for Multi-Agent Systems",
+    "current_claims": [
+      "Agent Primitives-based MAS improve average accuracy by 12.0-16.5% over single-agent baselines",
+      "Primitives-based MAS reduce token usage and inference latency by approximately 3-4x compared to text-based MAS while incurring only 1.3-1.6x overhead relative to single-agent inference"
+    ]
+  },
+  {
+    "index": 79,
+    "orid": "ycj3XWCh6E",
+    "arxiv": "2605.01280",
+    "title": "Position: LLM Serving Needs Mathematical Optimization and Algorithmic Foundations, Not Just Heuristics",
+    "current_claims": [
+      "Current LLM serving systems use general-purpose heuristics (join-shortest-queue, FIFO, LRU) that ignore distinctive structure of LLM inference",
+      "Principled mathematical methods can match or exceed heuristic performance while providing theoretical guarantees across diverse workloads"
+    ]
+  },
+  {
+    "index": 80,
+    "orid": "FEmXFeqYNZ",
+    "arxiv": "2601.18175",
+    "title": "Success-Conditioning as Policy Improvement: The Optimization Problem Solved by Imitating Success",
+    "current_claims": [
+      "Success conditioning exactly solves a trust-region optimization problem maximizing policy improvement subject to \u03c7\u00b2 divergence constraint",
+      "Relative policy improvement, magnitude of policy change, and action-influence are exactly equal at every state"
+    ]
+  },
+  {
+    "index": 81,
+    "orid": "2azIa9tfl3",
+    "arxiv": "2512.14366",
+    "title": "Optimizing Rank for High-Fidelity Implicit Neural Representations",
+    "current_claims": [
+      "Up to 9 dB PSNR improvements over previous state-of-the-art implicit neural representations.",
+      "Regulating network rank during training substantially improves high-frequency signal fidelity in vanilla MLPs.",
+      "Using optimizers like Muon with high-rank, near-orthogonal updates consistently enhances INR architectures."
+    ]
+  },
+  {
+    "index": 82,
+    "orid": "71171",
+    "arxiv": "2506.07982",
+    "title": "$\\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment",
+    "current_claims": [
+      "\u03c4\u00b2-Bench introduces Dec-POMDP telecom dual-control domain requiring both agent coordination and user guidance",
+      "Agents exhibit significant performance drops when shifting from single-control to dual-control environments, highlighting user coordination challenges"
+    ]
+  },
+  {
+    "index": 83,
+    "orid": "71030",
+    "arxiv": "2602.05400",
+    "title": "OPUS: Towards Efficient and Principled Data Selection in Large Language Model Pre-training in Every Iteration",
+    "current_claims": [
+      "OPUS outperforms industrial-level baselines on 30B-token pre-training of GPT-2 Large/XL on FineWeb and FineWeb-Edu.",
+      "Continued pre-training of Qwen3-8B on SciencePedia: OPUS achieves superior performance using 0.5B tokens compared to full training with 3B tokens."
+    ]
+  },
+  {
+    "index": 84,
+    "orid": "71142",
+    "arxiv": "2512.22737",
+    "title": "WeDLM: Reconciling Diffusion Language Models with Standard Causal Attention for Fast Inference",
+    "current_claims": [
+      "WeDLM delivers up to 3x speedups on reasoning benchmarks while preserving quality of AR backbones",
+      "Up to 10x speedups achieved in low-entropy generation regimes",
+      "Built entirely on standard causal attention for prefix KV cache compatibility"
+    ]
+  },
+  {
+    "index": 85,
+    "orid": "71034",
+    "arxiv": "2604.06182",
+    "title": "VenusBench-Mobile: A Challenging and User-Centric Benchmark for Mobile GUI Agents with Capability Diagnostics",
+    "current_claims": [
+      "Reveals large performance gaps of state-of-the-art mobile GUI agents relative to prior benchmarks.",
+      "Diagnostic analysis shows failures dominated by deficiencies in perception and memory.",
+      "Even strongest agents exhibit near-zero success under environment variations, highlighting brittleness in realistic settings."
+    ]
+  },
+  {
+    "index": 86,
+    "orid": "71050",
+    "arxiv": "2602.22809",
+    "title": "PhotoAgent: Exploratory Visual Aesthetic Planning with Large Vision Models",
+    "current_claims": [
+      "PhotoAgent significantly outperforms existing methods in instruction faithfulness and visual quality across diverse editing scenarios",
+      "Introduces UGC-Edit benchmark with 7,000 photos and learned aesthetic reward model for autonomous photo editing"
+    ]
+  },
+  {
+    "index": 87,
+    "orid": "71069",
+    "arxiv": "2502.08834",
+    "title": "Rex: A Family of Reversible Exponential (Stochastic) Runge-Kutta Solvers",
+    "current_claims": [
+      "Proposes reversible exponential Runge-Kutta solvers enabling exact inversion without discretization error accumulation",
+      "Improves sample quality of Boltzmann distributions with flow models and image generation capabilities with diffusion models",
+      "Solvers overcome ODE domain limitations and improve stability with higher-order convergence"
+    ]
+  },
+  {
+    "index": 88,
+    "orid": "71038",
+    "arxiv": "2605.18552",
+    "title": "Protein Fold Classification at Scale: Benchmarking and Pretraining",
+    "current_claims": [
+      "TEDBench is large-scale non-redundant benchmark for protein fold classification from TED and Foldseek-clustered structures",
+      "MiAE uses up to 90% masking ratio with SE(3)-invariant encoder and lightweight decoder outperforming supervised baselines",
+      "Scales well and extends to experimental structures validating strong recipe for protein fold classification"
+    ]
+  },
+  {
+    "index": 89,
+    "orid": "71037",
+    "arxiv": "2602.04883",
+    "title": "Protein Autoregressive Modeling via Multiscale Structure Generation",
+    "current_claims": [
+      "PAR is first multi-scale autoregressive framework for protein backbone generation via coarse-to-fine prediction",
+      "Strong zero-shot generalization supports flexible human-prompted conditional generation and motif scaffolding without fine-tuning",
+      "Favorable scaling behavior with high design quality from robust backbone generation addressing exposure bias"
+    ]
+  },
+  {
+    "index": 90,
+    "orid": "71154",
+    "arxiv": "2602.06791",
+    "title": "Rare Event Analysis of Large Language Models",
+    "current_claims": [
+      "The paper presents an end-to-end framework for systematic analysis of rare events in LLMs spanning theory, efficient generation strategies, probability estimation, and error analysis",
+      "The framework enables identification of behavior far from typical but highly significant during LLM inference and deployment"
+    ]
+  },
+  {
+    "index": 91,
+    "orid": "71077",
+    "arxiv": "2603.04639",
+    "title": "RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies",
+    "current_claims": [
+      "Memory representation effectiveness is highly task-dependent with each design offering distinct advantages and limitations across different tasks",
+      "RoboMME benchmark comprises 16 manipulation tasks with taxonomy evaluating temporal, spatial, object, and procedural memory",
+      "14 memory-augmented VLA variants built on \u03c0\u2080.\u2085 backbone systematically explore different memory representations and integration strategies"
+    ]
+  },
+  {
+    "index": 92,
+    "orid": "71029",
+    "arxiv": "2602.10388",
+    "title": "Less is Enough: Synthesizing Diverse Data in Feature Space of LLMs",
+    "current_claims": [
+      "Feature Activation Coverage metric measures data diversity in interpretable feature space of LLMs.",
+      "Identifies shared interpretable feature space across model families (LLaMA, Mistral, Qwen) enabling cross-model knowledge transfer.",
+      "FAC Synthesis consistently improves both data diversity and downstream performance on instruction following, toxicity detection, reward modeling, and behavior steering."
+    ]
+  },
+  {
+    "index": 93,
+    "orid": "71153",
+    "arxiv": "2602.08498",
+    "title": "Characterizing, Evaluating, and Optimizing Complex Reasoning",
+    "current_claims": [
+      "Selecting better reasoning at test time leads to up to 19.3% performance gain.",
+      "During RL training, thinking rewards enhance reasoning and performance by up to 3.9% gain across diverse tasks.",
+      "DAG-based pairwise evaluation method successfully captures complex reasoning structures for optimization."
+    ]
+  },
+  {
+    "index": 94,
+    "orid": "UGAP2F6FfV",
+    "arxiv": "2603.07660",
+    "title": "Holi-Spatial: Evolving Video Streams into Holistic 3D Spatial Intelligence",
+    "current_claims": [
+      "Holi-Spatial-4M dataset contains 12K optimized 3DGS scenes, 1.3M 2D masks, 320K 3D bounding boxes, 320K instance captions, 1.2M 3D grounding instances, and 1.2M spatial QA pairs.",
+      "Holi-Spatial significantly outperforms existing feed-forward and per-scene optimized methods on ScanNet, ScanNet++, and DL3DV datasets.",
+      "Fine-tuning Vision-Language Models on spatial reasoning tasks using this dataset leads to substantial improvements in model performance."
+    ]
+  },
+  {
+    "index": 95,
+    "orid": "lJpXXwhRRF",
+    "arxiv": "2603.26648",
+    "title": "VisionWebDev: A Hierarchical Benchmark for Visual Website Development with Agent Verification",
+    "current_claims": [
+      "VisionWebDev comprises 193 tasks across 16 categories spanning static UI-to-code generation, interactive multi-page frontend reproduction, and long-horizon full-stack website development.",
+      "State-of-the-art models still struggle on full-stack development, with substantial performance gaps across all task levels in the benchmark evaluation."
+    ]
+  },
+  {
+    "index": 96,
+    "orid": "WwS8CTpUA6",
+    "arxiv": "2602.09153",
+    "title": "SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes",
+    "current_claims": [
+      "SceneSmith generates 3-6x more objects than prior methods with <2% inter-object collisions and 96% of objects remaining stable under physics simulation.",
+      "In a user study with 205 participants, it achieves 92% average realism and 91% average prompt faithfulness win rates against baselines."
+    ]
+  },
+  {
+    "index": 97,
+    "orid": "7UEBX1KU1y",
+    "arxiv": "2605.20834",
+    "title": "Conditional Equivalence of DPO and RLHF: Assumptions, Failure Modes, and Provable Alignment",
+    "current_claims": [
+      "DPO equivalence with RLHF is conditional on the assumption that RLHF-optimal policies prefer human-preferred responses, which is frequently violated in practice.",
+      "When the equivalence assumption fails, DPO optimizes relative advantage over the reference policy rather than absolute alignment with human preferences, leading to policies that decrease DPO loss while preferring dispreferred responses.",
+      "CPO achieves state-of-the-art performance on standard benchmarks while providing provable alignment guarantees."
+    ]
+  },
+  {
+    "index": 98,
+    "orid": "9kJQjx2B80",
+    "arxiv": "2602.01869",
+    "title": "ProcMEM: Learning Reusable Procedural Memory from Experience via Non-Parametric PPO for LLM Agents",
+    "current_claims": [
+      "ProcMEM achieves superior reuse rates and significant performance gains with extreme memory compression.",
+      "ProcMEM enables agents to learn procedural memory from interaction experiences without parameter updates.",
+      "ProcMEM facilitates long-term autonomy through transparent accumulation, refinement, and reuse of procedural knowledge."
+    ]
+  },
+  {
+    "index": 99,
+    "orid": "ePFvXPdvhM",
+    "arxiv": "2606.08414",
+    "title": "PACT: Self-Evolving Physical Safety Alignment for Diffusion Policies in Embodied Manipulation",
+    "current_claims": [
+      "PACT significantly reduces safety violations by 31.0% on average while improving task success by 30.7%",
+      "Self-evolving post-training framework projects pretrained diffusion policies onto constraint-feasible regions without demonstration data or task rewards",
+      "Incorporates curriculum progressively tightening constraints while maintaining theoretically bounded policy shift and monotone improvement"
+    ]
+  },
+  {
+    "index": 100,
+    "orid": "08tW615mgI",
+    "arxiv": "2602.04883",
+    "title": "Protein Autoregressive Modeling via Multiscale Structure Generation",
+    "current_claims": [
+      "PAR presents first multi-scale autoregressive framework for protein backbone generation via coarse-to-fine next-scale prediction.",
+      "PAR exhibits strong zero-shot generalization supporting flexible human-prompted conditional generation and motif scaffolding without fine-tuning."
+    ]
+  },
+  {
+    "index": 101,
+    "orid": "zAl9heLw4q",
+    "arxiv": "2601.08828",
+    "title": "Motion Attribution for Video Generation",
+    "current_claims": [
+      "Achieves 74.1% human preference win rate compared with pretrained base model using Motive-selected data.",
+      "Improves both motion smoothness and dynamic degree on VBench benchmark.",
+      "First framework to attribute motion rather than visual appearance in video generative models for data curation."
+    ]
+  },
+  {
+    "index": 102,
+    "orid": "eXxFlOPTk4",
+    "arxiv": "2606.05259",
+    "title": "VideoKR: Towards Knowledge- and Reasoning-Intensive Video Understanding",
+    "current_claims": [
+      "VideoKR comprises 430K video reasoning examples over 126K newly collected CC-licensed expert-domain videos",
+      "Models post-trained on VideoKR outperform prior post-training approaches on both general and knowledge-intensive video reasoning benchmarks"
+    ]
+  },
+  {
+    "index": 103,
+    "orid": "t73XUJvyQr",
+    "arxiv": "2605.19805",
+    "title": "Latent Laplace Diffusion for Irregular Multivariate Time Series",
+    "current_claims": [
+      "Latent Laplace Diffusion models target as low-dimensional latent trajectory enabling horizon-wide generation without step-by-step integration.",
+      "Modal parameterization via learnable complex-conjugate poles allows direct evaluation over irregular timestamps.",
+      "LLapDiff consistently outperforms baselines in long-horizon forecasting and supports missing-value imputation."
+    ]
+  },
+  {
+    "index": 104,
+    "orid": "3BW15kSPfN",
+    "arxiv": "2510.07312",
+    "title": "h1: Bootstrapping LLMs to Reason over Longer Horizons via Reinforcement Learning",
+    "current_claims": [
+      "Curriculum training on synthetic compositions of 6th-grade math problems improves accuracy on competition-level benchmarks (GSM-Symbolic, MATH-500, AIME).",
+      "The method achieves significantly higher long-horizon improvements than baselines even at high pass@k, and transfers substantially to diverse out-of-distribution ReasoningGym domains."
+    ]
+  },
+  {
+    "index": 105,
+    "orid": "pZNo1YWT5x",
+    "arxiv": "2602.01362",
+    "title": "Balancing Understanding and Generation in Discrete Diffusion Models",
+    "current_claims": [
+      "XDLM surpasses UDLM by 5.4 points on zero-shot text benchmarks.",
+      "XDLM achieves FID 54.1 in few-step image generation compared to MDLM's 80.8.",
+      "XDLM achieves 15.0 MBPP in just 32 steps, effectively doubling baseline performance when scaled to 8B-parameter LLMs."
+    ]
+  },
+  {
+    "index": 106,
+    "orid": "mWxEAgz3xu",
+    "arxiv": "2512.04123",
+    "title": "Characterizing Agents in Production",
+    "current_claims": [
+      "First systematic study of 306 production LLM agents across 26 domains showing 68% execute at most 10 steps before human intervention",
+      "Finds 70% of production agents rely on prompting rather than weight tuning, and 74% use primarily human evaluation",
+      "Identifies reliability as the dominant challenge in production agent deployment"
+    ]
+  },
+  {
+    "index": 107,
+    "orid": "lK2o9OjoXf",
+    "arxiv": "2512.03176",
+    "title": "PLANTAIN: Plan-Answer Interleaved Reasoning",
+    "current_claims": [
+      "PLANTAIN yields an ~6% improvement in pass@1 across several challenging math reasoning and coding benchmarks",
+      "PLANTAIN reduces time-to-first-response by over 60% relative to think-then-answer baselines"
+    ]
+  },
+  {
+    "index": 108,
+    "orid": "Ws8swqL5ob",
+    "arxiv": "2602.22809",
+    "title": "PhotoAgent: Exploratory Visual Aesthetic Planning with Large Vision Models",
+    "current_claims": [
+      "PhotoAgent formulates autonomous image editing as long-horizon decision-making problem using tree search and closed-loop execution",
+      "Introduces UGC-Edit aesthetic evaluation benchmark with 7,000 photos and learned aesthetic reward model",
+      "Significantly outperforms existing methods in instruction faithfulness and visual quality across diverse editing scenarios"
+    ]
+  },
+  {
+    "index": 109,
+    "orid": "hCAEcqig2C",
+    "arxiv": "2412.18134",
+    "title": "Learning Randomized Reductions",
+    "current_claims": [
+      "Vanilla Bitween discovers RSRs for 43 of 80 functions (54%) in RSR-Bench, including first known reduction for sigmoid",
+      "Agentic Bitween neuro-symbolic approach with LLM agents discovers RSRs for 64 of 80 functions (80%)",
+      "Agentic Bitween outperforms pure neural baselines in both RSR discovery and verification accuracy"
+    ]
+  },
+  {
+    "index": 110,
+    "orid": "fdkSA4F0lN",
+    "arxiv": "2601.22443",
+    "title": "Weak Diffusion Priors Can Still Achieve Strong Inverse-Problem Performance",
+    "current_claims": [
+      "Diffusion models trained on unrelated domains (e.g., bedrooms) can recover signals from different domains (e.g., human faces) when measurements are informative",
+      "Weak diffusion priors succeed when high-dimensional measurements are provided, enabling Bayesian posterior concentration"
+    ]
+  },
+  {
+    "index": 111,
+    "orid": "7pQIzVNctu",
+    "arxiv": "2502.08834",
+    "title": "Rex: A Family of Reversible Exponential (Stochastic) Runge-Kutta Solvers",
+    "current_claims": [
+      "Rex family of reversible exponential stochastic Runge-Kutta solvers enables precise inversion of ODE/SDE-based generative models",
+      "Demonstrates utility in improving sample quality of Boltzmann distributions and image generation and editing capabilities of diffusion models"
+    ]
+  },
+  {
+    "index": 112,
+    "orid": "EeuLO2BjFN",
+    "arxiv": "2602.02710",
+    "title": "Maximum Likelihood Reinforcement Learning",
+    "current_claims": [
+      "MaxRL outperforms standard RL and GRPO with higher pass@1 and substantially improved pass@k",
+      "Compute-indexed family of objectives interpolates between standard RL and exact maximum likelihood as compute increases"
+    ]
+  },
+  {
+    "index": 113,
+    "orid": "h7WBYYJF1Q",
+    "arxiv": "2510.14961",
+    "title": "Efficient Parallel Samplers for Recurrent-Depth Models",
+    "current_claims": [
+      "The diffusion forcing sampler achieves up to 5x speedup in generation for 3.5B recurrent-depth transformers without any tuning.",
+      "Generation with the sampler is theoretically strictly more expressive than baseline autoregressive generation using the same time budget on modern hardware."
+    ]
+  },
+  {
+    "index": 114,
+    "orid": "kR4iOTaAOJ",
+    "arxiv": "2602.13692",
+    "title": "ThunderAgent: A Fast, Simple, and Program-Aware Agentic Inference System",
+    "current_claims": [
+      "ThunderAgent achieves 1.5-3.6x throughput improvements in serving compared to state-of-the-art inference systems",
+      "ThunderAgent achieves 1.8-3.9x improvements in RL rollout and up to 4.2x disk memory savings"
+    ]
+  },
+  {
+    "index": 115,
+    "orid": "PnTXyTR2VG",
+    "arxiv": "2412.08635",
+    "title": "Multimodal Latent Language Modeling with Next-Token Diffusion",
+    "current_claims": [
+      "LatentLM surpasses Diffusion Transformers in both performance and scalability in image generation",
+      "LatentLM outperforms state-of-the-art VALL-E 2 in text-to-speech while requiring 10 fewer decoding steps"
+    ]
+  },
+  {
+    "index": 116,
+    "orid": "PeFSCRulgy",
+    "arxiv": "2602.01244",
+    "title": "Large-Scale Terminal Agentic Trajectory Generation from Dockerized Environments",
+    "current_claims": [
+      "TerminalTraj curated 32K Docker images and generated 50,733 verified terminal trajectories across eight domains",
+      "TerminalTraj-32B achieves 35.30% on TB 1.0 and 22.00% on TB 2.0 with gains of up to 20% over backbone models"
+    ]
+  },
+  {
+    "index": 117,
+    "orid": "vTp9JToZl9",
+    "arxiv": "2605.01466",
+    "title": "SplAttN: Bridging 2D and 3D with Gaussian Soft Splatting and Attention for Point Cloud Completion",
+    "current_claims": [
+      "SplAttN achieves state-of-the-art performance on PCN and ShapeNet-55/34 point cloud completion benchmarks",
+      "Counter-factual evaluation reveals SplAttN maintains robust dependency on visual cues while baselines degenerate into unimodal template retrievers"
+    ]
+  },
+  {
+    "index": 118,
+    "orid": "3gCdh3u2GK",
+    "arxiv": "2605.29591",
+    "title": "Mind-Omni: A Unified Multi-Task Framework for Brain-Vision-Language Modeling via Discrete Diffusion",
+    "current_claims": [
+      "Mind-Omni establishes state-of-the-art performance among multi-task unified brain-vision-language frameworks.",
+      "Mind-Omni demonstrates performance competitive with, and at times superior to, larger specialized models."
+    ]
+  },
+  {
+    "index": 119,
+    "orid": "lwOoBzJykL",
+    "arxiv": "2601.05248",
+    "title": "LaST$_{0}$: Latent Spatio-Temporal Chain-of-Thought for Robotic Vision-Language-Action Model",
+    "current_claims": [
+      "Improves mean success rates by 13% on tabletop manipulation over prior SOTA VLA methods",
+      "Improves mean success rates by 14% on mobile manipulation and 14% on dexterous hand manipulation",
+      "Enables efficient reasoning through latent spatio-temporal representations with dual-system architecture"
+    ]
+  },
+  {
+    "index": 120,
+    "orid": "71122",
+    "arxiv": "2602.02495",
+    "title": "Reward-free Alignment for Conflicting Objectives",
+    "current_claims": [
+      "RACO provides convergence guarantees to Pareto-critical points respecting user-specified objective weights",
+      "Clipping in conflict-averse gradient descent strictly improves convergence rate in two-objective setting",
+      "Achieves better Pareto trade-offs than existing multi-objective alignment baselines across Qwen, Llama, and Gemma families"
+    ]
+  },
+  {
+    "index": 121,
+    "orid": "F9NDKf5oPy",
+    "arxiv": "2512.09106",
+    "title": "Learning Unmasking Policies for Diffusion Language Models",
+    "current_claims": [
+      "Trains sampling procedures for diffusion language models via reinforcement learning",
+      "Single-layer transformer policy matches SOTA heuristics on block generation while outperforming them in full-diffusion setting",
+      "Trained policies improve both sample quality and token throughput"
+    ]
+  },
+  {
+    "index": 122,
+    "orid": "XFTTezxLdU",
+    "arxiv": "2601.21725",
+    "title": "Procedural Pretraining: Warming Up Language Models with Abstract Data",
+    "current_claims": [
+      "Front-loading as little as 0.1% procedural data significantly outperforms standard pretraining on C4, CodeParrot, and DeepMind-Math datasets.",
+      "Procedural pretraining enables models to reach the same loss value with only 55%, 67%, and 86% of the original data depending on the dataset.",
+      "On context recall (Needle-in-a-haystack), accuracy jumps from 10% to 98% when pretraining on Dyck sequences."
+    ]
+  },
+  {
+    "index": 123,
+    "orid": "fXr3uPr1G5",
+    "arxiv": "2505.14302",
+    "title": "Scaling Law for Quantization-Aware Training",
+    "current_claims": [
+      "Unified QAT scaling law models quantization error as function of model size, training data volume, and quantization group size.",
+      "Quantization error decreases with model size but rises with more training tokens and coarser quantization granularity in W4A4 regime.",
+      "Activation quantization error in FC2 layer caused by outliers is primary bottleneck of W4A4 QAT error; mixed-precision quantization addresses this."
+    ]
+  },
+  {
+    "index": 124,
+    "orid": "Efq2VvYk1o",
+    "arxiv": "2512.07843",
+    "title": "ThreadWeaver: Adaptive Threading for Efficient Parallel Reasoning in Language Models",
+    "current_claims": [
+      "ThreadWeaver achieves 79.9% on AIME24 and 71.9% average performance on par with sequential reasoning models while delivering up to 1.53x speedup in token latency.",
+      "Trained on Qwen3-8B, matches performance of cutting-edge sequential reasoning models.",
+      "Establishes new Pareto frontier between accuracy and efficiency for parallel reasoning."
+    ]
+  },
+  {
+    "index": 125,
+    "orid": "09CSjVeDug",
+    "arxiv": "2510.08233",
+    "title": "Enhancing Reasoning for Diffusion LLMs via Distribution Matching Policy Optimization",
+    "current_claims": [
+      "DMPO achieves accuracy improvement of up to 54.3% over previously SOTA baselines and 66.41% over base model on reasoning benchmarks",
+      "Distribution Matching Policy Optimization matches dLLM policy distribution to optimal, reward-tilted one through cross-entropy optimization",
+      "Novel weight baseline subtraction technique enables effective training with small batch sizes"
+    ]
+  },
+  {
+    "index": 126,
+    "orid": "ENuMNYCiV6",
+    "arxiv": "2602.12996",
+    "title": "Know More, Know Clearer: A Meta-Cognitive Framework for Knowledge Augmentation in Large Language Models",
+    "current_claims": [
+      "Framework consistently outperforms strong baselines in knowledge-intensive tasks",
+      "Uses internal cognitive signals to partition knowledge space into mastered, confused, and missing regions",
+      "Cognitive consistency mechanism synchronizes subjective certainty with objective accuracy"
+    ]
+  },
+  {
+    "index": 127,
+    "orid": "PQaxfoEcRc",
+    "arxiv": "2601.21996",
+    "title": "Mechanistic Data Attribution: Tracing the Training Origins of Interpretable LLM Units",
+    "current_claims": [
+      "Removing small fractions of high-influence training samples significantly hinders emergence of targeted interpretable heads",
+      "Highly repetitive structural data (LaTeX and HTML) acts as a catalyst that accelerates emergence of induction heads",
+      "Interventions targeting induction head formation induce concurrent changes in in-context learning capability"
+    ]
+  },
+  {
+    "index": 128,
+    "orid": "LcswwEzzX7",
+    "arxiv": "2512.13100",
+    "title": "OXE-AugE: A Large-Scale Robot Augmentation of OXE for Scaling Cross-Embodiment Policy Learning",
+    "current_claims": [
+      "OXE dataset is highly imbalanced with top four robot types accounting for over 85% of real data, risking overfitting to robot-scene combinations",
+      "OXE-AugE augments OXE with 9 robot embodiments to provide 4.4 million trajectories, more than triple the original dataset",
+      "Augmenting with diverse arms and grippers improves policy performance on augmented robots, unseen robots, and original robots under distribution shifts",
+      "Fine-tuning OpenVLA and \u03c0\u2080 on OXE-AugE improves success rates by 24-45% on previously unseen robot-gripper combinations"
+    ]
+  },
+  {
+    "index": 129,
+    "orid": "coHiGZOFtS",
+    "arxiv": "2604.06182",
+    "title": "VenusBench-Mobile: A Challenging and User-Centric Benchmark for Mobile GUI Agents with Capability Diagnostics",
+    "current_claims": [
+      "Reveals large performance gaps of state-of-the-art mobile GUI agents relative to prior benchmarks.",
+      "Diagnostic analysis shows failures dominated by deficiencies in perception and memory.",
+      "Even strongest agents exhibit near-zero success under environment variations, highlighting brittleness in realistic settings."
+    ]
+  },
+  {
+    "index": 130,
+    "orid": "Hm8OEDKpiO",
+    "arxiv": "2603.07751",
+    "title": "3ViewSense: Spatial and Mental Perspective Reasoning from Orthographic Views in Vision-Language Models",
+    "current_claims": [
+      "Vision-Language Models fail on elementary spatial tasks like block counting due to spatial intelligence gap from missing view-consistent interface.",
+      "3ViewSense significantly outperforms baselines on spatial reasoning benchmarks with consistent gains on occlusion-heavy counting.",
+      "Framework improves stability and consistency of spatial descriptions offering path toward stronger spatial intelligence in multimodal systems."
+    ]
+  },
+  {
+    "index": 131,
+    "orid": "vKWxArobP3",
+    "arxiv": "2605.30038",
+    "title": "Alignment-Guided Score Matching for Text-to-Image Alignment in Diffusion Models",
+    "current_claims": [
+      "Achieves over 35% improvement in counting accuracy on GenEval benchmark by addressing over-counting and repetition failures",
+      "Method is seamlessly applicable to existing diffusion backbones (SD1.5, SDXL, and SD3)"
+    ]
+  },
+  {
+    "index": 132,
+    "orid": "2hQBG2ZlFb",
+    "arxiv": "2510.00526",
+    "title": "Beyond Log Likelihood: Probability-Based Objectives for Supervised Fine-Tuning across the Model Capability Continuum",
+    "current_claims": [
+      "Near model-strong end, prior-leaning objectives downweighting low-probability tokens consistently outperform NLL.",
+      "Toward model-weak end, NLL dominates objective behavior across conditions.",
+      "Model-capability continuum is critical dimension governing when and why different probability-based objectives succeed or fail."
+    ]
+  },
+  {
+    "index": 133,
+    "orid": "KRSZj8z5Lr",
+    "arxiv": "2604.02338",
+    "title": "LiME: Lightweight Mixture of Experts for Efficient Multimodal Multi-task Learning",
+    "current_claims": [
+      "LiME achieves up to 4x fewer trainable parameters compared to corresponding MoE-PEFT baselines",
+      "LiME achieves up to 29% faster training compared to MoE-PEFT baselines",
+      "Theoretically, modulation approximates full expert-specific PEFT with bounded error"
+    ]
+  },
+  {
+    "index": 134,
+    "orid": "A5venxSvpw",
+    "arxiv": "2603.02630",
+    "title": "MASPOB: Bandit-Based Prompt Optimization for Multi-Agent Systems with Graph Neural Networks",
+    "current_claims": [
+      "MASPOB achieves state-of-the-art performance across diverse benchmarks while maintaining sample efficiency.",
+      "Integrates Graph Neural Networks to capture topology-aware representations of prompt semantics in multi-agent systems.",
+      "Reduces search complexity from exponential to linear through coordinate ascent decomposition."
+    ]
+  },
+  {
+    "index": 135,
+    "orid": "giNBsVVFGt",
+    "arxiv": "2603.17074",
+    "title": "PRISM: Demystifying Retention and Interaction in Mid-Training",
+    "current_claims": [
+      "27B tokens mid-training yields ~6-10 point gains on coding benchmarks and ~17-30 points on mathematical reasoning benchmarks",
+      "RL applied on top of PRISM-mid-trained models produces further ~3-8 points on coding/math and ~17-20 points on science (GPQA-Diamond)",
+      "Retention-aware mid-training is necessary intermediate step for reliable reasoning enhancement and RL scaling"
+    ]
+  },
+  {
+    "index": 136,
+    "orid": "vSzRJyg6k0",
+    "arxiv": "2602.02495",
+    "title": "Reward-free Alignment for Conflicting Objectives",
+    "current_claims": [
+      "RACO framework provides convergence guarantees to Pareto-critical points respecting user-specified objective weights.",
+      "Achieves better Pareto trade-offs than existing multi-objective baselines across Qwen 3, Llama 3, and Gemma 3 families.",
+      "Resolves gradient conflicts via clipped variant of conflict-averse gradient descent."
+    ]
+  },
+  {
+    "index": 137,
+    "orid": "8m30ogkPk2",
+    "arxiv": "2603.04639",
+    "title": "RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies",
+    "current_claims": [
+      "RoboMME comprises 16 manipulation tasks under carefully designed taxonomy evaluating temporal, spatial, object, and procedural memory",
+      "Develops suite of 14 memory-augmented VLA variants built on \u03c00.5 backbone",
+      "Shows that effectiveness of memory representations is highly task-dependent with distinct advantages across different tasks"
+    ]
+  },
+  {
+    "index": 138,
+    "orid": "pl10b6EQAN",
+    "arxiv": "2606.06574",
+    "title": "Skip a Layer or Loop It? Learning Program-of-Layers in LLMs",
+    "current_claims": [
+      "Program-of-Layers enables skipping or looping pretrained layers to form customized programs for each input",
+      "Consistently improves accuracy over standard inference and prior dynamic-depth methods, often executing fewer layers",
+      "Gains persist under out-of-distribution evaluation, suggesting fixed-depth execution captures narrow subset of latent capacity"
+    ]
+  },
+  {
+    "index": 139,
+    "orid": "KyVlaw4BxE",
+    "arxiv": "2604.12887",
+    "title": "VideoFlexTok: Flexible-Length Coarse-to-Fine Video Tokenization",
+    "current_claims": [
+      "VideoFlexTok represents videos with variable-length sequences of tokens structured in coarse-to-fine manner, allowing adaptation of token count to particular downstream needs.",
+      "Achieves comparable generation quality (gFVD and ViCLIP Score) with a 10x smaller model (0.4B vs 3.6B) compared to 3D grid tokenizer approach.",
+      "Enables long video generation of 10-second 81-frame videos with only 672 tokens, 8x fewer than comparable 3D grid tokenizer."
+    ]
+  },
+  {
+    "index": 140,
+    "orid": "VMsumctGvg",
+    "arxiv": "2605.04678",
+    "title": "From Pixels to Tokens: A Systematic Study of Latent Action Supervision for Vision-Language-Action Models",
+    "current_claims": [
+      "Image-based latent actions benefit long-horizon reasoning while action-based latent actions excel at complex motor coordination.",
+      "Directly supervising VLM with discrete latent action tokens yields most effective performance.",
+      "Latent action supervision offers promising direction for vision-language-action training on mixed datasets."
+    ]
+  },
+  {
+    "index": 141,
+    "orid": "HSuU4xBmAv",
+    "arxiv": "2602.10346",
+    "title": "Geometry-Aware Decoding with Wasserstein-Regularized Truncation and Mass Penalties for Large Language Models",
+    "current_claims": [
+      "Top-W geometry-aware truncation consistently outperforms prior state-of-the-art decoding approaches with up to 33.7% improvement on four benchmarks",
+      "Improves both accuracy-focused performance and creativity under judge-based open-ended evaluation across GSM8K, GPQA, AlpacaEval, and MT-Bench"
+    ]
+  },
+  {
+    "index": 142,
+    "orid": "mDhyxu8WRb",
+    "arxiv": "2512.24880",
+    "title": "mHC: Manifold-Constrained Hyper-Connections",
+    "current_claims": [
+      "Restores identity mapping property of residual connections while maintaining performance gains of hyper-connections",
+      "Incorporates rigorous infrastructure optimization to ensure efficiency and scalability",
+      "Effective for training at scale with tangible performance improvements and superior scalability compared to HC"
+    ]
+  },
+  {
+    "index": 143,
+    "orid": "92oF5bU4cU",
+    "arxiv": "2603.12228",
+    "title": "Neural Thickets: Diverse Task Experts Are Dense Around Pretrained Weights",
+    "current_claims": [
+      "In large well-pretrained models, density of task-experts increases dramatically in neighborhood around pretrained weights.",
+      "Sampling N parameter vectors, selecting top K, and ensembling via majority vote is competitive with PPO, GRPO, ES.",
+      "Diverse specialists populate substantial fraction of neighborhood around pretrained weights in sufficiently trained models."
+    ]
+  },
+  {
+    "index": 144,
+    "orid": "xEgoeNrp8B",
+    "arxiv": "2509.24997",
+    "title": "PanoWorld-X: Generating Explorable Panoramic Worlds via Sphere-Aware Video Diffusion",
+    "current_claims": [
+      "Achieves explorable 3D scene video generation with maintained geometric consistency across camera movements.",
+      "Sphere-aware attention mechanism captures true geometric adjacency by reprojecting features onto spherical surface.",
+      "Superior performance in motion range, control precision, and visual quality for panoramic world generation."
+    ]
+  },
+  {
+    "index": 145,
+    "orid": "FneePKFVHT",
+    "arxiv": "2601.23265",
+    "title": "PaperBanana: Automating Academic Illustration for AI Scientists",
+    "current_claims": [
+      "PaperBanana consistently outperforms leading baselines in faithfulness, conciseness, readability, and aesthetics for academic illustrations.",
+      "Introduces PaperBananaBench comprising 292 test cases for methodology diagrams curated from NeurIPS 2025 publications.",
+      "Method effectively extends to generation of high-quality statistical plots."
+    ]
+  },
+  {
+    "index": 146,
+    "orid": "yVFxjNzCQm",
+    "arxiv": "2509.23184",
+    "title": "PonderLM-2: Pretraining LLM with Latent Thoughts in Continuous Space",
+    "current_claims": [
+      "A LM that generates one additional latent thought per token outperforms a standard model with double the parameters at identical inference cost",
+      "PonderLM-2-Pythia-1.4B pretrained on 300B tokens significantly surpasses vanilla Pythia-2.8B trained on the same data on language modeling and downstream tasks"
+    ]
+  },
+  {
+    "index": 147,
+    "orid": "jPKqiaPTEd",
+    "arxiv": "2605.18552",
+    "title": "Protein Fold Classification at Scale: Benchmarking and Pretraining",
+    "current_claims": [
+      "Introduces TEDBench, large-scale non-redundant benchmark for protein fold classification from Encyclopedia of Domains and Foldseek-clustered AlphaFold structures",
+      "Proposes Masked Invariant Autoencoders using extreme masking ratio up to 90% with SE(3)-invariant encoder",
+      "MiAE scales well and outperforms supervised counterparts on TEDBench and experimental structures from CATH 4.4"
+    ]
+  },
+  {
+    "index": 148,
+    "orid": "2RJN5vDHG0",
+    "arxiv": "2602.06791",
+    "title": "Rare Event Analysis of Large Language Models",
+    "current_claims": [
+      "Framework provides systematic analysis of rare events in LLMs with practical implementation spanning theory, generation strategies, and probability estimation.",
+      "Rare events are behavior far from typical but highly significant and become prominent in deployment despite being unobserved during development."
+    ]
+  },
+  {
+    "index": 149,
+    "orid": "trn64znfNx",
+    "arxiv": "2509.22259",
+    "title": "Rotary Position Encodings for Graphs",
+    "current_claims": [
+      "Wave-Induced Rotary Encodings (WIRE) rotate tokens based on the graph Laplacian spectrum to inject structural information into attention.",
+      "WIRE recovers regular RoPE on grids and depends asymptotically on the graph effective resistance.",
+      "WIRE is compatible with linear attention, unlike bias-based relative position encodings."
+    ]
+  },
+  {
+    "index": 150,
+    "orid": "5VgZUEpK6W",
+    "arxiv": "2605.04970",
+    "title": "Skill Neologisms: Towards Skill-based Continual Learning",
+    "current_claims": [
+      "Skill neologisms can improve model capabilities on specific skills without weight updates",
+      "Independently trained skill neologisms can be composed zero-shot",
+      "Provides scalable path towards skill-based continual learning"
+    ]
+  },
+  {
+    "index": 151,
+    "orid": "vIZz7LvObC",
+    "arxiv": "2512.20757",
+    "title": "TokSuite: Measuring the Impact of Tokenizer Choice on Language Model Behavior",
+    "current_claims": [
+      "TokSuite releases fourteen pre-trained models with identical architecture, dataset, training budget, and initialization but different tokenizers.",
+      "A multilingual robustness benchmark measures model performance under perturbations in English, Chinese, Farsi, Italian, and Turkish."
+    ]
+  },
+  {
+    "index": 152,
+    "orid": "2UH01A9Za0",
+    "arxiv": "2605.31175",
+    "title": "Towards Efficient LLMs Annealing with Principled Sample Selection",
+    "current_claims": [
+      "The SCP-based method achieves state-of-the-art results across multiple LLM model scales",
+      "Sample selection balances global Hessian geometry with sample-wise gradient noise during LLM annealing"
+    ]
+  },
+  {
+    "index": 153,
+    "orid": "OC2z7iSQKa",
+    "arxiv": "2506.07982",
+    "title": "$\\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment",
+    "current_claims": [
+      "Agents show significant performance drops when shifting from single-control to dual-control environments, revealing challenges in guiding user actions in shared, dynamic worlds.",
+      "Fine-grained analysis of dual-control agents reveals distinct error patterns arising from reasoning versus communication/coordination failures."
+    ]
+  },
+  {
+    "index": 154,
+    "orid": "BhahZSDowo",
+    "arxiv": "2602.14307",
+    "title": "Benchmarking at the Edge of Comprehension",
+    "current_claims": [
+      "Critique-Resilient Benchmarking framework produces stable scores that correlate with external capability measures",
+      "Reformulates benchmarking as adversarial generation-evaluation game enabling evaluation beyond full human comprehension"
+    ]
+  },
+  {
+    "index": 155,
+    "orid": "hgMZraPlSv",
+    "arxiv": "2505.04528",
+    "title": "Beyond Theorem Proving: Formulation, Framework and Benchmark for Formal Problem-Solving",
+    "current_claims": [
+      "Solving is significantly harder than proving, highlighting alignment tax for constructive reasoning",
+      "Introduces FPS framework with three benchmarks constructed via manual refactoring of over 1,000 problems"
+    ]
+  },
+  {
+    "index": 156,
+    "orid": "DK0kvnNelx",
+    "arxiv": "2602.02680",
+    "title": "FlexRank: Nested Low-Rank Knowledge Decomposition for Adaptive Model Deployment",
+    "current_claims": [
+      "Enables train-once, deploy-everywhere paradigm with graceful cost-performance trade-off without training from scratch for each budget",
+      "Extracts nested, importance-ordered components from pretrained models for adaptive deployment"
+    ]
+  },
+  {
+    "index": 157,
+    "orid": "lFkGJ60bGq",
+    "arxiv": "2605.31503",
+    "title": "How can embedding models bind concepts?",
+    "current_claims": [
+      "CLIP's binding function has high-complexity preventing shared binding mechanism that generalizes to unseen concept combinations",
+      "In controlled transformer models, binding generalization emerges with sufficient data coverage using low-complexity multiplicative interactions"
+    ]
+  },
+  {
+    "index": 158,
+    "orid": "syG9I9ofd8",
+    "arxiv": "2511.20639",
+    "title": "Latent Collaboration in Multi-Agent Systems",
+    "current_claims": [
+      "LatentMAS outperforms advanced single agents and text-based MAS baselines, achieving up to 14.6% higher accuracy across 9 benchmarks.",
+      "Reduces output token usage by 70.8%\u201383.7% and provides 4\u20134.3\u00d7 faster end-to-end inference while achieving lossless information exchange."
+    ]
+  },
+  {
+    "index": 159,
+    "orid": "yKcBAJMPXZ",
+    "arxiv": "2605.25461",
+    "title": "MetaphorVU: Towards Metaphorical Video Understanding",
+    "current_claims": [
+      "Current MLLMs struggle with accurate metaphorical video understanding, lagging far behind human level due to defective cross-domain mapping",
+      "MetaphorBoost, an inference-time enhancement framework using metaphor knowledge graph augmentation, achieves consistent performance improvement on metaphorical video understanding"
+    ]
+  },
+  {
+    "index": 160,
+    "orid": "5PfEQzE9bf",
+    "arxiv": "2510.14865",
+    "title": "Midtraining Bridges Pretraining and Posttraining Distributions",
+    "current_claims": [
+      "Midtraining benefits largest for domains distant from general pretraining data such as code and math.",
+      "Midtraining consistently outperforms continued pretraining on specialized data both in-domain and in mitigating forgetting."
+    ]
+  },
+  {
+    "index": 161,
+    "orid": "m1IRWFAMsa",
+    "arxiv": "2510.05491",
+    "title": "NorMuon: Making Muon more efficient and scalable",
+    "current_claims": [
+      "NorMuon achieves 21.74% better training efficiency than Adam on 1.1B pretraining",
+      "NorMuon achieves 11.31% improvement over Muon while maintaining comparable memory footprint"
+    ]
+  },
+  {
+    "index": 162,
+    "orid": "06Nk3dJDMq",
+    "arxiv": "2605.03907",
+    "title": "Steer Like the LLM: Activation Steering that Mimics Prompting",
+    "current_claims": [
+      "PSR models consistently outperform constant-coefficient interventions frequently used in the literature",
+      "PSR models achieve performance close to or exceeding prompt steering while maintaining interpretability"
+    ]
+  },
+  {
+    "index": 163,
+    "orid": "ds3ZOevkwx",
+    "arxiv": "2603.12180",
+    "title": "Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections",
+    "current_claims": [
+      "Humans show strong metacognitive calibration, adapting or abandoning failed strategies in document retrieval tasks.",
+      "Frontier VLM agents often persist in unproductive loops with diminishing returns rather than demonstrating strategic reasoning."
+    ]
+  },
+  {
+    "index": 164,
+    "orid": "RNuC8Nj6rD",
+    "arxiv": "2605.09810",
+    "title": "TD3B: Transition-Directed Discrete Diffusion for Allosteric Binder Generation",
+    "current_claims": [
+      "TD3B sequence-based generative framework enables design of binders with specified agonist or antagonist behavior",
+      "Directional transition control objective guides ligand generation for G protein-coupled receptors",
+      "Decoupled from binding affinity and unattainable by equilibrium-based or inference-only guidance baselines"
+    ]
+  },
+  {
+    "index": 165,
+    "orid": "GnqHK8Ww98",
+    "arxiv": "2601.18778",
+    "title": "Teaching Models to Teach Themselves: Reasoning at the Edge of Learnability",
+    "current_claims": [
+      "Unlocks learning under sparse, binary rewards on datasets with 0/128 success rate using meta-RL for curriculum generation.",
+      "Grounded rewards outperform intrinsic rewards, reliably avoiding instability and diversity collapse modes."
+    ]
+  },
+  {
+    "index": 166,
+    "orid": "kcyOjXoUZu",
+    "arxiv": "2511.15684",
+    "title": "Walrus: A Cross-domain Foundation Model for Continuum Dynamics",
+    "current_claims": [
+      "Walrus outperforms prior foundation models on both short-term and long-term prediction horizons.",
+      "Pretrained on 19 diverse scenarios spanning astrophysics, geoscience, rheology, plasma physics, acoustics, and classical fluids.",
+      "Harmonic-analysis-based stabilization and load-balanced distributed training improve forecast stability and transfer performance."
+    ]
+  },
+  {
+    "index": 167,
+    "orid": "IMFgiWw4jd",
+    "arxiv": "2602.08498",
+    "title": "Characterizing, Evaluating, and Optimizing Complex Reasoning",
+    "current_claims": [
+      "Selecting better reasoning at test time leads to up to 19.3% performance gain in large reasoning models.",
+      "Using thinking rewards in reinforcement learning training enhances reasoning with up to 3.9% improvement across diverse tasks."
+    ]
+  },
+  {
+    "index": 168,
+    "orid": "BkMSFFtm5M",
+    "arxiv": "2602.03012",
+    "title": "CVE-Factory: Scaling Expert-Level Agentic Tasks for Code Security Vulnerability",
+    "current_claims": [
+      "CVE-Factory achieves 95% solution correctness and 96% environment fidelity when validated against human expert reproductions.",
+      "Fine-tuned Qwen3-32B improves from 5.3% to 35.8% on LiveCVEBench with CVE-Factory training, surpassing Claude 4.5 Sonnet, with gains generalizing to Terminal Bench (12.5% to 31.3%)."
+    ]
+  },
+  {
+    "index": 169,
+    "orid": "aIH1jyU37z",
+    "arxiv": "2012.06333",
+    "title": "Foundations of Equivariant Deep Learning: Unifying Graph and Sheaf Neural Networks",
+    "current_claims": [
+      "Proves a universal approximation theorem for continuous order-equivariant maps",
+      "Provides the first universal approximation theorem for sheaf neural networks"
+    ]
+  },
+  {
+    "index": 170,
+    "orid": "wsA8LgHU5U",
+    "arxiv": "2605.03413",
+    "title": "Learning to Theorize the World from Observation",
+    "current_claims": [
+      "System acquires the ability to construct theories represented as executable programs from observation alone.",
+      "Enables explanation-driven generalization through program-based understanding of observations."
+    ]
+  },
+  {
+    "index": 171,
+    "orid": "iJwDylm93H",
+    "arxiv": "2605.29447",
+    "title": "Recovering Policy-Induced Errors: Benchmarking and Trajectory Synthesis for Robust GUI Agents",
+    "current_claims": [
+      "RoTS-32B achieves state-of-the-art performance on OSWorld with a 47.4% success rate and 33.8% All-Pass@4 score",
+      "The framework creates 800k high quality synthetic data via a tree-based pipeline that proactively discovers diverse error modes"
+    ]
+  },
+  {
+    "index": 172,
+    "orid": "97NEP1pyS3",
+    "arxiv": "2511.19399",
+    "title": "Reinforcement Learning with Evolving Rubrics for Deep Research",
+    "current_claims": [
+      "DR Tulu-8B substantially outperforms existing open deep research agents by 15.6% over Tongyi DR on average.",
+      "DR Tulu-8B matches or exceeds proprietary deep research agents by 0.7% over OpenAI DR while being 1000x cheaper per query."
+    ]
+  },
+  {
+    "index": 173,
+    "orid": "UamxHbDR3p",
+    "arxiv": "2603.05425",
+    "title": "RelaxFlow: Text-Driven Amodal 3D Generation",
+    "current_claims": [
+      "Formalizes text-driven amodal 3D generation where text prompts steer completion of unseen regions while preserving input observation",
+      "Proves relaxation mechanism is equivalent to applying low-pass filter on generative vector field",
+      "Introduces ExtremeOcc-3D and AmbiSem-3D diagnostic benchmarks for evaluating amodal generation"
+    ]
+  },
+  {
+    "index": 174,
+    "orid": "AfqsNFzJcs",
+    "arxiv": "2511.12344",
+    "title": "Reward and Guidance through Rubrics: Promoting Exploration to Improve Multi-Domain Reasoning",
+    "current_claims": [
+      "RGR-GRPO achieves +7.0% on mathematics, +5.4% on physics, +8.4% on chemistry, +6.6% on general reasoning vs verifiable online RL baseline.",
+      "Maintains stable entropy fluctuations during off-policy training and achieves superior pass@k performance.",
+      "Rubric-driven framework enables dense rewards and offline guidance across 14 benchmarks spanning multiple domains."
+    ]
+  },
+  {
+    "index": 175,
+    "orid": "7MlfE2Da2W",
+    "arxiv": "2602.04208",
+    "title": "SCALE: Self-uncertainty Conditioned Adaptive Looking and Execution for Vision-Language-Action Models",
+    "current_claims": [
+      "SCALE improves state-of-the-art Vision-Language-Action models while maintaining single-pass efficiency without additional training, verifiers, or multiple forward passes.",
+      "Joint modulation of visual perception and action based on self-uncertainty enables adaptive execution across varying conditions."
+    ]
+  },
+  {
+    "index": 176,
+    "orid": "ATpOQt9VVd",
+    "arxiv": "2602.02112",
+    "title": "Unifying Masked Diffusion Models with Various Generation Orders and Beyond",
+    "current_claims": [
+      "OeMDM unifies masked diffusion models, autoregressive models, and block diffusion in a single framework by interpreting various generation orders.",
+      "LoMDM jointly learns generation ordering and diffusion backbone through a single objective, enabling context-dependent ordering and outperforming discrete diffusion models."
+    ]
+  },
+  {
+    "index": 177,
+    "orid": "GyRMbsYFiG",
+    "arxiv": "2602.05508",
+    "title": "VGGT-Motion: Motion-Aware Calibration-Free Monocular SLAM for Long-Range Consistency",
+    "current_claims": [
+      "VGGT-Motion achieves state-of-the-art performance in zero-shot, long-range calibration-free monocular SLAM.",
+      "Motion-aware submap construction and anchor-driven direct Sim(3) registration enable efficient and robust global consistency over kilometer-scale trajectories.",
+      "Markedly improves trajectory accuracy and efficiency with linear complexity in submap-level pose graph optimization."
+    ]
+  },
+  {
+    "index": 178,
+    "orid": "ncRRCG4BfP",
+    "arxiv": "2603.14392",
+    "title": "WestWorld: A Knowledge-Encoded Scalable Trajectory World Model for Diverse Robotic Systems",
+    "current_claims": [
+      "WestWorld achieves significant improvements over competitive baselines in zero- and few-shot trajectory prediction",
+      "The model demonstrates strong scalability across diverse robotic environments and improves performance on downstream model-based control for different robots"
+    ]
+  },
+  {
+    "index": 179,
+    "orid": "fSnxuRhWoC",
+    "arxiv": "2605.00503",
+    "title": "End-to-End Autoregressive Image Generation with 1D Semantic Tokenizer",
+    "current_claims": [
+      "End-to-end autoregressive model achieves state-of-the-art FID score of 1.48 without guidance on ImageNet 256\u00d7256"
+    ]
+  },
+  {
+    "index": 180,
+    "orid": "Mkal0hTCnh",
+    "arxiv": "2601.22859",
+    "title": "MEnvAgent: Scalable Polyglot Environment Construction for Verifiable Software Engineering",
+    "current_claims": [
+      "MEnvAgent improves Fail-to-Pass rates by 8.6% while reducing time costs by 43% compared to baselines.",
+      "MEnvData-SWE is the largest open-source polyglot dataset with 1,000 tasks across 10 languages with realistic verifiable Docker environments."
+    ]
+  },
+  {
+    "index": 181,
+    "orid": "OyPE1ganBR",
+    "arxiv": "2605.00553",
+    "title": "Stable-GFlowNet: Toward Diverse and Robust LLM Red-Teaming via Contrastive Trajectory Balance",
+    "current_claims": [
+      "Stable-GFlowNet provides more stable training compared to GFN while maintaining optimal policy",
+      "Demonstrates overwhelming attack performance and diversity in red-teaming activities"
+    ]
+  },
+  {
+    "index": 182,
+    "orid": "WJcFtJriqv",
+    "arxiv": "2604.18518",
+    "title": "UDM-GRPO: Stable and Efficient Group Relative Policy Optimization for Uniform Discrete Diffusion Models",
+    "current_claims": [
+      "GenEval accuracy improves from 69% to 96% and PickScore increases from 20.46 to 23.81 in T2I tasks.",
+      "OCR benchmark accuracy improves from 4% to 57%, achieving state-of-the-art performance in both continuous and discrete diffusion settings."
+    ]
+  },
+  {
+    "index": 183,
+    "orid": "8VVbElV06v",
+    "arxiv": "2512.21675",
+    "title": "UniPercept: Towards Unified Perceptual-Level Image Understanding across Aesthetics, Quality, Structure, and Texture",
+    "current_claims": [
+      "UniPercept outperforms existing MLLMs on perceptual-level image understanding across aesthetics, quality, structure, and texture.",
+      "Can serve as plug-and-play reward model for text-to-image generation improving image quality."
+    ]
+  },
+  {
+    "index": 184,
+    "orid": "ymHDVBwmta",
+    "arxiv": "2605.00539",
+    "title": "AGoQ: Activation and Gradient Quantization for Memory-Efficient Distributed Training of LLMs",
+    "current_claims": [
+      "AGoQ reduces memory by up to 52% and achieves up to 1.34x improvement in training speed on 8B-32B LLaMA models compared to Megatron-LM, COAT, and DeepSpeed.",
+      "Layer-aware activation quantization allocates bit-widths for activations achieving near 4-bit activation storage.",
+      "Gradient quantization with 8-bit storage and precision-preserving 8-bit All-Reduce communication reduces memory and communication time."
+    ]
+  },
+  {
+    "index": 185,
+    "orid": "75AYDsndHP",
+    "arxiv": "2606.27361",
+    "title": "Autoregressive Boltzmann Generators",
+    "current_claims": [
+      "ArBG leads to significant improvements over flow-based models across all benchmarks, particularly in larger peptide systems such as 10-residue Chignolin.",
+      "Robin 132M parameter model reduces zero-shot energy error by ~60% on 8-residue systems compared to previous state-of-the-art."
+    ]
+  },
+  {
+    "index": 186,
+    "orid": "MqzZ9X6m7f",
+    "arxiv": "2601.21632",
+    "title": "Position: Sustainable Open-Source AI Requires Tracking the Cumulative Footprint of Derivatives",
+    "current_claims": [
+      "Data and Impact Accounting (DIA) standardizes carbon-and-water reporting metadata for AI model derivatives",
+      "Tracking impacts across model lineages reveals aggregate ecosystem footprint currently invisible in open-source AI"
+    ]
+  },
+  {
+    "index": 187,
+    "orid": "76XSBLdBdg",
+    "arxiv": "2602.11072",
+    "title": "Simultaneous Speech-to-Speech Translation Without Aligned Data",
+    "current_claims": [
+      "Hibiki-Zero achieves state-of-the-art translation accuracy, latency, voice transfer and naturalness across five X-to-English simultaneous speech translation tasks",
+      "Accomplishes this without word-level alignments between source and target speech, using only sentence-level aligned data"
+    ]
+  },
+  {
+    "index": 188,
+    "orid": "9wpwfSJCp9",
+    "arxiv": "2602.23605",
+    "title": "SleepLM: Natural-Language Intelligence for Human Sleep",
+    "current_claims": [
+      "SleepLM outperforms state-of-the-art in zero-shot and few-shot learning, cross-modal retrieval, and sleep captioning.",
+      "Introduces sleep-text dataset comprising over 100K hours of data from more than 10,000 individuals."
+    ]
+  },
+  {
+    "index": 189,
+    "orid": "gc7Gg18ejz",
+    "arxiv": "2602.19373",
+    "title": "Stable Deep Reinforcement Learning via Isotropic Gaussian Representations",
+    "current_claims": [
+      "Isotropic Gaussian embeddings improve performance under non-stationarity while reducing representation collapse and neuron dormancy",
+      "Sketched Isotropic Gaussian Regularization is simple and computationally inexpensive method for improving training stability",
+      "Isotropic Gaussian embeddings induce stable tracking of time-varying targets and achieve maximal entropy under fixed variance budget"
+    ]
+  },
+  {
+    "index": 190,
+    "orid": "XztRm216YS",
+    "arxiv": "2509.26627",
+    "title": "TimeRewarder: Learning Dense Reward from Passive Videos via Frame-wise Temporal Distance",
+    "current_claims": [
+      "TimeRewarder achieves nearly perfect success in 9/10 Meta-World tasks with only 200,000 interactions per task.",
+      "TimeRewarder outperforms previous methods and manually designed environment dense reward on both success rate and sample efficiency."
+    ]
+  },
+  {
+    "index": 191,
+    "orid": "gz7hVnrRWq",
+    "arxiv": "2506.03106",
+    "title": "Advancing LLM Reasoning with Natural Language and Numerical Feedback",
+    "current_claims": [
+      "Critique-GRPO achieves average Pass@1 improvements of +15.0-21.6% on various Qwen models and +7.3% on Llama-3.2-3B-Instruct through combined natural language and numerical feedback",
+      "Critique-GRPO facilitates effective self-improvement through self-critiquing, achieving +16.7% Pass@1 improvement on AIME 2024"
+    ]
+  },
+  {
+    "index": 192,
+    "orid": "z1bSFIEexL",
+    "arxiv": "2602.17186",
+    "title": "Focusing Where Vision Matters: Selective Training for Large Vision Language Models via Visual Information Gain",
+    "current_claims": [
+      "Visual Information Gain (VIG) metric measures reduction in prediction uncertainty provided by visual input.",
+      "VIG-guided selective training improves visual grounding and mitigates language bias while requiring significantly reduced supervision.",
+      "The method focuses exclusively on visually informative samples and tokens to achieve superior performance."
+    ]
+  },
+  {
+    "index": 193,
+    "orid": "bYDjZyqKxq",
+    "arxiv": "2603.09022",
+    "title": "MEMO: Memory-Augmented Model Context Optimization for Robust Multi-Turn Multi-Agent LLM Games",
+    "current_claims": [
+      "MEMO raises mean win rate from 24.9% to 49.5% for GPT-4o-mini and from 21.7% to 44.3% for Qwen-2.5-7B using 2000 self-play games per task.",
+      "Reduces run-to-run dispersion of end-to-end outcomes and yields more reliable rankings under prompt stratification.",
+      "Achieves gains in negotiation games and imperfect-information settings while RL remains more effective in perfect-information games."
+    ]
+  },
+  {
+    "index": 194,
+    "orid": "qiZDlnvWTR",
+    "arxiv": "2602.06694",
+    "title": "NanoQuant: Efficient Sub-1-bit Quantization of Large Language Models",
+    "current_claims": [
+      "NanoQuant is the first post-training quantization method to compress LLMs to binary and sub-1-bit levels.",
+      "Compresses Llama2-70B by 25.8x in 13 hours on a single H100, enabling operation on consumer 8GB GPU.",
+      "Achieves state-of-the-art accuracy at sub-1-bit compression rates, establishing new Pareto frontier in low-memory quantization."
+    ]
+  },
+  {
+    "index": 195,
+    "orid": "XQlUqVCHJd",
+    "arxiv": "2603.06687",
+    "title": "TimeSpot: Benchmarking Geo-Temporal Understanding in Vision\u2013Language Models in Real-World Settings",
+    "current_claims": [
+      "TimeSpot benchmark contains 1,455 ground-level images from 80 countries requiring geo-temporal reasoning",
+      "State-of-the-art VLMs show consistently low performance, particularly for temporal inference tasks",
+      "Includes spatial-temporal reasoning tasks probing physical plausibility and cue integration"
+    ]
+  },
+  {
+    "index": 196,
+    "orid": "HwXyyvK7ZJ",
+    "arxiv": "2603.06148",
+    "title": "VLM-RobustBench: A Comprehensive Benchmark for Robustness of Vision-Language Models",
+    "current_claims": [
+      "VLM-RobustBench spans 133 corrupted settings across 49 augmentation types with graded severities evaluating four VLM families",
+      "Visual severity is weak predictor of difficulty; low-severity glass_blur reduces MMBench accuracy by ~8pp while geometric distortions reach 34pp",
+      "Current VLMs are semantically strong but spatially fragile with resampling and geometric invariances key vulnerability"
+    ]
+  },
+  {
+    "index": 197,
+    "orid": "5kTn1c3vtt",
+    "arxiv": "2601.08393",
+    "title": "Controlled LLM Training on Spectral Sphere",
+    "current_claims": [
+      "SSO consistently outperforms AdamW and Muon across diverse architectures including Dense 1.7B, MoE 8B-A1B, and 200-layer DeepNet models.",
+      "SSO enforces strict module-wise spectral constraints on both weights and updates, realizing fully \u03bcP-aligned optimization.",
+      "Improved MoE router load balancing, suppressed outliers, and strictly bounded activations observed."
+    ]
+  },
+  {
+    "index": 198,
+    "orid": "ldCiNVFt8O",
+    "arxiv": "2509.21474",
+    "title": "d2: Improved Techniques for Training Reasoning Diffusion Language Models",
+    "current_claims": [
+      "d2 sets new state-of-the-art performance for DLMs on logical reasoning tasks (Countdown and Sudoku) and math reasoning benchmarks (GSM8K and MATH500)",
+      "d2 significantly outperforms widely-used RL baselines when applied to popular diffusion language models"
+    ]
+  },
+  {
+    "index": 199,
+    "orid": "QrC8OgQyOI",
+    "arxiv": "2602.01842",
+    "title": "Efficient Test-Time Scaling via Hierarchical Search and Self-Verification for Discrete Diffusion Language Models",
+    "current_claims": [
+      "LLaDA-S achieves best-of-N performance with substantially fewer function evaluations across four mathematical reasoning and code generation benchmarks.",
+      "Performs efficiently across three discrete diffusion language models including LLaDA 8B and Dream 7B."
+    ]
+  },
+  {
+    "index": 200,
+    "orid": "r7uOjvZdzO",
+    "arxiv": "2605.20177",
+    "title": "From Seeing to Thinking: Decoupling Perception and Reasoning Improves Post-Training of Vision-Language Models",
+    "current_claims": [
+      "Staged training achieves 1.5% higher reasoning accuracy with 20.8% shorter reasoning traces than merged training.",
+      "Staged-training models achieve +5.2% on WeMath and +3.7% on RealWorldQA compared to base counterpart."
+    ]
+  }
+]

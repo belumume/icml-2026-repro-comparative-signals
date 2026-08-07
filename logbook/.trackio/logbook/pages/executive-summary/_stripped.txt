@@ -1,0 +1,91 @@
+# Executive summary
+
+
+---
+<!-- trackio-cell
+{"type": "markdown", "id": "cell_f6b3114fa410", "created_at": "2026-08-03T02:04:24+00:00", "title": "Executive summary", "pinned": true, "pinned_at": "2026-08-03T02:04:24+00:00"}
+-->
+
+**The paper's practical guarantee is false, and it fails on the authors' own unmodified code.** Remark 4.8 promises the one-step estimator ensures an efficiency gain over the naive sample mean. Run their own simulation at low model noise and the opposite happens: at σ = 0.08 the estimator carries **33% more variance** than the mean it replaces, 95% CI **[−0.495, −0.185]** over 250 replications, entirely below zero, with a positive control passing at the paper's own default σ = 1.0. That is Claim 3's practical half, and it is the one result here obtained by executing their code rather than by analysing their tables.
+
+**A second claim fails on the evidence offered for it.** The paper calls its real-benchmark gains "significantly closer to the ground truth" while reporting **no interval, standard error or variance estimate on any gain**: `bootstrap` and `standard error` each occur **zero** times in the full text, and **58 of 60** recomputed gains sit under **1.0 standard error** of binomial sampling noise, with a median of 0.41 SE. Those counts are of gains **recomputed from each row's own numbers**; taking the gains exactly as printed gives 57 of 60, and the two differ only because three cells contradict their own row. Three of the 60 cells also contradict their own row, one of them flipping sign. The aggregate direction is nonetheless real (clustering to one value per benchmark-model pair, because the paper's two configs share an evaluation subset, gives **27 of 30** positive, one-sided exact binomial p = 4.2e-06; the unclustered 60-cell figure is 53/59 at p = 8.8e-11 but the cells are not independent, so it is anti-conservative), so the honest replacement is **a small systematic bias reduction detectable only in aggregate, never per-cell**.
+
+**That conclusion survives leaving the paper's tables behind entirely.** Running a one-step-style estimator on real GSM8K with open-weight models, on an auxiliary signal first verified to be informative (AUROC **0.74** and **0.80**), the mean gain is **+0.24 pp** and is reliably positive (95% CI for the mean **[+0.167, +0.312]**, z = 6.5), which is worth roughly **12% to 14% more evaluation data**. The gain is real. But a **single** evaluation run's gain spans **[−2.97, +3.63]**, more than an order of magnitude wider, so one reported number per cell cannot demonstrate it. Free-tier GPU, no paid API calls. An earlier version of this logbook mislabelled that wide interval as a confidence interval and overstated the result; the claim-4 page carries the correction in full.
+
+Separately, the curve the paper plots as its efficiency reference (its "Oracle VR") conditions on ρ₁ alone while the estimator conditions on the full triple (W₁, W₂, V); the exact bound is **349× higher at σ = 0.1** than the curve the paper plots against its own results (668× at σ = 0.08, diverging as σ → 0). That one is in the paper's favour: the method has more headroom than its own figure claims.
+
+**What does reproduce.** The mathematics is sound and none of it holds only marginally: the efficient influence function, its asymptotic normality, and the strict-variance-reduction corollary all verify under exact analytic checks (Claims 1–3), and the ranking claim survives a sweep **21× beyond the authors' own σ grid** on both metrics the claim names (Claim 5). Every problem below is about the bound the paper draws around the estimator and the evidence it offers, not about the estimator's mathematics.
+
+**Paper** [arXiv:2602.03061](https://arxiv.org/abs/2602.03061) · [OpenReview](https://openreview.net/forum?id=nOQOjKYwTM) · **Authors' code** [https://github.com/zihandong02/AI_evaluation](https://github.com/zihandong02/AI_evaluation) · **Harness** [huggingface.co/spaces/ICML-2026-agent-repro/challenge](https://huggingface.co/spaces/ICML-2026-agent-repro/challenge)
+
+### Verdicts
+
+| # | Anchored claim | Verdict |
+| --- | --- | --- |
+| 1 | Prop 3.3, efficient influence function | **verified** |
+| 2 | Thm 4.5, asymptotic normality, efficiency bound | **verified** |
+| 3 | Cor 4.7, strict variance reduction | **verified** (asymptotic); Remark 4.8's practical upgrade **contradicted**: variance **increases** at σ = 0.08 |
+| 4 | Real-benchmark gains over naive | **falsified as stated** |
+| 5 | Ranking gap widens with model noise | **verified**, stress-tested 21× beyond the paper's grid |
+
+### Scope & cost
+
+| Item | Value |
+| --- | --- |
+| GPU / compute | Simulation study: CPU only, 16 logical cores, `torch 2.7.0+cpu`. Real-data run: one Tesla T4 on Kaggle's free tier, 1,343 s |
+| Paid API calls | **Zero.** Tables 1–3 need live GPT-5.2/Claude/Gemini calls and were **not** re-run. The real-data check instead uses open-weight Qwen2.5 models, so the entire logbook costs nothing to reproduce |
+| Wall clock | ~1.5 h CPU (main σ sweep 1,220 s) + 22 min GPU |
+| Cost estimate | ≈ $0 (free-tier GPU, no inference spend, no paid API) |
+| Trials run | 360 full pipeline trials (R=40 × 9 σ) + 1,250 high-precision low-σ trials + ~10⁷ analytic draws + 2,000 GSM8K generations with 2,000 bootstrap resamples per model |
+| Feasibility | Full reproduction of the simulation study. The paper's exact real-data setup is not reproducible without paid frontier-model access, so Claim 4 is attacked two ways: arithmetic on the published tables, and an independent open-weight run of the same estimator |
+
+### What a default automated run would have concluded, and what changed the verdict
+
+This logbook was produced by a coding agent under human direction. Which parts an unattended run would have gotten wrong:
+
+**A default run reproduces the paper and stops.** `python sigma_analysis.py` with shipped defaults sweeps σ ∈ [0.5, 3.0], confirms Claim 5, and terminates. Nothing in the repo prompts you to look outside that window. Every finding here came from stepping outside a default:
+
+| Finding | What it required |
+| --- | --- |
+| Exact efficiency bound (349× understated at σ = 0.1) | Noticing `config.py` uses ρ₁ while the DGP builds (W₁,W₂,V), then deriving analytically that V is a **truncation indicator** on ε. No code run surfaces this; it is a pencil result about the generator. |
+| Claim 4 noise floor | Noticing an **absence**, that no gain carries an interval, then recomputing binomial SEs from published tables. An automated check of "does the stated number match the table" marks this **verified**. |
+| Claim 4 confirmed on live data | Deciding that an argument from tables alone was not enough, then finding a route to real evidence that did not need paid frontier access: swap in open-weight models on a free GPU and bootstrap the interval the paper omits. The default move is to declare the real-data claim out of scope. |
+| Low-σ variance failure | Extending the sweep below the paper's own minimum and raising R from 40 to 250 because the first CI spanned zero. |
+
+**Three hypotheses died on contact with data, and each would have shipped a wrong headline.** This is the part worth reporting honestly:
+
+1. A delegated analysis returned a variance table concluding the Claim 5 ranking gap is **single-peaked and vanishes** at high noise. Direct computation showed it is **monotone across a 256× range**. Publishing that would have been refuted by one script.
+2. My own asymptotic argument then predicted the gap **saturates to a constant**. Half right: `z_eff → 1.491` is correct, but the gap still rises monotonically to the edge of the swept range.
+3. I computed an "exact" efficiency bound that **omitted the preference label V**, which made the estimator appear to beat its own bound, an impossibility that flagged my model, not their estimator. Reading `data_generation.py` rather than trusting my reconstruction fixed it.
+
+
+
+
+---
+<!-- trackio-cell
+{"type": "figure", "id": "cell_2e5a9314654a", "created_at": "2026-08-03T02:04:24+00:00", "title": "Reproduction poster", "pinned": true, "pinned_at": "2026-08-03T02:04:24+00:00", "poster": true}
+-->
+````html
+<figure style="margin:0">
+  <a href="https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/resolve/main/poster.png" target="_blank" rel="noopener">
+    <img src="[DATAURI]"
+         alt="Reproduction poster: four of five anchored claims verified, Claim 4 falsified as stated; 58 of 60 recomputed gains sit within one standard error of sampling noise; the plotted Oracle efficiency bound understates the estimator's own bound by 349x at sigma=0.1; at sigma=0.08 the estimator carries 33 percent more variance than the naive mean; and on live GSM8K the mean gain is +0.24 percentage points with a 95 percent confidence interval of the mean of +0.17 to +0.31, while a single evaluation run's gain spans -2.97 to +3.63"
+         style="width:100%;height:auto;border:1px solid #d0d7de;border-radius:6px" />
+  </a>
+  <figcaption style="font-size:0.85em;color:#57606a;margin-top:.5em">
+    60&nbsp;&times;&nbsp;36&nbsp;in conference poster, built with the <code>posterly</code> skill.
+    Click for full resolution (9000&nbsp;&times;&nbsp;5400&nbsp;px PNG) &middot;
+    <a href="https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/resolve/main/poster.pdf">print-ready PDF</a> &middot;
+    <a href="https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/resolve/main/poster.html">source</a> &middot;
+    <a href="https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/resolve/main/poster_gates.json">gate report</a>.
+    Hard gates all pass: <code>preflight</code>, <code>style</code>, <code>measure</code>
+    (column alignment spread 1.64&nbsp;px, target &lt;5) and <code>verify-final</code>
+    (1 page, 60.00&nbsp;&times;&nbsp;36.00&nbsp;in). <code>polish</code> is advisory and passes
+    with no warnings. The <code>asset</code> gate did not run: this poster embeds no
+    external figures, so a green result covers the gates that ran, not that one.
+    The QR was generated offline and decoded back to the OpenReview URL with two independent
+    decoders (pyzbar and OpenCV) from the rendered poster.
+  </figcaption>
+</figure>
+
+````

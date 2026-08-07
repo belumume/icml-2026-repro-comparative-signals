@@ -1,0 +1,46 @@
+# Session traces. These are full conversation transcripts including tool output, and a
+# pre-commit scan found credential-SHAPED strings (sk-ant, hf_, AIza, fc-) in them. Git
+# history is effectively permanent, so these must never enter it.
+logbook/.trackio/traces/
+logbook/.trackio/trace_dataset/
+work/trace_sanitized.jsonl
+work/session_trace.md
+
+# Vendored third-party trees. Not our work, large, and they carry their own identifiers.
+# AI_evaluation is the authors' repo and is CLONED AT A PINNED COMMIT by the kernels and
+# by the reproduce instructions, so tracking a copy would create a second source of truth.
+work/AI_evaluation/
+work/posterly/
+work/Split-Residual-Conformal-Prediction/
+
+# Build artifacts and caches.
+work/poster_build/
+.ruff_cache/
+__pycache__/
+*.pyc
+
+# Kernel outputs: re-pullable from Kaggle, and each pull drags the whole cloned tree with
+# it. The RESULTS themselves are staged into results/ by tools/stage_results.py and ARE
+# tracked, which is what reproducibility needs.
+kaggle/*/out/
+
+# Large inputs that are re-derivable or third-party.
+data/papers_full.json
+data/claims_anchored.json
+data/verdicts.json
+*.zip
+
+# Scratch
+work/audit/
+*.bak
+*.bak-*
+
+# Session artifacts carrying the operator's verbatim prompts and absolute home paths.
+# These are working notes, not project source, and a home path names the OS account.
+work/autonomy_audit.txt
+work/analysis/*.log
+work/x_candidates.md
+work/review/
+
+# Claude Code local config: hookify propagates local rule files into project subdirs.
+.claude/

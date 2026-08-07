@@ -1,0 +1,28 @@
+sigma=0.1   VR_theo(m1)=0.0003  VR_emp(m1)=-0.2176 [-0.4626,+0.0051]  VR_oracle(m1)=-10.2219  MSE n/e=0.0000/0.0000  (160.9s)
+sigma=0.2   VR_theo(m1)=0.0044  VR_emp(m1)=+0.1065 [-0.0246,+0.2173]  VR_oracle(m1)=+0.3749  MSE n/e=0.0000/0.0000  (135.7s)
+sigma=0.35  VR_theo(m1)=0.0320  VR_emp(m1)=+0.2446 [+0.0431,+0.4081]  VR_oracle(m1)=+0.7314  MSE n/e=0.0000/0.0000  (169.6s)
+sigma=0.5   VR_theo(m1)=0.0947  VR_emp(m1)=+0.5159 [+0.3652,+0.6446]  VR_oracle(m1)=+0.8306  MSE n/e=0.0002/0.0001  (131.0s)
+sigma=0.75  VR_theo(m1)=0.2500  VR_emp(m1)=+0.6476 [+0.4710,+0.7765]  VR_oracle(m1)=+0.8732  MSE n/e=0.0009/0.0003  (132.1s)
+sigma=1.0   VR_theo(m1)=0.4096  VR_emp(m1)=+0.7140 [+0.5587,+0.8221]  VR_oracle(m1)=+0.8848  MSE n/e=0.0030/0.0009  (122.5s)
+sigma=1.5   VR_theo(m1)=0.6400  VR_emp(m1)=+0.8323 [+0.7233,+0.9060]  VR_oracle(m1)=+0.9589  MSE n/e=0.0149/0.0025  (125.3s)
+sigma=2.0   VR_theo(m1)=0.7686  VR_emp(m1)=+0.9002 [+0.8351,+0.9434]  VR_oracle(m1)=+0.9666  MSE n/e=0.0472/0.0047  (120.3s)
+sigma=3.0   VR_theo(m1)=0.8858  VR_emp(m1)=+0.9526 [+0.9215,+0.9724]  VR_oracle(m1)=+0.9832  MSE n/e=0.2390/0.0113  (122.1s)
+
+total 1219.6s -> C:/Users/<user>\DEV\icml-repro\work\analysis\vr_sweep_results.json
+
+========================================================================
+POSITIVE CONTROL: at the paper's default sigma=1.0, empirical VR must
+track the theoretical 0.4096. If it does not, the HARNESS is wrong.
+========================================================================
+  theoretical=0.4096  empirical=0.7140  CI95=[0.5586541014860823, 0.8221364371757243]
+
+CLAIM 3 OPERATIONAL TEST (strict variance reduction, sigma^2_eff < sigma^2_naive):
+  sigma=0.1   VR_emp=-0.2176 CI=[-0.4626,+0.0051] -> INDISTINGUISHABLE from 0
+  sigma=0.2   VR_emp=+0.1065 CI=[-0.0246,+0.2173] -> INDISTINGUISHABLE from 0
+  sigma=0.35  VR_emp=+0.2446 CI=[+0.0431,+0.4081] -> REDUCES
+  sigma=0.5   VR_emp=+0.5159 CI=[+0.3652,+0.6446] -> REDUCES
+  sigma=0.75  VR_emp=+0.6476 CI=[+0.4710,+0.7765] -> REDUCES
+  sigma=1.0   VR_emp=+0.7140 CI=[+0.5587,+0.8221] -> REDUCES
+  sigma=1.5   VR_emp=+0.8323 CI=[+0.7233,+0.9060] -> REDUCES
+  sigma=2.0   VR_emp=+0.9002 CI=[+0.8351,+0.9434] -> REDUCES
+  sigma=3.0   VR_emp=+0.9526 CI=[+0.9215,+0.9724] -> REDUCES

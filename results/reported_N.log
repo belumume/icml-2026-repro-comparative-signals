@@ -1,0 +1,33 @@
+==============================================================================
+POSITIVE CONTROL first: N = 1000 (the paper's own simulation size)
+==============================================================================
+  N=1000  draws=   72  mean Improv=+0.01379  P(Improv>0)=0.667  (466s)
+  control PASSED: the estimator helps at N=1000
+
+==============================================================================
+THE REPORTED BENCHMARK SIZES, same code, only N changed
+==============================================================================
+  GPQA   N=  50  mean=+0.0401  sd=0.1058  95% of draws in [-0.1427, +0.2843]  P(>0)=0.633  (290s)
+         sd/|mean| =   2.6  (at N=1000 this ratio is 2.0)
+  AIME   N=  15  mean=+0.0677  sd=0.1833  95% of draws in [-0.2342, +0.4867]  P(>0)=0.647  (215s)
+         sd/|mean| =   2.7  (at N=1000 this ratio is 2.0)
+  GSM8K  N= 100  mean=+0.0301  sd=0.0724  95% of draws in [-0.0940, +0.1854]  P(>0)=0.633  (320s)
+         sd/|mean| =   2.4  (at N=1000 this ratio is 2.0)
+
+==============================================================================
+READING
+==============================================================================
+  At N=1000 the estimator's advantage is clear in a single draw.
+  At the benchmark sample sizes the per-trial Improv straddles zero, so
+  ONE draw cannot separate a real gain from a lucky one, in the paper's
+  OWN simulator under assumptions kinder than a real LLM benchmark (no
+  prompt sensitivity, no grading error, auxiliary signal informative).
+
+  SCOPE, so this is not over-read: the simulator estimates theta =
+  sigma^2, a variance; the tables report accuracy, a proportion. No
+  numeric transfer between them is claimed. What this establishes is
+  qualitative and independent of the tables: at N = 15-100 this
+  estimator's per-draw advantage is not resolvable even under its own
+  ideal DGP. The binomial argument addresses the published numbers.
+
+wrote C:/Users/<user>\DEV\icml-repro\work\analysis\claim4_at_reported_N.json

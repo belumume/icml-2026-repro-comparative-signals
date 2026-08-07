@@ -1,0 +1,38 @@
+[{"stream_name":"stdout","time":2.113701291,"data":"authors' code at aa03c3064e532a13dc65e0d58aa62a1a5402260f, tree clean, NO PATCHES\n"}
+,{"stream_name":"stdout","time":7.891784209,"data":"preflight: {\"torch\": \"2.10.0+cpu\", \"cpu_count\": 4}\n"}
+,{"stream_name":"stdout","time":7.891821617,"data":"\n"}
+,{"stream_name":"stdout","time":7.891826261,"data":"R=100 per replicate, 4 workers, unmodified estimator\n"}
+,{"stream_name":"stdout","time":7.891829938,"data":"\n"}
+,{"stream_name":"stdout","time":983.126535625,"data":"  sigma=0.08  rep 1/10: VR=-0.1336 CI [-0.373,+0.072] width=0.444\n"}
+,{"stream_name":"stdout","time":1934.352278324,"data":"  sigma=0.08  rep 2/10: VR=-0.2364 CI [-0.414,-0.084] width=0.330\n"}
+,{"stream_name":"stdout","time":2905.369183454,"data":"  sigma=0.08  rep 3/10: VR=-0.1227 CI [-0.313,+0.052] width=0.366\n"}
+,{"stream_name":"stdout","time":3882.393565452,"data":"  sigma=0.08  rep 4/10: VR=-0.2565 CI [-0.539,-0.030] width=0.509\n"}
+,{"stream_name":"stdout","time":4872.326792032,"data":"  sigma=0.08  rep 5/10: VR=-0.2281 CI [-0.483,-0.020] width=0.462\n"}
+,{"stream_name":"stdout","time":5876.726270408,"data":"  sigma=0.08  rep 6/10: VR=-0.1634 CI [-0.377,+0.011] width=0.388\n"}
+,{"stream_name":"stdout","time":6871.465213319,"data":"  sigma=0.08  rep 7/10: VR=-0.1370 CI [-0.332,+0.023] width=0.355\n"}
+,{"stream_name":"stdout","time":7872.033118148,"data":"  sigma=0.08  rep 8/10: VR=-0.1645 CI [-0.375,-0.001] width=0.374\n"}
+,{"stream_name":"stdout","time":8875.042533923,"data":"  sigma=0.08  rep 9/10: VR=-0.1912 CI [-0.363,-0.038] width=0.325\n"}
+,{"stream_name":"stdout","time":9864.933622718,"data":"  sigma=0.08  rep 10/10: VR=-0.2013 CI [-0.419,-0.027] width=0.392\n"}
+,{"stream_name":"stdout","time":9864.934345044,"data":"    -\u003e across-replicate SD 0.0467, range [-0.2565, -0.1227], 10/10 negative\n"}
+,{"stream_name":"stdout","time":9864.934387431,"data":"    -\u003e mean within-replicate CI width 0.3945 vs 0.1830 implied by the spread (understatement factor 0.46x)\n"}
+,{"stream_name":"stdout","time":10855.12686181,"data":"  sigma=1.0   rep 1/4: VR=+0.6976 CI [+0.595,+0.772] width=0.177\n"}
+,{"stream_name":"stdout","time":11840.045582584,"data":"  sigma=1.0   rep 2/4: VR=+0.6998 CI [+0.593,+0.780] width=0.187\n"}
+,{"stream_name":"stdout","time":12828.99399807,"data":"  sigma=1.0   rep 3/4: VR=+0.6902 CI [+0.586,+0.765] width=0.179\n"}
+,{"stream_name":"stdout","time":13803.75461798,"data":"  sigma=1.0   rep 4/4: VR=+0.6948 CI [+0.590,+0.771] width=0.181\n"}
+,{"stream_name":"stdout","time":13803.754973419,"data":"    -\u003e across-replicate SD 0.0041, range [+0.6902, +0.6998], 0/4 negative\n"}
+,{"stream_name":"stdout","time":13803.754990565,"data":"    -\u003e mean within-replicate CI width 0.1812 vs 0.0163 implied by the spread (understatement factor 0.09x)\n"}
+,{"stream_name":"stdout","time":13803.755547046,"data":"\n"}
+,{"stream_name":"stdout","time":13803.755562324,"data":"READING GUIDE\n"}
+,{"stream_name":"stdout","time":13803.755567892,"data":"  sigma=1.0 is the control: if IT scatters too, the instability is in the harness\n"}
+,{"stream_name":"stdout","time":13803.755573251,"data":"  and the low-sigma reading below is wrong. Check that arm first.\n"}
+,{"stream_name":"stdout","time":13803.755578176,"data":"  understatement_factor \u003e\u003e 1 at sigma=0.08 means the published bootstrap interval\n"}
+,{"stream_name":"stdout","time":13803.755584016,"data":"  does not represent rerun-to-rerun uncertainty, and the headline must be restated.\n"}
+,{"stream_name":"stdout","time":13803.756005575,"data":"\n"}
+,{"stream_name":"stdout","time":13803.75601849,"data":"wrote /kaggle/working/vr_stability_results.json (13795.9s)\n"}
+,{"stream_name":"stderr","time":13808.459126861,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":13808.459235487,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":13808.775069251,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":13808.775128693,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":13809.548680678,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":13811.209386571,"data":"[NbConvertApp] Writing 309285 bytes to __results__.html\n"}
+]
