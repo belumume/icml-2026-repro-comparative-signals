@@ -50,6 +50,7 @@ is ever edited away from what the data supports, this script fails and says so.
 import json
 import math
 import os
+import statistics
 import sys
 from collections import defaultdict
 
@@ -281,6 +282,54 @@ def main():
             )
 
     print()
+    # ---- Cross-run reproducibility of the sigma=0.08 variance ratio ---------
+    # These figures were prose-only until 2026-08-08 and therefore ungated: the page
+    # asserted an across-run SD and a conservatism factor that nothing recomputed. A
+    # second independent run at the identical nominal configuration then disagreed with
+    # the first, which is precisely the class of drift a gate exists to catch, so the
+    # numbers are now derived here from the published JSON rather than typed.
+    stab = load("vr_stability_results.json")
+    nsw = load("vr_nsweep_r100_results.json")
+    # NOT `if stab and nsw:`. A missing input would silently drop every check below and
+    # still print "all N checks pass", which is the exact shape of a gate that certifies
+    # nothing. An absent input is a failure of this verifier, not an absence of findings.
+    if not stab or not nsw:
+        check("cross-run inputs present (vr_stability / vr_nsweep_r100)", False, True)
+    else:
+        arm = next(a for a in stab["arms"] if abs(a["sigma"] - 0.08) < 1e-9)
+        sv = [r["vr"] for r in arm["replicates"]]
+        row = next(r for r in nsw["rows"] if r["N"] == 1000)
+        nv = row["vr_all"]
+
+        check("stability replicates at sigma=0.08", len(sv), 10)
+        check("separate-run replicates at sigma=0.08", len(nv), 3)
+        check(
+            "every replicate negative, both runs", sum(1 for v in sv + nv if v < 0), 13
+        )
+
+        # the two runs must genuinely not overlap; if a later run makes them overlap,
+        # the page's "do not overlap" sentence is wrong and this fails rather than drifts
+        check("the two runs' ranges do not overlap", max(sv) < min(nv), True)
+
+        pooled_sd = statistics.stdev(sv + nv)
+        check("pooled across-run SD", pooled_sd, 0.0654, tol=5e-4)
+        check("pooled mean", statistics.mean(sv + nv), -0.1572, tol=5e-4)
+        check(
+            "pooled conservatism factor (within-CI width / pooled spread)",
+            arm["mean_within_ci_width"] / (3.92 * pooled_sd),
+            1.5,
+            tol=0.05,
+        )
+
+        # the sweep this run was built for is discarded by its own pre-registered
+        # control; assert the control really did fail, so the page cannot quietly
+        # start citing rows the control refused
+        check(
+            "the N-sweep control FAILED, so its rows are discarded",
+            nsw["control_ok"],
+            False,
+        )
+
     if _fails:
         print(f"{len(_fails)} of {_checks} checks FAILED: {_fails}")
         return 1
