@@ -103,11 +103,15 @@ def _no_overclaim():
 def _operator_identifier():
     """The account name to scan for, DERIVED at runtime and never written down here.
 
-    This function used to be `"OPERATOR" in p.read_text(...)`. That is the denylist paradox: a
-    check whose job is keeping an identifier off the public surface has to name the
-    identifier, so the check becomes the leak. This repository is public, so the literal
-    was on GitHub -- and in the initial commit's history -- inside the very function that
-    existed to prevent exactly that.
+    This function used to compare against the account name written as a string literal.
+    That is the denylist paradox: a check whose job is keeping an identifier off the
+    public surface has to name the identifier, so the check becomes the leak. This
+    repository is public, so the literal was on GitHub, and in the initial commit's
+    history, inside the very function that existed to prevent exactly that.
+
+    Do not "clarify" this by quoting the old line. Writing the literal into the comment
+    that explains its removal republishes it, which is what happened on the first attempt
+    at this fix, one commit before this one.
 
     Deriving it means the tool is publishable and still works for whoever runs it.
     """
