@@ -10,16 +10,16 @@
 # recorded in the `env` block of that JSON, not restated here, so they cannot
 # drift from the run that produced them. See "The live GSM8K run" in README.md.
 #
-# torch: the pinned build is 2.7.0+cpu. On Linux, plain `pip install torch==2.7.0`
+# torch: the pinned build is 2.7.0+cpu. On Linux, plain `pip install torch==2.13.0`
 # from PyPI pulls the CUDA build; to get the same +cpu build used here, install
 # with the CPU wheel index:
-#   pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
+#   pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
 # On Windows the PyPI wheel is already the CPU build.
 
 numpy==2.2.2
 scipy==1.15.2
 joblib==1.4.2
-torch==2.7.0
+torch==2.13.0
 
 # scikit-learn 1.6.1 was present in the verified environment but is NOT imported
 # by any script in analysis/ nor by the authors' simulation/ package (re-checked
