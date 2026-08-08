@@ -831,11 +831,11 @@ evidence the kernel produced nothing. Check the file COUNT against a known-good 
 <!-- machine-written by handoff-precompact-snapshot.py; facts only, no prose -->
 ## COMPACTION BOUNDARY 2026-08-08T01:43:13Z (trigger: auto)
 
-Stamped automatically at the moment of compaction, because everything above this line that was not already written survives only as a paraphrase from here on. Branch `main` at `55a806b`.
+Stamped automatically at the moment of compaction, because everything above this line that was not already written survives only as a paraphrase from here on. Branch `main` at `6e104dd`.
 
 **1 commit(s) landed after this file was last written, so they are NOT described above.** Read them before trusting any narrative here:
 
-- `55a806b` Sigma vs decoding temperature: the low-noise regime is the default protocol (#4)
+- `6e104dd` Sigma vs decoding temperature: the low-noise regime is the default protocol (#4)
 
 **Uncommitted at the boundary** (1 path(s)) — work in flight, easiest to lose:
 
@@ -848,4 +848,63 @@ record of a moment rather than a description of the tree. `POST-COMPACT.md` was 
 renamed to `STATE-OF-PLAY.md` and reframed in the same pass: a file addressed to "a fresh
 session" is agent-process vocabulary, and this repository is read by people reproducing a paper.
 The substance moved across unchanged. The public-post guard is what caught it.
+
+**That reframe was the wrong fix, and the operator caught it in one question.** Rewriting the
+vocabulary made the file read as publishable; it did not make it belong here. A working note for
+resuming between context windows is a local artifact. It is now untracked and gitignored, and
+lives only on disk. The lesson is the one this corpus keeps relearning: when a guard fires on
+wording, check whether the wording is the defect or the symptom.
+
+## Identifier removed from the published tree AND from history (2026-08-08)
+
+`tools/check_findings_closed.py` contained a check that tested for the operator's OS account name
+by comparing against that name written as a string literal. The function whose job was keeping the
+name off the published tree therefore contained it, in a public repository, since the initial
+commit. A denylist has to name what it blocks, which makes it an inventory of what it hides.
+
+Then the first fix removed the literal from the comparison and wrote it into the docstring
+explaining the removal, republishing it one line lower. A guard had blocked that exact move in the
+pull request description minutes earlier; nothing scans file contents, so it landed.
+
+The check now derives the name at runtime and fails closed when it cannot, because a scan for an
+empty string is not a measurement. Driven both directions rather than confirming it went green:
+a planted hit yields `OPEN — 1 hit`, removing it yields `CLOSED — 0 hits`.
+
+**History was then rewritten**, because the literal remained in three commits. This was executed
+under the standing grant rather than handed back, with all four of its conditions satisfied and
+recorded here so the decision is auditable:
+
+| condition | evidence |
+|---|---|
+| verified backup | `git bundle create --all` then `git bundle verify` — "records a complete history", 2,877,635 bytes |
+| proven on a scratch clone first | 11 commits and 197 files preserved, 3 identifier commits went to 0, rewritten file still parses |
+| blast radius measured, not assumed | 993 SHA-shaped tokens in the tracked tree, exactly **1** resolved to a commit here: the pre-rewrite SHA cited in this file, since updated to `6e104dd`. That old SHA is deliberately not repeated here, because a retired commit id in a durable document is indistinguishable from a fabricated one to anyone who follows it |
+| verified from the REMOTE, not the exit code | fresh clone: 197 files, 0 identifier commits, and a full walk of all 241 objects found it in **0** blobs |
+
+Re-derive the last row with:
+
+```
+git clone <remote> /tmp/verify && cd /tmp/verify
+git rev-list --all --objects | awk '{print $1}' | sort -u \
+  | while read o; do [ "$(git cat-file -t $o)" = blob ] && git cat-file -p $o | grep -qi <name> && echo HIT $o; done
+```
+
+**Premise this proved wrong.** The blast-radius step was expected to be a formality. It was not:
+it found the one live reference in the corpus, in this file, and without it a rewrite would have
+left a dangling commit pointer in the handoff that describes the repository. The condition earned
+its place on the checklist rather than merely satisfying it.
+
+## Sync check no longer reports a failed lookup as a zero (2026-08-08)
+
+`check_all_surfaces_synced.py` reported `7 local, 0 on Kaggle` and named six published kernels as
+missing while one was still running. It ran `sys.executable -m kaggle`; `python` resolved to a
+virtualenv without the CLI; the subprocess died and empty output was counted as a listing. Nothing
+errored.
+
+A verdict identical across every item is evidence about the instrument before it is evidence about
+the world. It now resolves an interpreter and returns a distinct could-not-list verdict.
+`tools/test_kernels_check.py` drives both branches and caught that the first version of the fix
+crashed on a nonexistent interpreter instead of falling through to the next candidate.
+
+Re-derive: `python tools/test_kernels_check.py` (6/6), `python tools/check_all_surfaces_synced.py`.
 
