@@ -927,22 +927,27 @@ count rather than the 194 of the truncated pull, and the results JSON was presen
 every sweep row is discarded per the pre-registered rule and none reached the page. The rows are
 kept in `results/vr_nsweep_r100_results.json` as the record of a failed control, not as findings.
 
-**The control arm is the finding.** It disagrees with our own stability run at the identical
-nominal configuration — same σ, N, R, pinned upstream commit, torch build and core count:
+**WITHDRAWN THE SAME DAY, and the retraction is the more useful entry.** The paragraph that stood
+here read the sweep's `vr_all` as three replicates at σ = 0.08 and reported 13/13 negative, a pooled
+SD of 0.0654, a pooled mean of −0.1572, a conservatism factor cut to 1.5, and a 4.2-standard-error
+gap. **The array's axis is σ, not replicate.** The kernel sets `GAP = 0.05` and `L = 3`, so its
+entries are σ = 0.08, 0.13 and 0.18, and the stability kernel selects column 0 explicitly
+(`eif[:, 0]`) while the sweep does not. Two of the three values pooled as replicates were
+measurements at different noise levels. Every figure in that list is withdrawn.
 
-| run | replicates | VR range | SD | negative |
-|---|---|---|---|---|
-| stability | 10 | −0.2565 to −0.1227 | 0.0467 | 10/10 |
-| this rerun | 3 | −0.1031 to −0.0445 | 0.0302 | 3/3 |
+**What holds is weaker.** One further independent measurement at σ = 0.08, N = 1000, R = 100 gave
+**−0.0616**. It sits outside the ten-replicate range at 2.6 SD from their mean, which is worth
+noting and is NOT significant alone: a single fresh draw landing at the extreme of eleven has
+probability about 1 in 11 under exchangeability. Sign is 11/11. The conservatism finding still rests
+on the ten replicates and one draw does not materially revise it.
 
-Ranges do not overlap; the means differ by about 4.2 standard errors.
+**The gates added with the wrong analysis asserted the wrong quantities and PASSED**, because they
+were derived from the same misreading as the prose they checked. A verifier written from the claim
+it verifies agrees with itself and with nothing else, which is the whole failure in one sentence.
+They now take the comparable value BY INDEX and assert the axis mapping first, so a change to `L` or
+`GAP` fails loudly rather than silently comparing different noise levels.
 
-- **Sign strengthens:** 13/13 negative across two independent runs, up from 10/10.
-- **Our own conservatism claim weakens:** the "factor of about 2" came from replicates inside a
-  SINGLE run, a narrower notion of rerun than a reader assumes. Pooled SD 0.0467 → 0.0654, factor
-  → about 1.5. Still conservative; roughly a third of the claimed margin.
-
-Re-derive: `python code_publish/verify_headlines.py` (44 checks).
+Re-derive: `python code_publish/verify_headlines.py` (45 checks).
 
 **Why it drifted unnoticed, which is the transferable part.** These figures were prose-only and
 ungated, so nothing recomputed them and a second run could contradict them in silence. They are now
