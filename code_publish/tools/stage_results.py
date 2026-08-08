@@ -57,6 +57,7 @@ SOURCE_GLOBS = [
     (ROOT / "kaggle" / "vr_mechanism" / "out", ("*.json",)),
     (ROOT / "kaggle" / "vr_stability" / "out", ("*.json",)),
     (ROOT / "kaggle" / "sigma_temp" / "out", ("*.json",)),
+    (ROOT / "kaggle" / "vr_nsweep_r100" / "out", ("*.json",)),
 ]
 
 VERIFIER = ROOT / "code_publish" / "verify_headlines.py"
