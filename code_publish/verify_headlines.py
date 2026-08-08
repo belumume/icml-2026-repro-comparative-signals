@@ -283,11 +283,19 @@ def main():
 
     print()
     # ---- Cross-run reproducibility of the sigma=0.08 variance ratio ---------
-    # These figures were prose-only until 2026-08-08 and therefore ungated: the page
-    # asserted an across-run SD and a conservatism factor that nothing recomputed. A
-    # second independent run at the identical nominal configuration then disagreed with
-    # the first, which is precisely the class of drift a gate exists to catch, so the
-    # numbers are now derived here from the published JSON rather than typed.
+    # These figures were prose-only until 2026-08-08 and therefore ungated.
+    #
+    # THE FIRST VERSION OF THIS BLOCK WAS WRONG AND PASSED. It read the sweep's `vr_all`
+    # as three replicates at sigma=0.08 and asserted 13 negatives, a pooled SD of 0.0654
+    # and a conservatism factor of 1.5. That axis is SIGMA, not replicate: the kernel sets
+    # GAP=0.05 and L=3, so the entries are sigma = 0.08, 0.13, 0.18, and the stability
+    # kernel selects column 0 explicitly (`eif[:, 0]`) while the sweep does not. Two of
+    # the three pooled values were measurements at different noise levels.
+    #
+    # The gate passed because it was written from the same misreading as the prose it
+    # checked. A verifier derived from the claim it verifies agrees with itself and with
+    # nothing else, so the only comparable quantity is taken explicitly below, by index,
+    # with the mapping asserted rather than assumed.
     stab = load("vr_stability_results.json")
     nsw = load("vr_nsweep_r100_results.json")
     # NOT `if stab and nsw:`. A missing input would silently drop every check below and
@@ -299,26 +307,38 @@ def main():
         arm = next(a for a in stab["arms"] if abs(a["sigma"] - 0.08) < 1e-9)
         sv = [r["vr"] for r in arm["replicates"]]
         row = next(r for r in nsw["rows"] if r["N"] == 1000)
-        nv = row["vr_all"]
+
+        # Assert the axis mapping rather than trusting it. If a future kernel changes L
+        # or GAP, `vr_all[0]` stops being the sigma=0.08 measurement and every comparison
+        # below becomes meaningless; this check fails first and says why.
+        check("sweep vr_all has one entry per sigma level (L=3)", len(row["vr_all"]), 3)
+        check(
+            "vr_all[0] is the comparable sigma=0.08 value (equals vr_m1)",
+            abs(row["vr_all"][0] - row["vr_m1"]) < 1e-12,
+            True,
+        )
+        comparable = row["vr_all"][0]
 
         check("stability replicates at sigma=0.08", len(sv), 10)
-        check("separate-run replicates at sigma=0.08", len(nv), 3)
+        check("further independent measurements at sigma=0.08", 1, 1)
         check(
-            "every replicate negative, both runs", sum(1 for v in sv + nv if v < 0), 13
+            "every sigma=0.08 measurement negative",
+            sum(1 for v in sv + [comparable] if v < 0),
+            11,
         )
+        check("the further measurement", comparable, -0.0616, tol=5e-4)
 
-        # the two runs must genuinely not overlap; if a later run makes them overlap,
-        # the page's "do not overlap" sentence is wrong and this fails rather than drifts
-        check("the two runs' ranges do not overlap", max(sv) < min(nv), True)
-
-        pooled_sd = statistics.stdev(sv + nv)
-        check("pooled across-run SD", pooled_sd, 0.0654, tol=5e-4)
-        check("pooled mean", statistics.mean(sv + nv), -0.1572, tol=5e-4)
+        # it falls outside the prior range: worth stating, and NOT significant alone
         check(
-            "pooled conservatism factor (within-CI width / pooled spread)",
-            arm["mean_within_ci_width"] / (3.92 * pooled_sd),
-            1.5,
-            tol=0.05,
+            "it falls outside the ten-replicate range",
+            not (min(sv) <= comparable <= max(sv)),
+            True,
+        )
+        check(
+            "its distance from the prior mean, in prior SD",
+            (comparable - statistics.mean(sv)) / statistics.stdev(sv),
+            2.61,
+            tol=0.02,
         )
 
         # the sweep this run was built for is discarded by its own pre-registered

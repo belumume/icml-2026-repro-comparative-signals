@@ -461,33 +461,37 @@ a reader would reasonably take them to mean.
 | --- | --- | --- | --- | --- |
 | 1.00 | 4 | +0.6902 to +0.6998 | 0.0041 | 0/4 |
 | 0.08 | 10 | −0.2565 to −0.1227 | 0.0467 | **10/10** |
-| 0.08, separate run | 3 | −0.1031 to −0.0445 | 0.0302 | **3/3** |
+| 0.08, separate run | 1 | −0.0616 | n/a | **1/1** |
 
 The σ = 1.0 control is nearly noiseless across reruns, so the scatter at σ = 0.08 is a
 property of that regime and not of the harness.
 
-**The third row arrived later and it is the one worth reading.** It is a separate kernel
-run at the identical nominal configuration (σ = 0.08, N = 1000, R = 100, same pinned
-upstream commit, same torch build, same core count), launched to sweep N and pre-registered
-to discard everything if its N = 1000 arm failed to bracket the −0.3300 this page led with.
-It failed that control, so the sweep it was built for is discarded and appears nowhere on
-this page. What survives is the control itself, and it disagrees with the ten replicates
-above: the two ranges **do not overlap**, and the gap between their means is about 4.2
-standard errors.
+**The third row arrived later.** It is a separate kernel run at the identical nominal
+configuration (σ = 0.08, N = 1000, R = 100, same pinned upstream commit, same torch build,
+same core count), launched to sweep N and pre-registered to discard everything if its
+N = 1000 arm failed to bracket the −0.3300 this page led with. It failed that control, so
+the sweep it was built for is discarded and appears nowhere on this page. What survives is
+the control arm: a single further measurement of the same quantity, **−0.0616**.
 
-Two consequences, pulling in opposite directions.
+That value sits outside the whole range of the ten replicates above, 2.6 SD from their
+mean. That is worth noting and it is *not* significant on its own: for a single fresh draw,
+landing at the extreme of eleven has probability about 1 in 11 under exchangeability. It is
+one observation, so it raises a question about run-to-run behaviour rather than settling
+one.
 
-**The sign gets stronger.** Thirteen replicates across two independent runs, thirteen
-negative. Sign was always the load-bearing claim and it is now better supported than when
-this page reported 10/10.
+**The sign gets slightly stronger and nothing else changes.** Eleven measurements at
+σ = 0.08, eleven negative. The conservatism finding above still rests on the ten replicates;
+one additional draw does not materially revise it.
 
-**The rerun-to-rerun claim gets weaker, and it was ours.** The suspicion above, that the
-bootstrap interval understates rerun scatter, was reported as refuted by a factor of about
-2 at σ = 0.08. That factor was computed from replicates inside a *single* run, which is a
-narrower notion of "rerun" than a reader would assume. Pooling both independent runs raises
-the across-run SD from 0.0467 to 0.0654 and cuts the conservatism factor from about 2.2 to
-about **1.5**. The intervals are still conservative rather than optimistic, so the direction
-of that refutation holds; the margin is roughly a third of what was claimed.
+> **Correction, 2026-08-08.** An earlier version of this section read the run's `vr_all`
+> array as three replicates at σ = 0.08 and reported "13/13 negative", a pooled across-run
+> SD of 0.0654, a conservatism factor cut to about 1.5, and a 4.2-standard-error gap. That
+> was wrong. The array's axis is **σ, not replicate**: with `GAP = 0.05` and `L = 3` its
+> entries are σ = 0.08, 0.13 and 0.18, and only the first is comparable to the run above,
+> which selects column 0 explicitly. Two of the three pooled numbers were measurements at
+> different noise levels. Every figure in that list is withdrawn. The verification gates
+> added alongside it asserted the same wrong quantities and passed, because they were
+> written from the same misreading; they now check the single comparable value instead.
 
 **What the two disagreeing runs actually were.** Both outliers, −0.5084 and +0.0394, came
 from R = 60. VR is a ratio of two variance estimates, and a variance ratio is badly behaved
@@ -495,13 +499,14 @@ at small R; at R = 100 the same measurement has an across-run SD of 0.047 and ne
 changes sign in ten tries. That is an R effect in a diagnostic rerun, not instability in
 the finding.
 
-**One caveat does survive, and the second run widened it.** Pooled across both runs the
-thirteen replicates centre on −0.157, and the −0.3300 this page led with sits outside the
-whole pooled range. The sign of the low-noise result is solid. Its size is not: it moves
-with R, it moves between runs at fixed R, and this reproduction has characterised neither
-dependence. It should be read as "negative, order tenths" rather than as a constant, and
-the sweep that was supposed to pin the N dependence is exactly the run whose control
-failed, so that question is still open. The ablation table above is unaffected either way, because it is a
+**One caveat does survive, and it is about magnitude rather than direction.** Across all
+eleven measurements at σ = 0.08 the centre is −0.172, and the −0.3300 this page led with
+sits outside their whole range. The sign of the low-noise result is solid. Its size is not:
+it moves with R, and the one further independent measurement landed outside the prior
+range, so run-to-run behaviour at fixed R is a live question rather than a settled one. It
+should be read as "negative, order tenths" rather than as a constant. The sweep that was
+supposed to pin the N dependence is exactly the run whose control failed, so that question
+is untouched. The ablation table above is unaffected either way, because it is a
 contrast measured under identical conditions rather than a point estimate.
 
 **Two things follow, and they pull in opposite directions.** The 33% excess variance is
@@ -1473,7 +1478,7 @@ the deployed estimator realises none of that headroom: at σ = 0.08 it is measur
 
 - **Every number above is checked against the published results in about a second, with no setup.**
   `python verify_headlines.py` ([code]({SPACE}/blob/main/code/verify_headlines.py)) reads the
-  published [`results/`]({RESULTS_BASE}) JSON and checks all 44 headline figures
+  published [`results/`]({RESULTS_BASE}) JSON and checks all 45 headline figures
   this logbook asserts, printing PASS or FAIL per line: the 60-cell grid, both sign
   tests, the σ = 0.08 interval, the 349× bound, and the live GSM8K run. Standard
   library only, no arguments, no network. It is also a publish gate, so a written
