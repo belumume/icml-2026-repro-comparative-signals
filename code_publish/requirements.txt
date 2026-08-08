@@ -16,6 +16,20 @@
 #   pip install torch==2.7.0 --index-url https://download.pytorch.org/whl/cpu
 # On Windows the PyPI wheel is already the CPU build.
 
+# torch advisories, dispositioned 2026-08-08 rather than left open. GitHub reports five
+# against 2.7.0 (GHSA-rrmf-rvhw-rf47, -qfhq-4f3w-5fph, -vgrw-7cvw-pwgx, -887c-mr87-cxwp,
+# -3749-ghw9-m3mg; two medium, three low), and a Dependabot PR proposed 2.13.0. It was
+# closed, not merged, for two reasons.
+#
+# Every one is unreachable here. They are memory-corruption bugs in torch.jit.script,
+# torch.lstm_cell and unpack_sequence; this tree has 0 call sites for all three, and
+# nothing in it is deployed or accepts untrusted input. Re-check with:
+#   grep -rn "jit.script\|lstm_cell\|unpack_sequence" --include=*.py .
+#
+# And the pin's job here is documenting the environment a reproduction was VERIFIED in.
+# Bumping it would make the documented environment one nobody has run, which trades a
+# real property for an advisory that cannot fire. If a future run re-verifies against a
+# newer torch, move the pin to that version and say so; do not move it to chase a badge.
 numpy==2.2.2
 scipy==1.15.2
 joblib==1.4.2
