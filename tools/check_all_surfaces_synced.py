@@ -26,6 +26,7 @@ whether HANDOFF.md is behind the commits. It re-derives; it does not remember.
 Run:  python tools/check_all_surfaces_synced.py
 """
 
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -79,15 +80,79 @@ def handoff_current():
     return n == "0", f"{n} commit(s) landed since HANDOFF.md was last written"
 
 
+def _kaggle_interpreters():
+    """Interpreters to try, most-likely first.
+
+    `sys.executable` alone is wrong here: this gate is often run through whatever
+    `python` is on PATH, which on a machine with per-project virtualenvs is frequently
+    not the one holding the kaggle CLI. Trying several and requiring one to actually
+    succeed turns an environment accident into a non-event.
+    """
+    cands = [sys.executable]
+    for p in (
+        Path.home() / "AppData/Local/Programs/Python/Python313/python.exe",
+        Path("C:/Python313/python.exe"),
+    ):
+        if p.is_file():
+            cands.append(str(p))
+    for name in ("python", "python3"):
+        found = shutil.which(name)
+        if found:
+            cands.append(found)
+    seen, out = set(), []
+    for c in cands:
+        if c and c not in seen:
+            seen.add(c)
+            out.append(c)
+    return out
+
+
 def kernels_match():
-    """A kernel directory with no kernel on Kaggle, or the reverse, is a silent gap."""
+    """A kernel directory with no kernel on Kaggle, or the reverse, is a silent gap.
+
+    COULD-NOT-LIST IS NOT LISTED-NONE. This used to run `sys.executable -m kaggle` and
+    treat empty stdout as an observation, so when `python` resolved to a virtualenv
+    without a runnable kaggle module the subprocess died with "No module named
+    kaggle.__main__", stdout came back empty, and the gate reported `7 local, 0 on
+    Kaggle` -- naming all six live kernels as missing. Every one of them was published
+    and running at that moment, including one mid-flight.
+
+    That reading is the uniformity tell: a verdict identical across every item is
+    evidence about the instrument before it is evidence about the world. A clean zero
+    from a subprocess nobody checked is the most believable wrong answer there is,
+    because it is indistinguishable from a real finding and it arrives with a plausible
+    story attached.
+
+    So the interpreter is resolved rather than assumed, and a failed listing returns a
+    distinct verdict instead of a zero.
+    """
     local = {p.name for p in (ROOT / "kaggle").iterdir() if p.is_dir()}
-    r = sh(sys.executable, "-m", "kaggle", "kernels", "list", "--mine")
+    r = None
+    for exe in _kaggle_interpreters():
+        try:
+            cand = sh(exe, "-m", "kaggle", "kernels", "list", "--mine")
+        except (OSError, subprocess.SubprocessError):
+            # a candidate that does not exist, or cannot be spawned, is one to skip --
+            # not a reason to abort the sweep. Found by this check's own control, which
+            # passed a deliberately bogus interpreter and got a crash instead of the
+            # could-not-list verdict the fix was written to produce.
+            continue
+        if cand.returncode == 0 and cand.stdout.strip():
+            r = cand
+            break
+    if r is None:
+        # NOT `False, "0 on Kaggle"`. We did not look; say so.
+        return False, "COULD NOT LIST kaggle kernels (no interpreter could run it)"
     remote = {
         ln.split()[0].split("/")[-1]
         for ln in r.stdout.splitlines()
         if "icml-repro" in ln
     }
+    if not remote:
+        return (
+            False,
+            "kaggle listed 0 icml-repro kernels -- suspect the listing, not the repo",
+        )
     # names differ by convention (dir `vr_ablation` -> kernel `icml-repro-vr-ablation`),
     # so compare on a normalised slug rather than on the raw name
     norm = {n.replace("_", "-") for n in local}

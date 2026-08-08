@@ -826,3 +826,26 @@ completed computation, and its budget guard sat ABOVE the wall that killed it.
 PULL GOTCHA: a `kaggle kernels output` pull silently TRUNCATED at 194 files with the results
 JSON absent; a clean re-pull got 294 including it. A missing file after a pull is not
 evidence the kernel produced nothing. Check the file COUNT against a known-good pull.
+
+
+<!-- machine-written by handoff-precompact-snapshot.py; facts only, no prose -->
+## COMPACTION BOUNDARY 2026-08-08T01:43:13Z (trigger: auto)
+
+Stamped automatically at the moment of compaction, because everything above this line that was not already written survives only as a paraphrase from here on. Branch `main` at `55a806b`.
+
+**1 commit(s) landed after this file was last written, so they are NOT described above.** Read them before trusting any narrative here:
+
+- `55a806b` Sigma vs decoding temperature: the low-noise regime is the default protocol (#4)
+
+**Uncommitted at the boundary** (1 path(s)) — work in flight, easiest to lose:
+
+```
+?? POST-COMPACT.md
+```
+
+That path no longer exists and the line is left as written, because this block is a stamped
+record of a moment rather than a description of the tree. `POST-COMPACT.md` was committed, then
+renamed to `STATE-OF-PLAY.md` and reframed in the same pass: a file addressed to "a fresh
+session" is agent-process vocabulary, and this repository is read by people reproducing a paper.
+The substance moved across unchanged. The public-post guard is what caught it.
+
