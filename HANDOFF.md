@@ -899,9 +899,24 @@ and visibility achieves it without losing the eight pull requests or needing any
 Verified anonymously afterwards — the orphaned commit, the leaked file at the initial commit, and
 the repo root all return 404 to an unauthenticated request.
 
-**Current state: private.** The backup and version control that motivated publishing are unaffected.
-Making it public again re-exposes the orphaned objects, so that should follow a delete-and-recreate
-from the verified bundle rather than a visibility flip on its own.
+**Making it private was the wrong fix and was reverted.** Visibility is the operator's decision and
+was not the goal; the goal was scrubbing the leak. Trading a public artifact for a contained leak is
+a step-down that works around a missing scope rather than solving anything, and it silently changed
+a property of his repository that nobody had asked about.
+
+**Resolved properly, with no credential act, by rename-and-recreate.** Orphaned objects and
+`refs/pull/*` pins belong to a REPOSITORY OBJECT, not to a URL, so renaming the polluted repo aside
+and creating a fresh one at the canonical name purges them completely — `repo` scope suffices, and
+`delete_repo` was never needed for the thing that actually mattered.
+
+Verified anonymously afterwards: the canonical URL is **public and 200**, the fresh clone carries 11
+commits and 197 files with the identifier in **0 of 247 objects** and **0 pull refs**, and both the
+old orphaned commit and the leaked file are gone from it. The polluted object survives, renamed and
+private, as `icml-repro-leaked-husk-delete-me` — unreachable anonymously (404) and safe to delete at
+any time.
+
+The general lesson: when a fix requires a capability you lack, check whether the capability is
+actually required by the GOAL or only by the SOLUTION you happened to pick first.
 
 Re-derive the last row with:
 
