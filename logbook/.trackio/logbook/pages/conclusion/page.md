@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_5e911143ead6", "created_at": "2026-08-08T05:04:09+00:00", "title": "Summary of reproduction"}
+{"type": "markdown", "id": "cell_5e911143ead6", "created_at": "2026-08-08T23:40:05+00:00", "title": "Summary of reproduction"}
 -->
 
 **What the paper is about.** Evaluating an LLM's accuracy on a small benchmark is noisy. This paper borrows strength from cheap auxiliary signals (pairwise comparisons between candidate answers) and builds a semiparametric one-step estimator whose efficient influence function is derived in closed form. The promise is a better accuracy estimate at the same evaluation budget, which matters most on small, expensive benchmarks like AIME.
@@ -14,7 +14,7 @@
 
 ### Reproducibility notes
 
-- **Every number above is checked against the published results in about a second, with no setup.** `python verify_headlines.py` ([code](https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/blob/main/code/verify_headlines.py)) reads the published [`results/`](https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/tree/main/results) JSON and checks all 44 headline figures this logbook asserts, printing PASS or FAIL per line: the 60-cell grid, both sign tests, the σ = 0.08 interval, the 349× bound, and the live GSM8K run. Standard library only, no arguments, no network. It is also a publish gate, so a written claim that drifts from the data underneath it stops the build. That checks the derivation; the sweeps below regenerate the raw JSON itself.
+- **Every number above is checked against the published results in about a second, with no setup.** `python verify_headlines.py` ([code](https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/blob/main/code/verify_headlines.py)) reads the published [`results/`](https://huggingface.co/spaces/passagereptile455/repro-evaluating-llms-comparative-signals/tree/main/results) JSON and checks all 45 headline figures this logbook asserts, printing PASS or FAIL per line: the 60-cell grid, both sign tests, the σ = 0.08 interval, the 349× bound, and the live GSM8K run. Standard library only, no arguments, no network. It is also a publish gate, so a written claim that drifts from the data underneath it stops the build. That checks the derivation; the sweeps below regenerate the raw JSON itself.
 - **Everything here reruns without paid compute.** No API keys, no credentials. The CPU work is ~1.5 h on a laptop, dominated by a 4,357 s low-σ sweep; the live GSM8K run is 22 min on a free-tier Tesla T4.
 - **The paper's `simulation/` directory is genuinely runnable.** `run_single_trial` worked unmodified on first execution. Tables 1–3 are the part that cannot be reproduced without paid inference, which is a property of the experiment, not of the release.
 - **Four toolchain traps hit while publishing this logbook**, all reproducible and all worth knowing before a deadline:

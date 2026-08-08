@@ -20,7 +20,7 @@ python verify_headlines.py
 ```
 
 No arguments, no dependencies beyond the standard library, no setup, no network.
-It reads the published `results/*.json` and checks all 44 headline numbers the
+It reads the published `results/*.json` and checks all 45 headline numbers the
 logbook asserts (the 60-cell grid, both sign tests, the σ=0.08 confidence
 interval, the efficiency bound, and the live GSM8K run), printing PASS or FAIL per
 line against what the prose claims. It runs as a publish gate too, so if a written
@@ -172,7 +172,7 @@ reproduction path above. It tests Claim 4 against first-hand LLM data instead of
 against the paper's published table: it rebuilds the Section 5 evaluation setting
 on real GSM8K, runs the one-step estimator, and bootstraps over which N-item
 subset is labelled to produce the interval the paper never reports. Eight of the
-44 checks in `verify_headlines.py` rest on its output.
+45 checks in `verify_headlines.py` rest on its output.
 
 It was reachable from the Claim 4 page and from nothing in this README, which is
 why it is written down here: a script nothing links to is a script a reader
