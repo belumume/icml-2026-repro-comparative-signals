@@ -954,6 +954,28 @@ yields `FAIL cross-run inputs present`, 1 of 37 failed, exit 1.
 `stage_results.py` needed a new source glob for the kernel's output directory, and its own selftest
 caught that rather than a human noticing.
 
+## The torch advisories are dispositioned, not ignored (2026-08-08)
+
+Recreating the repo re-triggered Dependabot, which proposed torch 2.7.0 to 2.13.0. **Closed, not
+merged**, with the reasoning written beside the pin in `code_publish/requirements.txt` so it is not
+re-litigated from the badge alone.
+
+Five advisories stand against 2.7.0 (two medium, three low) and the current pin clears none. That is
+acceptable for one reason only: **all five are unreachable here.** They are memory-corruption bugs in
+`torch.jit.script`, `torch.lstm_cell` and `unpack_sequence`, and this tree has **0 call sites** for
+all three, with nothing deployed and no untrusted input. Re-derive:
+
+```
+grep -rn "jit.script\|lstm_cell\|unpack_sequence" --include=*.py .
+```
+
+**A premise of mine was wrong here and is worth recording.** I first read the 2.7.0 pin against the
+Kaggle runs' 2.10.0 and called it a reproducibility defect. It is not. The pin documents the LOCAL
+verified environment; each Kaggle result records its own env in its JSON, which `requirements.txt`
+states explicitly so those cannot drift from the run that produced them. Two environments, each
+documented where it applies. Bumping the pin would have made the documented local environment one
+nobody has run, trading a real property for an advisory that cannot fire.
+
 Re-derive the last row with:
 
 ```
