@@ -755,14 +755,35 @@ at runtime; both had hardcoded a home directory.
   outputs.
 - `tools/check_links.py`: retries TRANSPORT failures 3x, returns HTTP codes immediately. A
   network blip had reported openreview.net and github.com as dead and failed a publish.
+- `tools/check_all_surfaces_synced.py` NEW. One command for "is anything stale anywhere".
+  Runs every existing gate and adds the two nobody owned: local-versus-GitHub, and whether
+  HANDOFF.md is behind the commits. Before it, that answer was assembled by hand from four
+  green checks plus a memory of having pushed, which is the same assembly that let the
+  findings ledger report two settled items as open for three days. It caught its own gap on
+  its second run: HANDOFF was one commit behind, which is why this bullet exists.
 
 ### 10.5 OPEN
 
 - **C1 N sweep at low sigma.** Kernel `icml-repro-vr-nsweep-r100` RUNNING (started 22:36
   UTC 08-07, 9h budget, banks after every N). The R=60 version's control failed; the
   stability run explained why. READ `control_ok` FIRST when it lands.
-- **C4 temperature sweep.** Deliberately deferred. Needs the GPU inference path, and the
-  mechanism question it would illuminate was settled more cheaply by the ablation.
+- **C4 sigma vs decoding temperature.** RUNNING as `icml-repro-sigma-temp` (started 00:59
+  UTC 08-08). A FIFTH refuted premise of mine, and the one that cost the most: this was
+  deferred TWICE, once while telling the operator its justification had got "stronger".
+  Both stated reasons were false. It does NOT need an order of magnitude more compute (the
+  published GSM8K kernel ran in 1343 s on free T4s), and the ablation did NOT settle the
+  question it addresses. The ablation settled WHY the estimator fails at low sigma. This
+  asks WHETHER low sigma occurs, which is the authors' strongest available reply to the
+  entire falsification: "in practice means sigma near 1; you tested a corner nobody deploys
+  in." The claim-3 page's own argument at the "claim carries no range" bullet leans on that
+  qualifier, so nothing in the logbook currently answers it. Most valuable open item, not
+  the most deferrable.
+  Two things it does right by construction: generation uses transformers rather than vLLM,
+  because the published run's log carries `vllm unavailable: ModuleNotFoundError` FOUR
+  times and a first draft would have crashed on start; and it states its
+  operationalisation and limits in the docstring BEFORE the run. It measures per-question
+  resampling spread, which is analogous to sigma, not identical in units. The valid
+  comparison is ORDINAL.
 - **Two drafts awaiting the operator only**: `work/x-correction-DRAFT.md` (reply to
   x.com/ubaidmume/status/2084225563976155540) and `work/author-contact-DRAFT.md` (v3; v1 and
   v2 were both wrong, see its own revision history).
