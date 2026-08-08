@@ -44,3 +44,6 @@ work/review/
 
 # Claude Code local config: hookify propagates local rule files into project subdirs.
 .claude/
+
+# local working handoff between context windows -- not a public artifact
+STATE-OF-PLAY.md

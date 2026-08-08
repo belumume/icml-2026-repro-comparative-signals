@@ -19,6 +19,7 @@ thing being fixed.
 Run:  python tools/check_findings_closed.py
 """
 
+import os
 import re
 import subprocess
 import sys
@@ -99,11 +100,49 @@ def _no_overclaim():
     return n == 0, f"{n} 're-derives' overclaim(s) on rendered pages"
 
 
+def _operator_identifier():
+    """The account name to scan for, DERIVED at runtime and never written down here.
+
+    This function used to be `"OPERATOR" in p.read_text(...)`. That is the denylist paradox: a
+    check whose job is keeping an identifier off the public surface has to name the
+    identifier, so the check becomes the leak. This repository is public, so the literal
+    was on GitHub -- and in the initial commit's history -- inside the very function that
+    existed to prevent exactly that.
+
+    Deriving it means the tool is publishable and still works for whoever runs it.
+    """
+    import getpass
+
+    for src in (
+        lambda: Path.home().name,
+        getpass.getuser,
+        lambda: os.environ.get("USERNAME") or os.environ.get("USER") or "",
+    ):
+        try:
+            v = (src() or "").strip()
+        except Exception:
+            continue
+        if len(v) >= 3:
+            return v
+    return ""
+
+
 def _pii_clean():
+    """Scan the staged tree for the operator's account name.
+
+    FAILS CLOSED. If the identifier cannot be derived there is nothing to search for, and
+    a scan for the empty string would match every file or none depending on how you write
+    it -- either way the result is not a measurement. Returning "cannot determine" is the
+    only honest verdict, and it is louder than a green tick over a scan that never ran.
+    """
+    ident = _operator_identifier()
+    if not ident:
+        return False, "CANNOT DETERMINE the operator identifier -- scan did not run"
     hits = sum(
         1
         for p in (ROOT / "code_publish").rglob("*")
-        if p.is_file() and "OPERATOR" in p.read_text(encoding="utf-8", errors="replace")
+        if p.is_file()
+        and ident.lower() in p.read_text(encoding="utf-8", errors="replace").lower()
     )
     return hits == 0, f"{hits} operator-identifier hit(s) in the staged tree"
 
