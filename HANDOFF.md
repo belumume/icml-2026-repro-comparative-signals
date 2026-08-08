@@ -881,6 +881,28 @@ recorded here so the decision is auditable:
 | blast radius measured, not assumed | 993 SHA-shaped tokens in the tracked tree, exactly **1** resolved to a commit here: the pre-rewrite SHA cited in this file, since updated to `6e104dd`. That old SHA is deliberately not repeated here, because a retired commit id in a durable document is indistinguishable from a fabricated one to anyone who follows it |
 | verified from the REMOTE, not the exit code | fresh clone: 197 files, 0 identifier commits, and a full walk of all 241 objects found it in **0** blobs |
 
+**The rewrite did not close the exposure, and a fresh clone said it had.** GitHub does not
+garbage-collect orphaned objects on force-push, and `refs/pull/7/head` pins one of the pre-rewrite
+commits permanently — verified with `git ls-remote origin 'refs/pull/*'`, which resolves that ref to
+the exact commit carrying the identifier. So a clone was clean while a direct SHA fetch returned the
+old file at 8,396 bytes with the name in it, and those SHAs are printed on the merged PR pages, which
+makes them discoverable rather than guessable.
+
+**Resolved by making the repository private, which needs only `repo` scope.** Every credential
+surface on the machine was enumerated first and none carried `delete_repo`: the CLI token, the same
+token in Windows Credential Manager (probed via `git credential fill`, scopes read back from
+`X-OAuth-Scopes`), Proton Pass (one GitHub-adjacent item, an Anthropic key), env vars, `.netrc`.
+Every route to obtain that scope ends at GitHub sudo mode, which is a credential act.
+
+Deletion was the wrong target. The goal was removing PUBLIC reach, not destroying the repository,
+and visibility achieves it without losing the eight pull requests or needing any new capability.
+Verified anonymously afterwards — the orphaned commit, the leaked file at the initial commit, and
+the repo root all return 404 to an unauthenticated request.
+
+**Current state: private.** The backup and version control that motivated publishing are unaffected.
+Making it public again re-exposes the orphaned objects, so that should follow a delete-and-recreate
+from the verified bundle rather than a visibility flip on its own.
+
 Re-derive the last row with:
 
 ```
