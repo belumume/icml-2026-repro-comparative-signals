@@ -918,6 +918,42 @@ any time.
 The general lesson: when a fix requires a capability you lack, check whether the capability is
 actually required by the GOAL or only by the SOLUTION you happened to pick first.
 
+## The N-sweep landed, failed its own control, and refuted one of our claims (2026-08-08)
+
+`icml-repro-vr-nsweep-r100` completed after 21,607 s. Pull was 294 files, matching the known-good
+count rather than the 194 of the truncated pull, and the results JSON was present.
+
+`control_ok` is **False**: the N = 1000 arm does not bracket the −0.3300 the page leads with, so
+every sweep row is discarded per the pre-registered rule and none reached the page. The rows are
+kept in `results/vr_nsweep_r100_results.json` as the record of a failed control, not as findings.
+
+**The control arm is the finding.** It disagrees with our own stability run at the identical
+nominal configuration — same σ, N, R, pinned upstream commit, torch build and core count:
+
+| run | replicates | VR range | SD | negative |
+|---|---|---|---|---|
+| stability | 10 | −0.2565 to −0.1227 | 0.0467 | 10/10 |
+| this rerun | 3 | −0.1031 to −0.0445 | 0.0302 | 3/3 |
+
+Ranges do not overlap; the means differ by about 4.2 standard errors.
+
+- **Sign strengthens:** 13/13 negative across two independent runs, up from 10/10.
+- **Our own conservatism claim weakens:** the "factor of about 2" came from replicates inside a
+  SINGLE run, a narrower notion of rerun than a reader assumes. Pooled SD 0.0467 → 0.0654, factor
+  → about 1.5. Still conservative; roughly a third of the claimed margin.
+
+Re-derive: `python code_publish/verify_headlines.py` (44 checks).
+
+**Why it drifted unnoticed, which is the transferable part.** These figures were prose-only and
+ungated, so nothing recomputed them and a second run could contradict them in silence. They are now
+derived from the published JSON, and the block **refuses rather than skipping** when an input is
+absent: `if stab and nsw:` would have dropped all eight checks while still printing "all checks
+pass", which is a gate certifying nothing. Driven both ways — 44 pass normally; hiding the new input
+yields `FAIL cross-run inputs present`, 1 of 37 failed, exit 1.
+
+`stage_results.py` needed a new source glob for the kernel's output directory, and its own selftest
+caught that rather than a human noticing.
+
 Re-derive the last row with:
 
 ```
