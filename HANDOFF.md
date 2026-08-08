@@ -673,3 +673,112 @@ then rebuild `poster_embed.html` (base64 webp @2400px) and republish.
 
 **Do not** trust the compact summary for any number in §4 — recompute from
 `work/analysis/*.json`.
+
+---
+
+## 10. POST-DEADLINE ARC (2026-08-03 to 2026-08-08)
+
+The submission went in 2026-08-03 before the 11:59 UTC deadline. The challenge FAQ says
+verbatim: "Logbooks published or updated after that moment are not judged: verdicts already
+on the board at the deadline stay frozen, and later edits do not change them." So the judged
+state is the 08:02 UTC publish of 03 Aug. Everything below improves the ARTIFACT and does
+not move the score. Both halves of that are true and stating only one is dishonest.
+
+### 10.1 FOUR PREMISES OF MINE THAT MEASUREMENT KILLED
+
+These are the entries a compaction cannot reconstruct. Each was asserted confidently, some
+of them to the operator, before being refuted.
+
+1. **"The repo is frozen for judging, so findings are disclosure not repair."** INVENTED.
+   Zero hits for any no-edit rule across the challenge README, `work/form_main.py`,
+   SUBMISSION.md or HANDOFF.md. What exists is the FAQ sentence above, which is true and is
+   about JUDGING. I widened it into a prohibition about EDITING, asserted it for hours, and
+   wrote it verbatim into a nine-agent audit brief, so every finding came back classified
+   disclosure-only. One of those findings was the operator's Windows username live on the
+   public Space. Compounded as rule 42 in `~/.claude/rules/verify-before-acting.md`.
+
+2. **"The low-signal regime causes the excess variance."** WRONG, and it was the published
+   explanation on the claim-3 page. The nuisance ablation refutes it: replacing only the
+   regressor with a closed-form ridge moves VR from -0.51 to +0.006 at sigma=0.08, while
+   all three fits recover most of the bound at sigma=1.0. The harm tracks the shipped MLP
+   fit (lr=0.001, 50 epochs, target ~150x smaller than at sigma=1), not the estimator.
+   Re-derive: `python -c "import json;d=json.load(open('results/vr_ablation_results.json'));[print(r) for r in d['rows']]"`
+
+3. **"The bootstrap CI understates rerun-to-rerun scatter, so the flagship sign may not
+   hold."** REFUTED by the stability run, and this was my own alarm. Ten replicates at
+   sigma=0.08, R=100: negative 10 of 10, range -0.2565 to -0.1227, across-run SD 0.0467,
+   against a sigma=1.0 control at SD 0.0041. Understatement factor 0.46x and 0.09x, both
+   BELOW 1, so the intervals are CONSERVATIVE. The two wild values that triggered the alarm
+   (-0.5084 and +0.0394) were both R=60, where a ratio of two variances misbehaves.
+   Re-derive: `python -c "import json;d=json.load(open('results/vr_stability_results.json'));[print(a['sigma'],a.get('across_replicate_sd'),a.get('understatement_factor')) for a in d['arms']]"`
+
+4. **"Pushing to GitHub would tie the pseudonymous HF handle to his real name."** WRONG.
+   His 03 Aug X post is under @ubaidmume, his real-name account, and links the Space
+   directly. He made that connection himself. I turned a settled question into an ask.
+
+### 10.2 WHAT CHANGED IN THE ARTIFACT
+
+- claim-3 page: old mechanism RETRACTED BY NAME ("The mechanism stated here until
+  2026-08-03 was wrong"), ablation table added, stability replicate table added, magnitude
+  caveat added ("negative, order tenths" rather than a constant).
+- exec summary: the "4.7 binomial SD" claim removed. It had survived there while claim-4
+  retracted it, so two live pages contradicted each other.
+- `mcnemar_bound.py`: `sqrt(|d|/n)` corrected to `sqrt(|d|(1-|d|)/n)`, and the self-test
+  that had CERTIFIED the error. Materiality nil (35/60 both ways, zero flips), but the
+  dropped term made the bar WIDER, which flattered our own conclusion.
+- multiplicity stated (12 sigma cells, Bonferroni x12 gives 3.8e-04, survives),
+  generalisation stated narrowly, claim-3/claim-4 seam reconciled.
+- three overclaims narrowed: "every number re-derives" (some are checked against published
+  endpoints), "27 headline numbers" (36), "re-derives all eight checks" (only the mean's
+  interval is recomputed).
+
+### 10.3 NOW UNDER VERSION CONTROL
+
+`https://github.com/belumume/icml-2026-repro-comparative-signals` (public). Before this the
+work existed on ONE disk with no history. Verified by anonymous download: 190 files, 0 home
+paths, 0 credential-shaped strings. Session traces, vendored upstream trees and build
+artifacts are gitignored because a pre-commit scan found sk-ant/hf_/AIza-shaped strings in
+the traces and git history is permanent.
+
+`tools/audit_autonomy.py` and `tools/build_session_trace.py` now derive the transcript path
+at runtime; both had hardcoded a home directory.
+
+### 10.4 GATES ADDED OR FIXED
+
+- `tools/check_findings_closed.py` NEW. Re-derives every finding's disposition from the repo
+  instead of from memory. "Nothing dropped" was answered from recall three times and was
+  wrong twice. It reported OPEN for two settled findings for three days because it was keyed
+  to the CANCELLED vr-mechanism kernel; re-keyed to their real closers.
+- `tools/stage_code.py`: now derives what must be staged from what `publish_all.py` actually
+  runs. Four gates were unpublished, three of them the ones written to PREVENT drift.
+- `tools/stage_results.py`: `results/` was hand-uploaded; now globbed from the kernel
+  outputs.
+- `tools/check_links.py`: retries TRANSPORT failures 3x, returns HTTP codes immediately. A
+  network blip had reported openreview.net and github.com as dead and failed a publish.
+
+### 10.5 OPEN
+
+- **C1 N sweep at low sigma.** Kernel `icml-repro-vr-nsweep-r100` RUNNING (started 22:36
+  UTC 08-07, 9h budget, banks after every N). The R=60 version's control failed; the
+  stability run explained why. READ `control_ok` FIRST when it lands.
+- **C4 temperature sweep.** Deliberately deferred. Needs the GPU inference path, and the
+  mechanism question it would illuminate was settled more cheaply by the ablation.
+- **Two drafts awaiting the operator only**: `work/x-correction-DRAFT.md` (reply to
+  x.com/ubaidmume/status/2084225563976155540) and `work/author-contact-DRAFT.md` (v3; v1 and
+  v2 were both wrong, see its own revision history).
+
+### 10.6 DEAD KERNELS, so a later session does not re-pull them
+
+`icml-repro-vr-mechanism` was CANCELLED at the session wall after 11.5h and its output is
+GARBAGE, not merely partial: VR = -1038 and -6793, and its control read -0.1312 against a
+published -0.3300. Two bugs, both mine. It patched `fit` and `predict` but not
+`predict_integrated`, so m-hat stayed on the standardised scale while tau-hat did not. And
+it mutated the class without restoring it, so loky worker reuse contaminated every later
+"unpatched" trial. It also wrote its JSON only at the end, so the kill destroyed 11.5h of
+completed computation, and its budget guard sat ABOVE the wall that killed it.
+
+`icml-repro-vr-nsweep` (R=60) ran clean but its control failed, for the reason in 10.1.3.
+
+PULL GOTCHA: a `kaggle kernels output` pull silently TRUNCATED at 194 files with the results
+JSON absent; a clean re-pull got 294 including it. A missing file after a pull is not
+evidence the kernel produced nothing. Check the file COUNT against a known-good pull.
