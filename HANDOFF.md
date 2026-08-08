@@ -767,8 +767,31 @@ at runtime; both had hardcoded a home directory.
 - **C1 N sweep at low sigma.** Kernel `icml-repro-vr-nsweep-r100` RUNNING (started 22:36
   UTC 08-07, 9h budget, banks after every N). The R=60 version's control failed; the
   stability run explained why. READ `control_ok` FIRST when it lands.
-- **C4 sigma vs decoding temperature.** RUNNING as `icml-repro-sigma-temp` (started 00:59
-  UTC 08-08). A FIFTH refuted premise of mine, and the one that cost the most: this was
+- **C4 sigma vs decoding temperature. DONE 2026-08-08 01:26 UTC, PUBLISHED.** Both controls
+  passed: greedy is exactly deterministic (within-question SD 0.0000) and its accuracy
+  0.510 tracks the published run's 49.8% on a different question draw.
+
+  | decoding | accuracy | within-question SD | inconsistent |
+  | --- | --- | --- | --- |
+  | greedy T=0 | 0.510 | 0.0000 | 0% |
+  | T=0.3 | 0.514 | 0.2515 | 56% |
+  | T=0.7 | 0.461 | 0.2688 | 59% |
+  | T=1.0 | 0.371 | 0.3097 | 68% |
+
+  THE FINDING, and it is stronger than a defence of the page would have wanted: greedy
+  decoding has EXACTLY ZERO resampling spread, and greedy is the standard benchmark
+  protocol. It is what this project's own real-data run used. So the most consistent
+  possible model is not an exotic corner, it is the default way accuracy gets measured,
+  and the claim-4 subsection shows the estimator reduces algebraically to the naive mean
+  in precisely that setting. That answers the authors' strongest available objection.
+
+  BOTH LIMITS WERE STATED BEFORE THE RUN AND BOTH WERE CONFIRMED BY IT. Temperature is not
+  a clean sigma dial: accuracy falls 0.510 -> 0.371 across the sweep, so raising it moves
+  the target as well as the spread. And the units are not the paper's (its sigma is the
+  spread of a continuous score whose square is the estimand; this is a 0-1 accuracy
+  score). Only the ORDINAL comparison is claimed.
+
+  ORIGINALLY DEFERRED TWICE, and this is the fifth refuted premise: this was
   deferred TWICE, once while telling the operator its justification had got "stronger".
   Both stated reasons were false. It does NOT need an order of magnitude more compute (the
   published GSM8K kernel ran in 1343 s on free T4s), and the ablation did NOT settle the

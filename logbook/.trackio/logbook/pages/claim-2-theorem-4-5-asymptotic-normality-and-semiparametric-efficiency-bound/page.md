@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_c1ec2297f7a6", "created_at": "2026-08-04T11:55:30+00:00", "title": "Verdict: VERIFIED"}
+{"type": "markdown", "id": "cell_c1ec2297f7a6", "created_at": "2026-08-08T01:32:15+00:00", "title": "Verdict: VERIFIED"}
 -->
 
 **Anchored claim** (the anchor cites this as Theorem 4.1; v2 numbers it 4.5, same statement). Theorem 4.5 shows the one-step estimator is asymptotically normal, `√N(θ̂_one-step − θ) →_d N(0, σ²_eff)`, and attains the semiparametric efficiency bound.

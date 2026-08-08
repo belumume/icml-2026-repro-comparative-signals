@@ -24,18 +24,63 @@ import concurrent.futures
 import glob
 import os
 import re
+import subprocess
 import time
 import sys
 import urllib.error
 import urllib.request
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-SOURCES = [
-    os.path.join(ROOT, "work", "space_README.md"),
-    *glob.glob(
-        os.path.join(ROOT, "logbook", ".trackio", "logbook", "pages", "*", "page.md")
-    ),
-]
+
+
+def _sources():
+    """Every tracked markdown file, DERIVED from git rather than enumerated by hand.
+
+    This used to be a hardcoded list: the front-page README source plus the rendered
+    logbook pages. Nine files, 22 links. The repo tracks 21 markdown files, so 12 sat
+    outside the gate entirely, carrying 12 more links that nothing checked. Among them
+    `code_publish/README.md`, which SHIPS to the Space as `code/README.md` and is
+    reader-facing, and `data/PROMPT.md` and `data/README.md` with 9 links between them.
+
+    They all resolved when checked by hand, so this widening cost nothing today. That is
+    exactly why it was worth doing: the gate was reporting a clean result over a surface
+    narrower than the one it appeared to cover, and a future edit to an unwalked file
+    would have broken a link silently.
+
+    Deriving from `git ls-files` means a markdown file added tomorrow is walked by
+    existing, not by anyone remembering to add it here. FLOOR is a canary: if the walked
+    set ever shrinks below what has already been verified, that is a scope regression and
+    the gate says so instead of quietly checking less.
+    """
+    try:
+        out = subprocess.run(
+            ["git", "ls-files", "*.md"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=120,
+        ).stdout.split()
+        files = [
+            os.path.join(ROOT, f) for f in out if os.path.isfile(os.path.join(ROOT, f))
+        ]
+    except Exception:
+        files = []
+    if not files:
+        # not a git repo, or git unavailable: fall back to the original hardcoded set
+        # rather than silently checking nothing, which would read as a pass
+        files = [
+            os.path.join(ROOT, "work", "space_README.md"),
+            *glob.glob(
+                os.path.join(
+                    ROOT, "logbook", ".trackio", "logbook", "pages", "*", "page.md"
+                )
+            ),
+        ]
+    return files
+
+
+SOURCE_FLOOR = 20  # verified at 21 tracked .md on 2026-08-08
+SOURCES = _sources()
 LINK = re.compile(r"(?<!!)\[[^\]]*\]\(([^)\s]+)\)")
 UA = {"User-Agent": "Mozilla/5.0"}
 
@@ -114,6 +159,21 @@ def main():
         text = open(path, encoding="utf-8").read()
         # the poster cell is a megabyte of base64; it holds no clickable links
         text = re.sub(r"data:image/[^\"')\s]+", " ", text)
+        # Fenced code is not clickable, so a link-shaped string inside it is not a link.
+        # Widening this gate from 9 files to all 21 tracked markdown surfaced exactly one
+        # finding and it was this false positive: a JSON snippet in HANDOFF.md containing
+        # `[...](url)`-shaped text, reported as a relative link. Expect a widening to
+        # surface a class to narrow rather than to come back clean; a gate that cries wolf
+        # on its first real day gets learned around, which is worse than never widening it.
+        text = re.sub(r"```.*?```", " ", text, flags=re.S)
+        text = re.sub(r"(?m)^(?: {4}|\t).*$", " ", text)
+        # INLINE code too, which is where the one real false positive lived: HANDOFF.md
+        # documents the trackio renderer's supported syntax as `[text](url)` inside
+        # backticks. Fences and indented blocks were stripped first and it still fired,
+        # because the string was never in a block at all. Worth the extra pass: a gate
+        # whose first widened run reports a finding that is not a defect is the shape that
+        # gets learned around.
+        text = re.sub(r"``[^`]*``|`[^`\n]*`", " ", text)
         name = os.path.basename(os.path.dirname(path)) or os.path.basename(path)
         for m in LINK.finditer(text):
             url = m.group(1)

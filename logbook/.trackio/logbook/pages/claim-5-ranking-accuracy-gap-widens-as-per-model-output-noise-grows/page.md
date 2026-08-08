@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_7da16a09d7d1", "created_at": "2026-08-04T11:55:30+00:00", "title": "Verdict: VERIFIED, including 21\u00d7 beyond the paper's own grid"}
+{"type": "markdown", "id": "cell_7da16a09d7d1", "created_at": "2026-08-08T01:32:15+00:00", "title": "Verdict: VERIFIED, including 21\u00d7 beyond the paper's own grid"}
 -->
 
 **Anchored claim.** In simulations with L=3 models and N=1,000 samples, the ranking-accuracy and Kendall's Tau gap between the naive estimator and the one-step estimator widens as the per-model output noise variance σ²_l increases.

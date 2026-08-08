@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_5b33ede8c9dd", "created_at": "2026-08-04T11:55:30+00:00", "title": "Verdict: FALSIFIED as stated, the per-cell gains are inside the noise floor"}
+{"type": "markdown", "id": "cell_5b33ede8c9dd", "created_at": "2026-08-08T01:32:15+00:00", "title": "Verdict: FALSIFIED as stated, the per-cell gains are inside the noise floor"}
 -->
 
 **Anchored claim.** On real benchmarks the one-step estimator improves accuracy estimates over the naive estimator, e.g. +1.60% for GPT-5.2 on GPQA Diamond (N=50), +4.00% for Claude-Sonnet on AIME 2025 (N=15), +3.50% for DeepSeek-R1-Llama on GSM8K (N=100), with gains ranging 0.24%–12.00%.
@@ -254,7 +254,7 @@ Reproduce: `python analysis/extract_tables.py && python analysis/claim4_noise_fl
 
 ---
 <!-- trackio-cell
-{"type": "figure", "id": "cell_e0a4beb945e4", "created_at": "2026-08-04T11:55:30+00:00", "title": "All 60 published gains, in units of their own sampling noise"}
+{"type": "figure", "id": "cell_e0a4beb945e4", "created_at": "2026-08-08T01:32:15+00:00", "title": "All 60 published gains, in units of their own sampling noise"}
 -->
 ````html
 <figure style="margin:0">

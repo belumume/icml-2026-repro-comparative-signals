@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_627a28fb7311", "created_at": "2026-08-04T11:55:30+00:00", "title": "Verdict: VERIFIED"}
+{"type": "markdown", "id": "cell_627a28fb7311", "created_at": "2026-08-08T01:32:15+00:00", "title": "Verdict: VERIFIED"}
 -->
 
 > **Numbering.** The challenge's anchor cites this as **Proposition 3.1**. No such label exists in the arXiv v2 text I worked from, which numbers it **Proposition 3.3** (`Proposition 3.1` occurs 0 times in v2; `Proposition 3.3` occurs 3). The **statement** quoted in the anchor is identical to Proposition 3.3, so this is a version-numbering difference, not a different claim. Same for Theorem 4.1 → **4.5** and Corollary 4.1 → **4.7** on the next two pages.

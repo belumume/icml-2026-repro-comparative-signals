@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_e64e10a165df", "created_at": "2026-08-04T11:55:30+00:00", "title": "Verdict: asymptotically VERIFIED, practical guarantee FALSIFIED at low noise"}
+{"type": "markdown", "id": "cell_e64e10a165df", "created_at": "2026-08-08T01:32:15+00:00", "title": "Verdict: asymptotically VERIFIED, practical guarantee FALSIFIED at low noise"}
 -->
 
 **Anchored claim** (the anchor cites this as Corollary 4.1; v2 numbers it 4.7, same statement). Corollary 4.7 proves strict variance reduction over the naive sample-average estimator whenever `τ(X,Z) ≠ m(X)` with positive probability, i.e. `σ²_eff < σ²_naive`.
@@ -142,6 +142,25 @@ So this is not a finding smuggled in from a regime the paper disclaims. It is a 
 
 This matters for the paper's actual use case. σ is per-model output variability, so the low-σ regime is exactly a well-behaved, accurate LLM, the case where a practitioner would most like a cheap accuracy estimate and where this estimator should not be used unmodified.
 
+### Is the low-noise regime a corner nobody deploys in? Measured.
+
+**The strongest objection to this page is that σ = 0.08 is exotic.** The paper's claim carries "in practice", and the natural reply to everything above is that practice means σ near 1, where the estimator works, so the failure is in a corner nobody evaluates in. Nothing here answered that until now, and the answer is not what a defence of this page would have wanted it to be. It is stronger.
+
+Qwen2.5-1.5B-Instruct on 100 GSM8K questions, K = 8 samples per question per setting, the same model as the real-data run below:
+
+| decoding | accuracy | within-question SD | answers inconsistent |
+| --- | --- | --- | --- |
+| greedy, T = 0 | 0.510 | **0.0000** | 0% |
+| T = 0.3 | 0.514 | 0.2515 | 56% |
+| T = 0.7 | 0.461 | 0.2688 | 59% |
+| T = 1.0 | 0.371 | 0.3097 | 68% |
+
+**Greedy decoding has exactly zero resampling spread, and greedy is the standard benchmark protocol.** It is what the real-data run on this page used, and what a leaderboard number is normally produced with. So the most consistent possible model is not an exotic corner; it is the default way accuracy gets measured. The subsection below shows the estimator reduces algebraically to the naive mean in exactly that setting: no harm, and no gain either.
+
+**Two limits, both stated before the run rather than discovered afterwards.** Temperature is not a clean σ dial: raising it adds spread but also **moves the target**, with accuracy falling from 0.510 to 0.371 across the sweep, so these rows bound where real decoding sits rather than isolating σ. And the units are not the paper's. Its σ is the spread of a continuous score whose square is the estimand; this is the spread of a 0-1 accuracy score. The comparison that survives both caveats is ordinal and is the only one claimed here: under the standard protocol the resampling spread is zero, which sits at or below the bottom of any positive σ grid.
+
+Reproduce: `kaggle/sigma_temp/sigma_temp_kernel.py`, free-tier T4, 1614 s. Its controls are that greedy must be exactly deterministic, which it is at SD 0.0000, and that its greedy accuracy must track the published run, 0.510 here against 49.8% there on a different draw of questions.
+
 ### Why the Claim 4 page calls a low-noise regime harmless
 
 The Claim 4 page reports that under greedy decoding the one-step estimator is identically the naive mean, and treats that as costless. This page reports a 33% variance **increase** at σ = 0.08 and treats it as a falsification. Both hold, and they are not about the same condition: the two settings collapse different distributions, and only one of them leaves anything to estimate.
@@ -163,7 +182,7 @@ Reproduce: `python analysis/exact_efficiency_bound.py`, then `python analysis/vr
 
 ---
 <!-- trackio-cell
-{"type": "figure", "id": "cell_18862041189c", "created_at": "2026-08-04T11:55:30+00:00", "title": "Measured variance reduction against the exact bound"}
+{"type": "figure", "id": "cell_18862041189c", "created_at": "2026-08-08T01:32:15+00:00", "title": "Measured variance reduction against the exact bound"}
 -->
 ````html
 <figure style="margin:0">
@@ -180,7 +199,7 @@ Reproduce: `python analysis/exact_efficiency_bound.py`, then `python analysis/vr
 
 ---
 <!-- trackio-cell
-{"type": "figure", "id": "cell_70bb5f7d733f", "created_at": "2026-08-04T11:55:30+00:00", "title": "Substituting the true m: helps at large sigma, inverts at small"}
+{"type": "figure", "id": "cell_70bb5f7d733f", "created_at": "2026-08-08T01:32:15+00:00", "title": "Substituting the true m: helps at large sigma, inverts at small"}
 -->
 ````html
 <figure style="margin:0">

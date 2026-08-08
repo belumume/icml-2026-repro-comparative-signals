@@ -10,7 +10,7 @@
     "icml2026-repro",
     "paper-nOQOjKYwTM"
   ],
-  "updated_at": "2026-08-04T11:56:44+00:00",
+  "updated_at": "2026-08-08T01:33:49+00:00",
   "root": {
     "slug": "index",
     "title": "Reproduction: Evaluating LLMs When They Do Not Know the Answer: Statistical Evaluation of Mathematical Reasoning via Comparative Signals",
@@ -82,8 +82,8 @@
     "total_size": 25036,
     "bucket_id": "passagereptile455/repro-evaluating-llms-when-they-do-not-know-the-answer-comparative-signals-artifacts"
   },
-  "agent_view_tokens": 25073,
+  "agent_view_tokens": 25749,
   "trace_view_tokens": 111326,
   "workspace_view_tokens": 99,
-  "revision": "8156ad0bde5446cecbfc"
+  "revision": "827f76d81b9e9d97529f"
 }

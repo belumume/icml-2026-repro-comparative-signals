@@ -1,0 +1,49 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "n_questions": 100,
+  "k_samples": 8,
+  "seed": 20260808,
+  "generation": "transformers (vLLM is absent on this image; see module docstring)",
+  "operationalisation": "per-question mean score over K samples at temperature T; the reported spread is the mean WITHIN-QUESTION SD of that score. Not the simulator's sigma in the same units; comparable ordinally.",
+  "rows": [
+    {
+      "temperature": 0.0,
+      "k": 1,
+      "mean_accuracy": 0.51,
+      "mean_within_question_sd": 0.0,
+      "across_question_sd": 0.5024183937956914,
+      "frac_inconsistent": 0.0,
+      "secs": 59.3
+    },
+    {
+      "temperature": 0.3,
+      "k": 8,
+      "mean_accuracy": 0.51375,
+      "mean_within_question_sd": 0.2514536760795744,
+      "across_question_sd": 0.38717402385422856,
+      "frac_inconsistent": 0.56,
+      "secs": 504.9
+    },
+    {
+      "temperature": 0.7,
+      "k": 8,
+      "mean_accuracy": 0.46125,
+      "mean_within_question_sd": 0.26882860226479594,
+      "across_question_sd": 0.3746610420962479,
+      "frac_inconsistent": 0.59,
+      "secs": 506.0
+    },
+    {
+      "temperature": 1.0,
+      "k": 8,
+      "mean_accuracy": 0.37125,
+      "mean_within_question_sd": 0.3096952936787289,
+      "across_question_sd": 0.3283024712460487,
+      "frac_inconsistent": 0.68,
+      "secs": 504.7
+    }
+  ],
+  "secs": 1613.8,
+  "control_determinism_ok": true,
+  "control_note": "Compare mean_accuracy at T=0 against this model's accuracy in results/real_gsm8k_ppi.json. A mismatch beyond sampling means the harness differs from the published run and no row here is readable."
+}

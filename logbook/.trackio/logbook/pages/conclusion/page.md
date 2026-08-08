@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_5e911143ead6", "created_at": "2026-08-04T11:55:30+00:00", "title": "Summary of reproduction"}
+{"type": "markdown", "id": "cell_5e911143ead6", "created_at": "2026-08-08T01:32:15+00:00", "title": "Summary of reproduction"}
 -->
 
 **What the paper is about.** Evaluating an LLM's accuracy on a small benchmark is noisy. This paper borrows strength from cheap auxiliary signals (pairwise comparisons between candidate answers) and builds a semiparametric one-step estimator whose efficient influence function is derived in closed form. The promise is a better accuracy estimate at the same evaluation budget, which matters most on small, expensive benchmarks like AIME.

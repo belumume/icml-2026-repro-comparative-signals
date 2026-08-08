@@ -3,7 +3,7 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_f6b3114fa410", "created_at": "2026-08-04T11:55:30+00:00", "title": "Executive summary", "pinned": true, "pinned_at": "2026-08-04T11:55:30+00:00"}
+{"type": "markdown", "id": "cell_f6b3114fa410", "created_at": "2026-08-08T01:32:15+00:00", "title": "Executive summary", "pinned": true, "pinned_at": "2026-08-08T01:32:15+00:00"}
 -->
 
 **The paper's practical guarantee is false, and it fails on the authors' own unmodified code.** Remark 4.8 promises the one-step estimator ensures an efficiency gain over the naive sample mean. Run their own simulation at low model noise and the opposite happens: at σ = 0.08 the estimator carries **33% more variance** than the mean it replaces, 95% CI **[−0.495, −0.185]** over 250 replications, entirely below zero, with a positive control passing at the paper's own default σ = 1.0. That is Claim 3's practical half, and it is the one result here obtained by executing their code rather than by analysing their tables.
@@ -69,7 +69,7 @@ This logbook was produced by a coding agent under human direction. Which parts a
 
 ---
 <!-- trackio-cell
-{"type": "figure", "id": "cell_2e5a9314654a", "created_at": "2026-08-04T11:55:30+00:00", "title": "Reproduction poster", "pinned": true, "pinned_at": "2026-08-04T11:55:30+00:00", "poster": true}
+{"type": "figure", "id": "cell_2e5a9314654a", "created_at": "2026-08-08T01:32:15+00:00", "title": "Reproduction poster", "pinned": true, "pinned_at": "2026-08-08T01:32:15+00:00", "poster": true}
 -->
 ````html
 <figure style="margin:0">
