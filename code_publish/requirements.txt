@@ -21,10 +21,14 @@
 # -3749-ghw9-m3mg; two medium, three low), and a Dependabot PR proposed 2.13.0. It was
 # closed, not merged, for two reasons.
 #
-# Every one is unreachable here. They are memory-corruption bugs in torch.jit.script,
-# torch.lstm_cell and unpack_sequence; this tree has 0 call sites for all three, and
-# nothing in it is deployed or accepts untrusted input. Re-check with:
-#   grep -rn "jit.script\|lstm_cell\|unpack_sequence" --include=*.py .
+# Every one is unreachable here. Three are memory-corruption bugs: torch.jit.script
+# (-rrmf-rvhw-rf47), torch.lstm_cell (-qfhq-4f3w-5fph) and unpack_sequence
+# (-vgrw-7cvw-pwgx). The other two are local denial of service:
+# torch.nn.functional.ctc_loss (-887c-mr87-cxwp) and torch.mkldnn_max_pool2d
+# (-3749-ghw9-m3mg). This tree has 0 call sites for all five functions (re-checked
+# 2026-11-12; the same search finds 13 files that import torch), and nothing in it
+# is deployed or accepts untrusted input. Re-check with:
+#   grep -rn "jit.script\|lstm_cell\|unpack_sequence\|ctc_loss\|CTCLoss\|mkldnn_max_pool2d" --include=*.py .
 #
 # And the pin's job here is documenting the environment a reproduction was VERIFIED in.
 # Bumping it would make the documented environment one nobody has run, which trades a
