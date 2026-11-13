@@ -30,6 +30,14 @@
 # is deployed or accepts untrusted input. Re-check with:
 #   grep -rn "jit.script\|lstm_cell\|unpack_sequence\|ctc_loss\|CTCLoss\|mkldnn_max_pool2d" --include=*.py .
 #
+# A sixth, added 2026-11-12: GHSA-63cw-57p8-fm3p (high), code execution from a crafted
+# checkpoint file passed to torch.load(..., weights_only=True); fixed in 2.10.0. Also
+# unreachable on this path: it loads no checkpoint files (0 torch.load calls). The only
+# code that loads model weights is the Kaggle scripts (from_pretrained on
+# Qwen/Qwen2.5-1.5B-Instruct), and that run used torch 2.10.0, per the env block of
+# results/real_gsm8k_ppi.json. Re-check with:
+#   grep -rn "torch.load" --include=*.py .
+#
 # And the pin's job here is documenting the environment a reproduction was VERIFIED in.
 # Bumping it would make the documented environment one nobody has run, which trades a
 # real property for an advisory that cannot fire. If a future run re-verifies against a
